@@ -8,6 +8,10 @@ import java.util.Collection;
  */
 @Entity
 @Table(name = "experiment", schema = "public", catalog = "student_db13_17")
+@NamedQueries({
+    @NamedQuery(name = "getAllExperiments", query = "SELECT OBJECT(exp) FROM ExperimentEntity exp"),
+    @NamedQuery(name = "countExperiments", query = "SELECT COUNT(exp) FROM ExperimentEntity exp")
+})
 public class ExperimentEntity {
     private int idExp;
     private String title;
@@ -148,4 +152,6 @@ public class ExperimentEntity {
     public void setFeatExpsByIdExp(Collection<FeatExpEntity> featExpsByIdExp) {
         this.featExpsByIdExp = featExpsByIdExp;
     }
+
+
 }

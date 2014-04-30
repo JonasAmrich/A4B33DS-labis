@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <persistence xmlns="http://java.sun.com/xml/ns/persistence" version="2.0">
 
-    <persistence-unit name="NewPersistenceUnit">
+    <persistence-unit name="LabISKrizik">
+        <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
         <class>cz.cvut.ds.student17.entities.CustomerEntity</class>
         <class>cz.cvut.ds.student17.entities.DevFeatEntity</class>
         <class>cz.cvut.ds.student17.entities.DeviceEntity</class>

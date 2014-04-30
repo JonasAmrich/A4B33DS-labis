@@ -8,11 +8,21 @@
     <artifactId>A4B33DS-labis</artifactId>
     <version>1.0-SNAPSHOT</version>
 
+    <properties>
+        <hibernate-core-version>3.6.4.Final</hibernate-core-version>
+    </properties>
+
     <dependencies>
         <dependency>
-            <groupId>org.hibernate.javax.persistence</groupId>
-            <artifactId>hibernate-jpa-2.0-api</artifactId>
-            <version>1.0.1.Final</version>
+            <groupId>org.eclipse.persistence</groupId>
+            <artifactId>org.eclipse.persistence.jpa</artifactId>
+            <version>2.5.0-RC1</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>9.0-801.jdbc4</version>
         </dependency>
     </dependencies>
 </project>

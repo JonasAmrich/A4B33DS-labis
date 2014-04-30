@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence" version="2.0">
+
+    <persistence-unit name="LabISKrizik">
+        <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+        <class>cz.cvut.ds.student17.entities.CustomerEntity</class>
+        <class>cz.cvut.ds.student17.entities.DevFeatEntity</class>
+        <class>cz.cvut.ds.student17.entities.DeviceEntity</class>
+        <class>cz.cvut.ds.student17.entities.ExperimentEntity</class>
+        <class>cz.cvut.ds.student17.entities.FeatExpEntity</class>
+        <class>cz.cvut.ds.student17.entities.FeatureEntity</class>
+        <class>cz.cvut.ds.student17.entities.FormstructEntity</class>
+        <class>cz.cvut.ds.student17.entities.FormtypEntity</class>
+        <class>cz.cvut.ds.student17.entities.ResultsEntity</class>
+        <class>cz.cvut.ds.student17.entities.RoomEntity</class>
+        <class>cz.cvut.ds.student17.entities.TrialEntity</class>
+        <class>cz.cvut.ds.student17.entities.VictimEntity</class>
+        <properties>
+            <property name="toplink.jdbc.url" value="jdbc:postgresql://krizik.felk.cvut.cz:5434/student_db13_17"/>
+            <property name="toplink.jdbc.driver" value="org.postgresql.Driver"/>
+            <property name="toplink.jdbc.user" value="student_db13_17"/>
+            <property name="toplink.jdbc.password" value="xyz"/>
+            <property name="hibernate.connection.url"
+                      value="jdbc:postgresql://krizik.felk.cvut.cz:5434/student_db13_17"/>
+            <property name="hibernate.connection.driver_class" value="org.postgresql.Driver"/>
+            <property name="hibernate.connection.username" value="student_db13_17"/>
+            <property name="hibernate.connection.password" value="xyz"/>
+            <property name="openjpa.ConnectionURL" value="jdbc:postgresql://krizik.felk.cvut.cz:5434/student_db13_17"/>
+            <property name="openjpa.ConnectionDriverName" value="org.postgresql.Driver"/>
+            <property name="openjpa.ConnectionUserName" value="student_db13_17"/>
+            <property name="openjpa.ConnectionPassword" value="xyz"/>
+            <property name="eclipselink.jdbc.url" value="jdbc:postgresql://krizik.felk.cvut.cz:5434/student_db13_17"/>
+            <property name="eclipselink.jdbc.driver" value="org.postgresql.Driver"/>
+            <property name="eclipselink.jdbc.user" value="student_db13_17"/>
+            <property name="eclipselink.jdbc.password" value="xyz"/>
+        </properties>
+    </persistence-unit>
+</persistence>
