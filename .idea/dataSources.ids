@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source source="LOCAL" name="PostgreSQL - krizik" uuid="00605268-7679-4460-9fcc-26750cfd89a2">
+    <database-info product="PostgreSQL" version="8.3.13" jdbc-version="4.0" driver-name="PostgreSQL Native Driver" driver-version="PostgreSQL 9.3 JDBC4 (build 1100)">
+      <identifier-quote-string>&quot;</identifier-quote-string>
+    </database-info>
+    <case-sensitivity plain-identifiers="lower" quoted-identifiers="exact"/>
+    <schema name="public" catalog="student_db13_17"/>
+    <table name="customer" schema="public" catalog="student_db13_17" type="TABLE">
+      <column name="id_cust" sqlType="serial" precision="10" scale="0" nullable="false" jdbcType="4" def="bmV4dHZhbCgnc2VxX2N1c3RvbWVyJzo6cmVnY2xhc3Mp" autoIncrement="true"/>
+      <column name="name" sqlType="text" precision="2147483647" scale="0" nullable="false" jdbcType="12"/>
+      <column name="email" sqlType="text" precision="2147483647" scale="0" nullable="true" jdbcType="12"/>
+      <column name="phone" sqlType="text" precision="2147483647" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="pk_customer" columns="id_cust"/>
+      <exported-key name="fk_experiment_customer" table="experiment" schema="public" catalog="student_db13_17" columns="id_cust"/>
+      <index name="uq_customer_id_cust" unique="true" columns="id_cust"/>
+    </table>
+    <table name="dev_feat" schema="public" catalog="student_db13_17" type="TABLE">
+      <column name="id_dev" sqlType="int4" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="id_feat" sqlType="int4" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="pk_dev_feat" columns="id_dev,id_feat"/>
+      <foreign-key name="fk_dev_feat_device" columns="id_dev" ref-table="device" ref-schema="public" ref-catalog="" ref-columns="id_dev" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="fk_dev_feat_feature" columns="id_feat" ref-table="feature" ref-schema="public" ref-catalog="" ref-columns="id_feat" update-rule="3" delete-rule="3" deferrability="2"/>
+    </table>
+    <table name="device" schema="public" catalog="student_db13_17" type="TABLE">
+      <column name="id_dev" sqlType="serial" precision="10" scale="0" nullable="false" jdbcType="4" def="bmV4dHZhbCgnc2VxX2RldmljZSc6OnJlZ2NsYXNzKQ==" autoIncrement="true"/>
+      <column name="title" sqlType="text" precision="2147483647" scale="0" nullable="false" jdbcType="12"/>
+      <column name="description" sqlType="text" precision="2147483647" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="pk_device" columns="id_dev"/>
+      <exported-key name="fk_dev_feat_device" table="dev_feat" schema="public" catalog="student_db13_17" columns="id_dev"/>
+      <exported-key name="fk_trial_device" table="trial" schema="public" catalog="student_db13_17" columns="id_dev"/>
+      <index name="uq_device_id_dev" unique="true" columns="id_dev"/>
+      <index name="uq_device_title" unique="true" columns="title"/>
+    </table>
+    <table name="experiment" schema="public" catalog="student_db13_17" type="TABLE">
+      <column name="id_exp" sqlType="serial" precision="10" scale="0" nullable="false" jdbcType="4" def="bmV4dHZhbCgnc2VxX2V4cGVyaW1lbnQnOjpyZWdjbGFzcyk=" autoIncrement="true"/>
+      <column name="title" sqlType="text" precision="2147483647" scale="0" nullable="false" jdbcType="12"/>
+      <column name="description" sqlType="text" precision="2147483647" scale="0" nullable="true" jdbcType="12"/>
+      <column name="budget" sqlType="int4" precision="10" scale="0" nullable="false" jdbcType="4" def="MA=="/>
+      <column name="status" sqlType="varchar" precision="50" scale="0" nullable="true" jdbcType="12"/>
+      <column name="id_cust" sqlType="int4" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="id_ft" sqlType="int4" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="pk_experiment" columns="id_exp"/>
+      <foreign-key name="fk_experiment_customer" columns="id_cust" ref-table="customer" ref-schema="public" ref-catalog="" ref-columns="id_cust" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="fk_experiment_formtyp" columns="id_ft" ref-table="formtyp" ref-schema="public" ref-catalog="" ref-columns="id_ft" update-rule="3" delete-rule="3" deferrability="2"/>
+      <exported-key name="fk_feat_exp_experiment" table="feat_exp" schema="public" catalog="student_db13_17" columns="id_exp"/>
+      <index name="uq_experiment_id_exp" unique="true" columns="id_exp"/>
+      <index name="uq_experiment_title" unique="true" columns="title"/>
+    </table>
+    <table name="feat_exp" schema="public" catalog="student_db13_17" type="TABLE">
+      <column name="id_exp" sqlType="int4" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="id_feat" sqlType="int4" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="pk_feat_exp" columns="id_exp,id_feat"/>
+      <foreign-key name="fk_feat_exp_experiment" columns="id_exp" ref-table="experiment" ref-schema="public" ref-catalog="" ref-columns="id_exp" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="fk_feat_exp_feature" columns="id_feat" ref-table="feature" ref-schema="public" ref-catalog="" ref-columns="id_feat" update-rule="3" delete-rule="3" deferrability="2"/>
+    </table>
+    <table name="feature" schema="public" catalog="student_db13_17" type="TABLE">
+      <column name="id_feat" sqlType="serial" precision="10" scale="0" nullable="false" jdbcType="4" def="bmV4dHZhbCgnc2VxX2ZlYXR1cmUnOjpyZWdjbGFzcyk=" autoIncrement="true"/>
+      <column name="title" sqlType="text" precision="2147483647" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="pk_features" columns="id_feat"/>
+      <exported-key name="fk_dev_feat_feature" table="dev_feat" schema="public" catalog="student_db13_17" columns="id_feat"/>
+      <exported-key name="fk_feat_exp_feature" table="feat_exp" schema="public" catalog="student_db13_17" columns="id_feat"/>
+      <index name="uq_feature_id_feat" unique="true" columns="id_feat"/>
+      <index name="uq_feature_title" unique="true" columns="title"/>
+    </table>
+    <table name="formstruct" schema="public" catalog="student_db13_17" type="TABLE">
+      <column name="id_fs" sqlType="serial" precision="10" scale="0" nullable="false" jdbcType="4" def="bmV4dHZhbCgnc2VxX2Zvcm1zdHJ1Y3QnOjpyZWdjbGFzcyk=" autoIncrement="true"/>
+      <column name="id_ft" sqlType="int4" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="name" sqlType="text" precision="2147483647" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="pk_formstruct" columns="id_fs"/>
+      <foreign-key name="fk_formstruct_formtyp" columns="id_ft" ref-table="formtyp" ref-schema="public" ref-catalog="" ref-columns="id_ft" update-rule="3" delete-rule="3" deferrability="2"/>
+      <exported-key name="fk_results_formstruct" table="results" schema="public" catalog="student_db13_17" columns="id_fs"/>
+      <index name="uq_formstruct_id_fs" unique="true" columns="id_fs"/>
+    </table>
+    <table name="formtyp" schema="public" catalog="student_db13_17" type="TABLE">
+      <column name="id_ft" sqlType="serial" precision="10" scale="0" nullable="false" jdbcType="4" def="bmV4dHZhbCgnc2VxX2Zvcm10eXAnOjpyZWdjbGFzcyk=" autoIncrement="true"/>
+      <column name="name" sqlType="text" precision="2147483647" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="pk_formtyp" columns="id_ft"/>
+      <exported-key name="fk_experiment_formtyp" table="experiment" schema="public" catalog="student_db13_17" columns="id_ft"/>
+      <exported-key name="fk_formstruct_formtyp" table="formstruct" schema="public" catalog="student_db13_17" columns="id_ft"/>
+      <index name="uq_formtyp_id_ft" unique="true" columns="id_ft"/>
+    </table>
+    <table name="results" schema="public" catalog="student_db13_17" type="TABLE">
+      <column name="id_trial" sqlType="int4" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="id_fs" sqlType="int4" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="res_value" sqlType="text" precision="2147483647" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="pk_results" columns="id_trial,id_fs"/>
+      <foreign-key name="fk_results_formstruct" columns="id_fs" ref-table="formstruct" ref-schema="public" ref-catalog="" ref-columns="id_fs" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="fk_results_trial" columns="id_trial" ref-table="trial" ref-schema="public" ref-catalog="" ref-columns="id_trial" update-rule="3" delete-rule="3" deferrability="2"/>
+    </table>
+    <table name="room" schema="public" catalog="student_db13_17" type="TABLE">
+      <column name="id_room" sqlType="serial" precision="10" scale="0" nullable="false" jdbcType="4" def="bmV4dHZhbCgnc2VxX3Jvb20nOjpyZWdjbGFzcyk=" autoIncrement="true"/>
+      <column name="name" sqlType="text" precision="2147483647" scale="0" nullable="true" jdbcType="12"/>
+      <column name="code" sqlType="varchar" precision="50" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="pk_room" columns="id_room"/>
+      <exported-key name="fk_trial_room" table="trial" schema="public" catalog="student_db13_17" columns="id_room"/>
+      <index name="uq_room_id_room" unique="true" columns="id_room"/>
+    </table>
+    <table name="seq_customer" schema="public" catalog="student_db13_17" type="SEQUENCE">
+      <column name="sequence_name" sqlType="name" precision="2147483647" scale="0" nullable="false" jdbcType="12"/>
+      <column name="last_value" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="increment_by" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="max_value" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="min_value" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="cache_value" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="log_cnt" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="is_cycled" sqlType="bool" precision="1" scale="0" nullable="false" jdbcType="-7"/>
+      <column name="is_called" sqlType="bool" precision="1" scale="0" nullable="false" jdbcType="-7"/>
+    </table>
+    <table name="seq_device" schema="public" catalog="student_db13_17" type="SEQUENCE">
+      <column name="sequence_name" sqlType="name" precision="2147483647" scale="0" nullable="false" jdbcType="12"/>
+      <column name="last_value" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="increment_by" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="max_value" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="min_value" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="cache_value" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="log_cnt" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="is_cycled" sqlType="bool" precision="1" scale="0" nullable="false" jdbcType="-7"/>
+      <column name="is_called" sqlType="bool" precision="1" scale="0" nullable="false" jdbcType="-7"/>
+    </table>
+    <table name="seq_experiment" schema="public" catalog="student_db13_17" type="SEQUENCE">
+      <column name="sequence_name" sqlType="name" precision="2147483647" scale="0" nullable="false" jdbcType="12"/>
+      <column name="last_value" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="increment_by" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="max_value" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="min_value" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="cache_value" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="log_cnt" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="is_cycled" sqlType="bool" precision="1" scale="0" nullable="false" jdbcType="-7"/>
+      <column name="is_called" sqlType="bool" precision="1" scale="0" nullable="false" jdbcType="-7"/>
+    </table>
+    <table name="seq_faktura" schema="public" catalog="student_db13_17" type="SEQUENCE">
+      <column name="sequence_name" sqlType="name" precision="2147483647" scale="0" nullable="false" jdbcType="12"/>
+      <column name="last_value" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="increment_by" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="max_value" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="min_value" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="cache_value" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="log_cnt" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="is_cycled" sqlType="bool" precision="1" scale="0" nullable="false" jdbcType="-7"/>
+      <column name="is_called" sqlType="bool" precision="1" scale="0" nullable="false" jdbcType="-7"/>
+    </table>
+    <table name="seq_feature" schema="public" catalog="student_db13_17" type="SEQUENCE">
+      <column name="sequence_name" sqlType="name" precision="2147483647" scale="0" nullable="false" jdbcType="12"/>
+      <column name="last_value" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="increment_by" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="max_value" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="min_value" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="cache_value" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="log_cnt" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="is_cycled" sqlType="bool" precision="1" scale="0" nullable="false" jdbcType="-7"/>
+      <column name="is_called" sqlType="bool" precision="1" scale="0" nullable="false" jdbcType="-7"/>
+    </table>
+    <table name="seq_formstruct" schema="public" catalog="student_db13_17" type="SEQUENCE">
+      <column name="sequence_name" sqlType="name" precision="2147483647" scale="0" nullable="false" jdbcType="12"/>
+      <column name="last_value" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="increment_by" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="max_value" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="min_value" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="cache_value" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="log_cnt" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="is_cycled" sqlType="bool" precision="1" scale="0" nullable="false" jdbcType="-7"/>
+      <column name="is_called" sqlType="bool" precision="1" scale="0" nullable="false" jdbcType="-7"/>
+    </table>
+    <table name="seq_formtyp" schema="public" catalog="student_db13_17" type="SEQUENCE">
+      <column name="sequence_name" sqlType="name" precision="2147483647" scale="0" nullable="false" jdbcType="12"/>
+      <column name="last_value" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="increment_by" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="max_value" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="min_value" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="cache_value" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="log_cnt" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="is_cycled" sqlType="bool" precision="1" scale="0" nullable="false" jdbcType="-7"/>
+      <column name="is_called" sqlType="bool" precision="1" scale="0" nullable="false" jdbcType="-7"/>
+    </table>
+    <table name="seq_room" schema="public" catalog="student_db13_17" type="SEQUENCE">
+      <column name="sequence_name" sqlType="name" precision="2147483647" scale="0" nullable="false" jdbcType="12"/>
+      <column name="last_value" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="increment_by" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="max_value" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="min_value" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="cache_value" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="log_cnt" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="is_cycled" sqlType="bool" precision="1" scale="0" nullable="false" jdbcType="-7"/>
+      <column name="is_called" sqlType="bool" precision="1" scale="0" nullable="false" jdbcType="-7"/>
+    </table>
+    <table name="seq_sleva" schema="public" catalog="student_db13_17" type="SEQUENCE">
+      <column name="sequence_name" sqlType="name" precision="2147483647" scale="0" nullable="false" jdbcType="12"/>
+      <column name="last_value" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="increment_by" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="max_value" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="min_value" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="cache_value" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="log_cnt" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="is_cycled" sqlType="bool" precision="1" scale="0" nullable="false" jdbcType="-7"/>
+      <column name="is_called" sqlType="bool" precision="1" scale="0" nullable="false" jdbcType="-7"/>
+    </table>
+    <table name="seq_trial" schema="public" catalog="student_db13_17" type="SEQUENCE">
+      <column name="sequence_name" sqlType="name" precision="2147483647" scale="0" nullable="false" jdbcType="12"/>
+      <column name="last_value" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="increment_by" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="max_value" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="min_value" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="cache_value" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="log_cnt" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="is_cycled" sqlType="bool" precision="1" scale="0" nullable="false" jdbcType="-7"/>
+      <column name="is_called" sqlType="bool" precision="1" scale="0" nullable="false" jdbcType="-7"/>
+    </table>
+    <table name="seq_victim" schema="public" catalog="student_db13_17" type="SEQUENCE">
+      <column name="sequence_name" sqlType="name" precision="2147483647" scale="0" nullable="false" jdbcType="12"/>
+      <column name="last_value" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="increment_by" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="max_value" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="min_value" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="cache_value" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="log_cnt" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="is_cycled" sqlType="bool" precision="1" scale="0" nullable="false" jdbcType="-7"/>
+      <column name="is_called" sqlType="bool" precision="1" scale="0" nullable="false" jdbcType="-7"/>
+    </table>
+    <table name="seq_zbozi" schema="public" catalog="student_db13_17" type="SEQUENCE">
+      <column name="sequence_name" sqlType="name" precision="2147483647" scale="0" nullable="false" jdbcType="12"/>
+      <column name="last_value" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="increment_by" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="max_value" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="min_value" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="cache_value" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="log_cnt" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="is_cycled" sqlType="bool" precision="1" scale="0" nullable="false" jdbcType="-7"/>
+      <column name="is_called" sqlType="bool" precision="1" scale="0" nullable="false" jdbcType="-7"/>
+    </table>
+    <table name="trial" schema="public" catalog="student_db13_17" type="TABLE">
+      <column name="id_trial" sqlType="serial" precision="10" scale="0" nullable="false" jdbcType="4" def="bmV4dHZhbCgnc2VxX3RyaWFsJzo6cmVnY2xhc3Mp" autoIncrement="true"/>
+      <column name="timestamp_from" sqlType="timestamp" precision="29" scale="6" nullable="true" jdbcType="93"/>
+      <column name="timestamp_to" sqlType="timestamp" precision="29" scale="6" nullable="true" jdbcType="93"/>
+      <column name="cost" sqlType="int4" precision="10" scale="0" nullable="false" jdbcType="4" def="MA=="/>
+      <column name="id_dev" sqlType="int4" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="id_room" sqlType="int4" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="id_vic" sqlType="int4" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="pk_trial" columns="id_trial"/>
+      <foreign-key name="fk_trial_device" columns="id_dev" ref-table="device" ref-schema="public" ref-catalog="" ref-columns="id_dev" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="fk_trial_room" columns="id_room" ref-table="room" ref-schema="public" ref-catalog="" ref-columns="id_room" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="fk_trial_victim" columns="id_vic" ref-table="victim" ref-schema="public" ref-catalog="" ref-columns="id_vic" update-rule="3" delete-rule="3" deferrability="2"/>
+      <exported-key name="fk_results_trial" table="results" schema="public" catalog="student_db13_17" columns="id_trial"/>
+      <index name="uq_trial_id_trial" unique="true" columns="id_trial"/>
+    </table>
+    <table name="victim" schema="public" catalog="student_db13_17" type="TABLE">
+      <column name="id_vic" sqlType="serial" precision="10" scale="0" nullable="false" jdbcType="4" def="bmV4dHZhbCgnc2VxX3ZpY3RpbSc6OnJlZ2NsYXNzKQ==" autoIncrement="true"/>
+      <column name="name" sqlType="text" precision="2147483647" scale="0" nullable="false" jdbcType="12"/>
+      <column name="email" sqlType="text" precision="2147483647" scale="0" nullable="true" jdbcType="12"/>
+      <column name="phone" sqlType="text" precision="2147483647" scale="0" nullable="true" jdbcType="12"/>
+      <column name="birth_date" sqlType="timestamp" precision="29" scale="6" nullable="true" jdbcType="93"/>
+      <column name="credits" sqlType="int4" precision="10" scale="0" nullable="false" jdbcType="4" def="MA=="/>
+      <primary-key name="pk_victim" columns="id_vic"/>
+      <exported-key name="fk_trial_victim" table="trial" schema="public" catalog="student_db13_17" columns="id_vic"/>
+      <index name="uq_victim_id_vic" unique="true" columns="id_vic"/>
+    </table>
+  </data-source>
+</component>
