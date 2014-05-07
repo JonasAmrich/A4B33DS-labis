@@ -2,7 +2,8 @@
 <persistence xmlns="http://java.sun.com/xml/ns/persistence" version="2.0">
 
     <persistence-unit name="LabISKrizik">
-        <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+        <!--  <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider> -->
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
         <class>cz.cvut.ds.student17.entities.CustomerEntity</class>
         <class>cz.cvut.ds.student17.entities.DevFeatEntity</class>
         <class>cz.cvut.ds.student17.entities.DeviceEntity</class>
@@ -11,6 +12,7 @@
         <class>cz.cvut.ds.student17.entities.FeatureEntity</class>
         <class>cz.cvut.ds.student17.entities.FormstructEntity</class>
         <class>cz.cvut.ds.student17.entities.FormtypEntity</class>
+        <class>cz.cvut.ds.student17.entities.FstructtypeEntity</class>
         <class>cz.cvut.ds.student17.entities.ResultsEntity</class>
         <class>cz.cvut.ds.student17.entities.RoomEntity</class>
         <class>cz.cvut.ds.student17.entities.TrialEntity</class>

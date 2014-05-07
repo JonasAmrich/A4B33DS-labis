@@ -1,8 +1,6 @@
 package cz.cvut.ds.student17.view;
 
-import cz.cvut.ds.student17.entities.ExperimentEntity;
 import cz.cvut.ds.student17.model.ExperimentsFacade;
-import org.hibernate.Hibernate;
 
 import javax.swing.*;
 
@@ -21,8 +19,9 @@ public class Main {
 //        frame.setVisible(true);
 
         ExperimentsFacade facade = new ExperimentsFacade();
+        facade.addTestCustomer();
 
-        System.out.println(facade.countExperiments());
+        //System.out.println(facade.countExperiments());
 
 //        for (ExperimentEntity entity : facade.getAllExperiments()) {
 //            System.out.println(entity.getTitle());

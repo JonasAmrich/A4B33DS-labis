@@ -4,19 +4,25 @@ import javax.persistence.*;
 import java.util.Collection;
 
 /**
- * Created by jonasamrich on 30/04/14.
+ * Created by V on 7.5.2014.
  */
 @Entity
 @Table(name = "device", schema = "public", catalog = "student_db13_17")
 public class DeviceEntity {
+    @Id
+    @Column(name = "id_dev", nullable = false, insertable = true, updatable = true)
     private int idDev;
+    @Basic
+    @Column(name = "title", nullable = false, insertable = true, updatable = true, length = 2147483647)
     private String title;
+    @Basic
+    @Column(name = "description", nullable = true, insertable = true, updatable = true, length = 2147483647)
     private String description;
+    @OneToMany(mappedBy = "deviceByIdDev")
     private Collection<DevFeatEntity> devFeatsByIdDev;
+    @OneToMany(mappedBy = "deviceByIdDev")
     private Collection<TrialEntity> trialsByIdDev;
 
-    @Id
-    @Column(name = "id_dev")
     public int getIdDev() {
         return idDev;
     }
@@ -25,8 +31,6 @@ public class DeviceEntity {
         this.idDev = idDev;
     }
 
-    @Basic
-    @Column(name = "title")
     public String getTitle() {
         return title;
     }
@@ -35,8 +39,6 @@ public class DeviceEntity {
         this.title = title;
     }
 
-    @Basic
-    @Column(name = "description")
     public String getDescription() {
         return description;
     }
@@ -67,7 +69,6 @@ public class DeviceEntity {
         return result;
     }
 
-    @OneToMany(mappedBy = "deviceByIdDev")
     public Collection<DevFeatEntity> getDevFeatsByIdDev() {
         return devFeatsByIdDev;
     }
@@ -76,7 +77,6 @@ public class DeviceEntity {
         this.devFeatsByIdDev = devFeatsByIdDev;
     }
 
-    @OneToMany(mappedBy = "deviceByIdDev")
     public Collection<TrialEntity> getTrialsByIdDev() {
         return trialsByIdDev;
     }

@@ -5,14 +5,16 @@ import javax.persistence.Id;
 import java.io.Serializable;
 
 /**
- * Created by jonasamrich on 30/04/14.
+ * Created by V on 7.5.2014.
  */
 public class ResultsEntityPK implements Serializable {
+    @Column(name = "id_trial", nullable = false, insertable = true, updatable = true)
+    @Id
     private int idTrial;
+    @Column(name = "id_fs", nullable = false, insertable = true, updatable = true)
+    @Id
     private int idFs;
 
-    @Column(name = "id_trial")
-    @Id
     public int getIdTrial() {
         return idTrial;
     }
@@ -21,8 +23,6 @@ public class ResultsEntityPK implements Serializable {
         this.idTrial = idTrial;
     }
 
-    @Column(name = "id_fs")
-    @Id
     public int getIdFs() {
         return idFs;
     }

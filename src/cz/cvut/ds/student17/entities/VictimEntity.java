@@ -5,21 +5,32 @@ import java.sql.Timestamp;
 import java.util.Collection;
 
 /**
- * Created by jonasamrich on 30/04/14.
+ * Created by V on 7.5.2014.
  */
 @Entity
 @Table(name = "victim", schema = "public", catalog = "student_db13_17")
 public class VictimEntity {
+    @Id
+    @Column(name = "id_vic", nullable = false, insertable = true, updatable = true)
     private int idVic;
+    @Basic
+    @Column(name = "name", nullable = false, insertable = true, updatable = true, length = 2147483647)
     private String name;
+    @Basic
+    @Column(name = "email", nullable = true, insertable = true, updatable = true, length = 2147483647)
     private String email;
+    @Basic
+    @Column(name = "phone", nullable = true, insertable = true, updatable = true, length = 2147483647)
     private String phone;
+    @Basic
+    @Column(name = "birth_date", nullable = true, insertable = true, updatable = true)
     private Timestamp birthDate;
+    @Basic
+    @Column(name = "credits", nullable = false, insertable = true, updatable = true)
     private int credits;
+    @OneToMany(mappedBy = "victimByIdVic")
     private Collection<TrialEntity> trialsByIdVic;
 
-    @Id
-    @Column(name = "id_vic")
     public int getIdVic() {
         return idVic;
     }
@@ -28,8 +39,6 @@ public class VictimEntity {
         this.idVic = idVic;
     }
 
-    @Basic
-    @Column(name = "name")
     public String getName() {
         return name;
     }
@@ -38,8 +47,6 @@ public class VictimEntity {
         this.name = name;
     }
 
-    @Basic
-    @Column(name = "email")
     public String getEmail() {
         return email;
     }
@@ -48,8 +55,6 @@ public class VictimEntity {
         this.email = email;
     }
 
-    @Basic
-    @Column(name = "phone")
     public String getPhone() {
         return phone;
     }
@@ -58,8 +63,6 @@ public class VictimEntity {
         this.phone = phone;
     }
 
-    @Basic
-    @Column(name = "birth_date")
     public Timestamp getBirthDate() {
         return birthDate;
     }
@@ -68,8 +71,6 @@ public class VictimEntity {
         this.birthDate = birthDate;
     }
 
-    @Basic
-    @Column(name = "credits")
     public int getCredits() {
         return credits;
     }
@@ -106,7 +107,6 @@ public class VictimEntity {
         return result;
     }
 
-    @OneToMany(mappedBy = "victimByIdVic")
     public Collection<TrialEntity> getTrialsByIdVic() {
         return trialsByIdVic;
     }

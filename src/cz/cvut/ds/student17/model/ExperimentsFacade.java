@@ -1,11 +1,9 @@
 package cz.cvut.ds.student17.model;
 
 
-import cz.cvut.ds.student17.entities.ExperimentEntity;
-
 import javax.persistence.*;
-import javax.persistence.spi.PersistenceProvider;
 import java.util.Collection;
+import cz.cvut.ds.student17.entities.*;
 
 /**
  * Created by jonasamrich on 30/04/14.
@@ -16,14 +14,21 @@ public class ExperimentsFacade {
 
     protected EntityManager entityManager = emf.createEntityManager();
 
-    public int countExperiments() {
-        Query q = entityManager.createNamedQuery("countExperiments");
-        return (int) q.getFirstResult();
-    }
+    public void addTestCustomer(){
+        entityManager.getTransaction().begin();
+        CustomerEntity ce = new CustomerEntity();
 
-    public Collection<ExperimentEntity> getAllExperiments() {
-        Query q = entityManager.createNamedQuery("getAllExperiments");
-        return (Collection<ExperimentEntity>) q.getResultList();
+        //ce.setIdCust(112);
+
+        ce.setPhone("800120120");
+        ce.setEmail("honza.novak@test.cz");
+        ce.setName("Honza Novak");
+        entityManager.persist(ce);
+        //entityManager.persist(ce); //em.merge(u); for updates
+        entityManager.getTransaction().commit();
+        entityManager.close();
+
+
     }
 
 }

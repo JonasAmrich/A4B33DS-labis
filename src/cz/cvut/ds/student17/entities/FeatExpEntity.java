@@ -3,19 +3,28 @@ package cz.cvut.ds.student17.entities;
 import javax.persistence.*;
 
 /**
- * Created by jonasamrich on 30/04/14.
+ * Created by V on 7.5.2014.
  */
 @Entity
 @Table(name = "feat_exp", schema = "public", catalog = "student_db13_17")
 @IdClass(FeatExpEntityPK.class)
 public class FeatExpEntity {
+    @Id
+    //@Column(name = "id_exp", nullable = false, insertable = true, updatable = true)
+    @Column(name = "id_exp", nullable = false, insertable = true, updatable = false)
     private int idExp;
+    @Id
+    @Column(name = "id_feat", nullable = false, insertable = true, updatable = true)
     private int idFeat;
+    @ManyToOne
+    //@JoinColumn(name = "id_exp", referencedColumnName = "id_exp", nullable = false)
+    @JoinColumn(name = "id_exp", referencedColumnName = "id_exp", nullable = false,insertable =  false, updatable = false)
     private ExperimentEntity experimentByIdExp;
+    @ManyToOne
+    //@JoinColumn(name = "id_feat", referencedColumnName = "id_feat", nullable = false)
+    @JoinColumn(name = "id_feat", referencedColumnName = "id_feat", nullable = false,insertable =  false, updatable = false)
     private FeatureEntity featureByIdFeat;
 
-    @Id
-    @Column(name = "id_exp")
     public int getIdExp() {
         return idExp;
     }
@@ -24,8 +33,6 @@ public class FeatExpEntity {
         this.idExp = idExp;
     }
 
-    @Id
-    @Column(name = "id_feat")
     public int getIdFeat() {
         return idFeat;
     }
@@ -54,8 +61,6 @@ public class FeatExpEntity {
         return result;
     }
 
-    @ManyToOne
-    @JoinColumn(name = "id_exp", referencedColumnName = "id_exp", nullable = false)
     public ExperimentEntity getExperimentByIdExp() {
         return experimentByIdExp;
     }
@@ -64,8 +69,6 @@ public class FeatExpEntity {
         this.experimentByIdExp = experimentByIdExp;
     }
 
-    @ManyToOne
-    @JoinColumn(name = "id_feat", referencedColumnName = "id_feat", nullable = false)
     public FeatureEntity getFeatureByIdFeat() {
         return featureByIdFeat;
     }

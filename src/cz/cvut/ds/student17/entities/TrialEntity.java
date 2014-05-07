@@ -5,25 +5,47 @@ import java.sql.Timestamp;
 import java.util.Collection;
 
 /**
- * Created by jonasamrich on 30/04/14.
+ * Created by V on 7.5.2014.
  */
 @Entity
 @Table(name = "trial", schema = "public", catalog = "student_db13_17")
 public class TrialEntity {
+    @Id
+    @Column(name = "id_trial", nullable = false, insertable = true, updatable = true)
     private int idTrial;
+    @Basic
+    @Column(name = "timestamp_from", nullable = true, insertable = true, updatable = true)
     private Timestamp timestampFrom;
+    @Basic
+    @Column(name = "timestamp_to", nullable = true, insertable = true, updatable = true)
     private Timestamp timestampTo;
+    @Basic
+    @Column(name = "cost", nullable = false, insertable = true, updatable = true)
     private int cost;
+    @Basic
+    @Column(name = "id_dev", nullable = true, insertable = true, updatable = true)
     private Integer idDev;
+    @Basic
+    @Column(name = "id_room", nullable = true, insertable = true, updatable = true)
     private Integer idRoom;
+    @Basic
+    @Column(name = "id_vic", nullable = false, insertable = true, updatable = true)
     private int idVic;
+    @OneToMany(mappedBy = "trialByIdTrial")
     private Collection<ResultsEntity> resultsesByIdTrial;
+    @ManyToOne
+    //@JoinColumn(name = "id_dev", referencedColumnName = "id_dev")
+    @JoinColumn(name = "id_dev", referencedColumnName = "id_dev", insertable =  false, updatable = false)
     private DeviceEntity deviceByIdDev;
+    @ManyToOne
+    //@JoinColumn(name = "id_room", referencedColumnName = "id_room")
+    @JoinColumn(name = "id_room", referencedColumnName = "id_room", insertable =  false, updatable = false)
     private RoomEntity roomByIdRoom;
+    @ManyToOne
+    //@JoinColumn(name = "id_room", referencedColumnName = "id_room")
+    @JoinColumn(name = "id_vic", referencedColumnName = "id_vic", nullable = false, insertable =  false, updatable = false)
     private VictimEntity victimByIdVic;
 
-    @Id
-    @Column(name = "id_trial")
     public int getIdTrial() {
         return idTrial;
     }
@@ -32,8 +54,6 @@ public class TrialEntity {
         this.idTrial = idTrial;
     }
 
-    @Basic
-    @Column(name = "timestamp_from")
     public Timestamp getTimestampFrom() {
         return timestampFrom;
     }
@@ -42,8 +62,6 @@ public class TrialEntity {
         this.timestampFrom = timestampFrom;
     }
 
-    @Basic
-    @Column(name = "timestamp_to")
     public Timestamp getTimestampTo() {
         return timestampTo;
     }
@@ -52,8 +70,6 @@ public class TrialEntity {
         this.timestampTo = timestampTo;
     }
 
-    @Basic
-    @Column(name = "cost")
     public int getCost() {
         return cost;
     }
@@ -62,8 +78,6 @@ public class TrialEntity {
         this.cost = cost;
     }
 
-    @Basic
-    @Column(name = "id_dev")
     public Integer getIdDev() {
         return idDev;
     }
@@ -72,8 +86,6 @@ public class TrialEntity {
         this.idDev = idDev;
     }
 
-    @Basic
-    @Column(name = "id_room")
     public Integer getIdRoom() {
         return idRoom;
     }
@@ -82,8 +94,6 @@ public class TrialEntity {
         this.idRoom = idRoom;
     }
 
-    @Basic
-    @Column(name = "id_vic")
     public int getIdVic() {
         return idVic;
     }
@@ -123,7 +133,6 @@ public class TrialEntity {
         return result;
     }
 
-    @OneToMany(mappedBy = "trialByIdTrial")
     public Collection<ResultsEntity> getResultsesByIdTrial() {
         return resultsesByIdTrial;
     }
@@ -132,8 +141,6 @@ public class TrialEntity {
         this.resultsesByIdTrial = resultsesByIdTrial;
     }
 
-    @ManyToOne
-    @JoinColumn(name = "id_dev", referencedColumnName = "id_dev")
     public DeviceEntity getDeviceByIdDev() {
         return deviceByIdDev;
     }
@@ -142,8 +149,6 @@ public class TrialEntity {
         this.deviceByIdDev = deviceByIdDev;
     }
 
-    @ManyToOne
-    @JoinColumn(name = "id_room", referencedColumnName = "id_room")
     public RoomEntity getRoomByIdRoom() {
         return roomByIdRoom;
     }
@@ -152,8 +157,6 @@ public class TrialEntity {
         this.roomByIdRoom = roomByIdRoom;
     }
 
-    @ManyToOne
-    @JoinColumn(name = "id_vic", referencedColumnName = "id_vic", nullable = false)
     public VictimEntity getVictimByIdVic() {
         return victimByIdVic;
     }

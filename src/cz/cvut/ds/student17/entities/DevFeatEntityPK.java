@@ -5,14 +5,16 @@ import javax.persistence.Id;
 import java.io.Serializable;
 
 /**
- * Created by jonasamrich on 30/04/14.
+ * Created by V on 7.5.2014.
  */
 public class DevFeatEntityPK implements Serializable {
+    @Column(name = "id_dev", nullable = false, insertable = true, updatable = true)
+    @Id
     private int idDev;
+    @Column(name = "id_feat", nullable = false, insertable = true, updatable = true)
+    @Id
     private int idFeat;
 
-    @Column(name = "id_dev")
-    @Id
     public int getIdDev() {
         return idDev;
     }
@@ -21,8 +23,6 @@ public class DevFeatEntityPK implements Serializable {
         this.idDev = idDev;
     }
 
-    @Column(name = "id_feat")
-    @Id
     public int getIdFeat() {
         return idFeat;
     }

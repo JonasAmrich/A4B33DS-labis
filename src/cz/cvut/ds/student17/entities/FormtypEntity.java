@@ -4,18 +4,22 @@ import javax.persistence.*;
 import java.util.Collection;
 
 /**
- * Created by jonasamrich on 30/04/14.
+ * Created by V on 7.5.2014.
  */
 @Entity
 @Table(name = "formtyp", schema = "public", catalog = "student_db13_17")
 public class FormtypEntity {
+    @Id
+    @Column(name = "id_ft", nullable = false, insertable = true, updatable = true)
     private int idFt;
+    @Basic
+    @Column(name = "name", nullable = true, insertable = true, updatable = true, length = 2147483647)
     private String name;
+    @OneToMany(mappedBy = "formtypByIdFt")
     private Collection<ExperimentEntity> experimentsByIdFt;
+    @OneToMany(mappedBy = "formtypByIdFt")
     private Collection<FormstructEntity> formstructsByIdFt;
 
-    @Id
-    @Column(name = "id_ft")
     public int getIdFt() {
         return idFt;
     }
@@ -24,8 +28,6 @@ public class FormtypEntity {
         this.idFt = idFt;
     }
 
-    @Basic
-    @Column(name = "name")
     public String getName() {
         return name;
     }
@@ -54,7 +56,6 @@ public class FormtypEntity {
         return result;
     }
 
-    @OneToMany(mappedBy = "formtypByIdFt")
     public Collection<ExperimentEntity> getExperimentsByIdFt() {
         return experimentsByIdFt;
     }
@@ -63,7 +64,6 @@ public class FormtypEntity {
         this.experimentsByIdFt = experimentsByIdFt;
     }
 
-    @OneToMany(mappedBy = "formtypByIdFt")
     public Collection<FormstructEntity> getFormstructsByIdFt() {
         return formstructsByIdFt;
     }

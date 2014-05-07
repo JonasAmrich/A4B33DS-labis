@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="DataSourceManagerImpl" format="xml" hash="4073205648">
+  <component name="DataSourceManagerImpl" format="xml" hash="1569212914">
     <data-source source="LOCAL" name="PostgreSQL - krizik" uuid="00605268-7679-4460-9fcc-26750cfd89a2">
       <driver-ref>postgresql</driver-ref>
       <synchronize>true</synchronize>
@@ -11,6 +11,26 @@
       <schema-pattern>student_db13_17.public</schema-pattern>
       <default-schemas>student_db13_17.public</default-schemas>
       <libraries />
+    </data-source>
+    <data-source source="LOCAL" name="LabISKrizik" uuid="f5ab2d59-ca49-4b0c-9dfd-dde64e6bd424">
+      <driver-ref>postgresql</driver-ref>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://krizik.felk.cvut.cz:5434/student_db13_17</jdbc-url>
+      <user-name>student_db13_17</user-name>
+      <user-password>dfd2dfd3dfd0</user-password>
+      <libraries />
+    </data-source>
+    <data-source source="LOCAL" name="public" uuid="dc03c444-e752-4796-9910-061bfdd43b85">
+      <driver-ref>postgresql</driver-ref>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://krizik.felk.cvut.cz:5434/student_db13_17</jdbc-url>
+      <user-name>student_db13_17</user-name>
+      <user-password>dfd2dfd3dfd0</user-password>
+      <libraries>
+        <library>
+          <url>file://C:\Users\V\.m2\repository\postgresql\postgresql\9.0-801.jdbc4\postgresql-9.0-801.jdbc4.jar</url>
+        </library>
+      </libraries>
     </data-source>
   </component>
 </project>

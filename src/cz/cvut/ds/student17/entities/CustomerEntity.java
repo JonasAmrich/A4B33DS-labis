@@ -4,19 +4,29 @@ import javax.persistence.*;
 import java.util.Collection;
 
 /**
- * Created by jonasamrich on 30/04/14.
+ * Created by V on 7.5.2014.
  */
 @Entity
+@SequenceGenerator(name="seq_customer",  sequenceName="seq_customer", initialValue=1, allocationSize=100)
 @Table(name = "customer", schema = "public", catalog = "student_db13_17")
 public class CustomerEntity {
-    private int idCust;
-    private String name;
-    private String email;
-    private String phone;
-    private Collection<ExperimentEntity> experimentsByIdCust;
 
     @Id
-    @Column(name = "id_cust")
+    @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="seq_customer")
+    @Column(name = "id_cust", nullable = false, insertable = true, updatable = true)
+    private int idCust;
+    @Basic
+    @Column(name = "name", nullable = false, insertable = true, updatable = true, length = 2147483647)
+    private String name;
+    @Basic
+    @Column(name = "email", nullable = true, insertable = true, updatable = true, length = 2147483647)
+    private String email;
+    @Basic
+    @Column(name = "phone", nullable = true, insertable = true, updatable = true, length = 2147483647)
+    private String phone;
+    @OneToMany(mappedBy = "customerByIdCust")
+    private Collection<ExperimentEntity> experimentsByIdCust;
+
     public int getIdCust() {
         return idCust;
     }
@@ -25,8 +35,6 @@ public class CustomerEntity {
         this.idCust = idCust;
     }
 
-    @Basic
-    @Column(name = "name")
     public String getName() {
         return name;
     }
@@ -35,8 +43,6 @@ public class CustomerEntity {
         this.name = name;
     }
 
-    @Basic
-    @Column(name = "email")
     public String getEmail() {
         return email;
     }
@@ -45,8 +51,6 @@ public class CustomerEntity {
         this.email = email;
     }
 
-    @Basic
-    @Column(name = "phone")
     public String getPhone() {
         return phone;
     }
@@ -79,7 +83,6 @@ public class CustomerEntity {
         return result;
     }
 
-    @OneToMany(mappedBy = "customerByIdCust")
     public Collection<ExperimentEntity> getExperimentsByIdCust() {
         return experimentsByIdCust;
     }

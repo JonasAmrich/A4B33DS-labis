@@ -3,19 +3,27 @@ package cz.cvut.ds.student17.entities;
 import javax.persistence.*;
 
 /**
- * Created by jonasamrich on 30/04/14.
+ * Created by V on 7.5.2014.
  */
 @Entity
 @Table(name = "dev_feat", schema = "public", catalog = "student_db13_17")
 @IdClass(DevFeatEntityPK.class)
 public class DevFeatEntity {
+    @Id
+    @Column(name = "id_dev", nullable = false, insertable = true, updatable = true)
     private int idDev;
+    @Id
+    @Column(name = "id_feat", nullable = false, insertable = true, updatable = true)
     private int idFeat;
+    @ManyToOne
+    //@JoinColumn(name = "id_dev", referencedColumnName = "id_dev", nullable = false)
+    @JoinColumn(name = "id_dev", referencedColumnName = "id_dev", nullable = false, insertable =  false, updatable = false)
     private DeviceEntity deviceByIdDev;
+    @ManyToOne
+    //@JoinColumn(name = "id_feat", referencedColumnName = "id_feat", nullable = false)
+    @JoinColumn(name = "id_feat", referencedColumnName = "id_feat", nullable = false, insertable =  false, updatable = false)
     private FeatureEntity featureByIdFeat;
 
-    @Id
-    @Column(name = "id_dev")
     public int getIdDev() {
         return idDev;
     }
@@ -24,8 +32,6 @@ public class DevFeatEntity {
         this.idDev = idDev;
     }
 
-    @Id
-    @Column(name = "id_feat")
     public int getIdFeat() {
         return idFeat;
     }
@@ -54,8 +60,6 @@ public class DevFeatEntity {
         return result;
     }
 
-    @ManyToOne
-    @JoinColumn(name = "id_dev", referencedColumnName = "id_dev", nullable = false)
     public DeviceEntity getDeviceByIdDev() {
         return deviceByIdDev;
     }
@@ -64,8 +68,6 @@ public class DevFeatEntity {
         this.deviceByIdDev = deviceByIdDev;
     }
 
-    @ManyToOne
-    @JoinColumn(name = "id_feat", referencedColumnName = "id_feat", nullable = false)
     public FeatureEntity getFeatureByIdFeat() {
         return featureByIdFeat;
     }

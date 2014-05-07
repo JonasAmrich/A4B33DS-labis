@@ -4,18 +4,23 @@ import javax.persistence.*;
 import java.util.Collection;
 
 /**
- * Created by jonasamrich on 30/04/14.
+ * Created by V on 7.5.2014.
  */
 @Entity
 @Table(name = "room", schema = "public", catalog = "student_db13_17")
 public class RoomEntity {
+    @Id
+    @Column(name = "id_room", nullable = false, insertable = true, updatable = true)
     private int idRoom;
+    @Basic
+    @Column(name = "name", nullable = true, insertable = true, updatable = true, length = 2147483647)
     private String name;
+    @Basic
+    @Column(name = "code", nullable = true, insertable = true, updatable = true, length = 50)
     private String code;
+    @OneToMany(mappedBy = "roomByIdRoom")
     private Collection<TrialEntity> trialsByIdRoom;
 
-    @Id
-    @Column(name = "id_room")
     public int getIdRoom() {
         return idRoom;
     }
@@ -24,8 +29,6 @@ public class RoomEntity {
         this.idRoom = idRoom;
     }
 
-    @Basic
-    @Column(name = "name")
     public String getName() {
         return name;
     }
@@ -34,8 +37,6 @@ public class RoomEntity {
         this.name = name;
     }
 
-    @Basic
-    @Column(name = "code")
     public String getCode() {
         return code;
     }
@@ -66,7 +67,6 @@ public class RoomEntity {
         return result;
     }
 
-    @OneToMany(mappedBy = "roomByIdRoom")
     public Collection<TrialEntity> getTrialsByIdRoom() {
         return trialsByIdRoom;
     }

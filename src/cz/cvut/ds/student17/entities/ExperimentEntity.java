@@ -4,28 +4,43 @@ import javax.persistence.*;
 import java.util.Collection;
 
 /**
- * Created by jonasamrich on 30/04/14.
+ * Created by V on 7.5.2014.
  */
 @Entity
 @Table(name = "experiment", schema = "public", catalog = "student_db13_17")
-@NamedQueries({
-    @NamedQuery(name = "getAllExperiments", query = "SELECT OBJECT(exp) FROM ExperimentEntity exp"),
-    @NamedQuery(name = "countExperiments", query = "SELECT COUNT(exp) FROM ExperimentEntity exp")
-})
 public class ExperimentEntity {
+    @Id
+    @Column(name = "id_exp", nullable = false, insertable = true, updatable = true)
     private int idExp;
+    @Basic
+    @Column(name = "title", nullable = false, insertable = true, updatable = true, length = 2147483647)
     private String title;
+    @Basic
+    @Column(name = "description", nullable = true, insertable = true, updatable = true, length = 2147483647)
     private String description;
+    @Basic
+    @Column(name = "budget", nullable = false, insertable = true, updatable = true)
     private int budget;
+    @Basic
+    @Column(name = "status", nullable = true, insertable = true, updatable = true, length = 50)
     private String status;
+    @Basic
+    @Column(name = "id_cust", nullable = false, insertable = true, updatable = true)
     private int idCust;
+    @Basic
+    @Column(name = "id_ft", nullable = false, insertable = true, updatable = true)
     private int idFt;
+    @ManyToOne
+    //@JoinColumn(name = "id_cust", referencedColumnName = "id_cust", nullable = false)
+    @JoinColumn(name = "id_cust", referencedColumnName = "id_cust", nullable = false, insertable =  false, updatable = false)
     private CustomerEntity customerByIdCust;
+    @ManyToOne
+    //@JoinColumn(name = "id_ft", referencedColumnName = "id_ft", nullable = false)
+    @JoinColumn(name = "id_ft", referencedColumnName = "id_ft", nullable = false, insertable =  false, updatable = false)
     private FormtypEntity formtypByIdFt;
+    @OneToMany(mappedBy = "experimentByIdExp")
     private Collection<FeatExpEntity> featExpsByIdExp;
 
-    @Id
-    @Column(name = "id_exp")
     public int getIdExp() {
         return idExp;
     }
@@ -34,8 +49,6 @@ public class ExperimentEntity {
         this.idExp = idExp;
     }
 
-    @Basic
-    @Column(name = "title")
     public String getTitle() {
         return title;
     }
@@ -44,8 +57,6 @@ public class ExperimentEntity {
         this.title = title;
     }
 
-    @Basic
-    @Column(name = "description")
     public String getDescription() {
         return description;
     }
@@ -54,8 +65,6 @@ public class ExperimentEntity {
         this.description = description;
     }
 
-    @Basic
-    @Column(name = "budget")
     public int getBudget() {
         return budget;
     }
@@ -64,8 +73,6 @@ public class ExperimentEntity {
         this.budget = budget;
     }
 
-    @Basic
-    @Column(name = "status")
     public String getStatus() {
         return status;
     }
@@ -74,8 +81,6 @@ public class ExperimentEntity {
         this.status = status;
     }
 
-    @Basic
-    @Column(name = "id_cust")
     public int getIdCust() {
         return idCust;
     }
@@ -84,8 +89,6 @@ public class ExperimentEntity {
         this.idCust = idCust;
     }
 
-    @Basic
-    @Column(name = "id_ft")
     public int getIdFt() {
         return idFt;
     }
@@ -124,8 +127,6 @@ public class ExperimentEntity {
         return result;
     }
 
-    @ManyToOne
-    @JoinColumn(name = "id_cust", referencedColumnName = "id_cust", nullable = false)
     public CustomerEntity getCustomerByIdCust() {
         return customerByIdCust;
     }
@@ -134,8 +135,6 @@ public class ExperimentEntity {
         this.customerByIdCust = customerByIdCust;
     }
 
-    @ManyToOne
-    @JoinColumn(name = "id_ft", referencedColumnName = "id_ft", nullable = false)
     public FormtypEntity getFormtypByIdFt() {
         return formtypByIdFt;
     }
@@ -144,7 +143,6 @@ public class ExperimentEntity {
         this.formtypByIdFt = formtypByIdFt;
     }
 
-    @OneToMany(mappedBy = "experimentByIdExp")
     public Collection<FeatExpEntity> getFeatExpsByIdExp() {
         return featExpsByIdExp;
     }
@@ -152,6 +150,4 @@ public class ExperimentEntity {
     public void setFeatExpsByIdExp(Collection<FeatExpEntity> featExpsByIdExp) {
         this.featExpsByIdExp = featExpsByIdExp;
     }
-
-
 }

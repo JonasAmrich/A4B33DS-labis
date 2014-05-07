@@ -4,18 +4,22 @@ import javax.persistence.*;
 import java.util.Collection;
 
 /**
- * Created by jonasamrich on 30/04/14.
+ * Created by V on 7.5.2014.
  */
 @Entity
 @Table(name = "feature", schema = "public", catalog = "student_db13_17")
 public class FeatureEntity {
+    @Id
+    @Column(name = "id_feat", nullable = false, insertable = true, updatable = true)
     private int idFeat;
+    @Basic
+    @Column(name = "title", nullable = false, insertable = true, updatable = true, length = 2147483647)
     private String title;
+    @OneToMany(mappedBy = "featureByIdFeat")
     private Collection<DevFeatEntity> devFeatsByIdFeat;
+    @OneToMany(mappedBy = "featureByIdFeat")
     private Collection<FeatExpEntity> featExpsByIdFeat;
 
-    @Id
-    @Column(name = "id_feat")
     public int getIdFeat() {
         return idFeat;
     }
@@ -24,8 +28,6 @@ public class FeatureEntity {
         this.idFeat = idFeat;
     }
 
-    @Basic
-    @Column(name = "title")
     public String getTitle() {
         return title;
     }
@@ -54,7 +56,6 @@ public class FeatureEntity {
         return result;
     }
 
-    @OneToMany(mappedBy = "featureByIdFeat")
     public Collection<DevFeatEntity> getDevFeatsByIdFeat() {
         return devFeatsByIdFeat;
     }
@@ -63,7 +64,6 @@ public class FeatureEntity {
         this.devFeatsByIdFeat = devFeatsByIdFeat;
     }
 
-    @OneToMany(mappedBy = "featureByIdFeat")
     public Collection<FeatExpEntity> getFeatExpsByIdFeat() {
         return featExpsByIdFeat;
     }

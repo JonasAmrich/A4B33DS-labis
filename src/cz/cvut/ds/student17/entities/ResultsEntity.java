@@ -3,20 +3,30 @@ package cz.cvut.ds.student17.entities;
 import javax.persistence.*;
 
 /**
- * Created by jonasamrich on 30/04/14.
+ * Created by V on 7.5.2014.
  */
 @Entity
 @Table(name = "results", schema = "public", catalog = "student_db13_17")
 @IdClass(ResultsEntityPK.class)
 public class ResultsEntity {
+    @Id
+    @Column(name = "id_trial", nullable = false, insertable = true, updatable = true)
     private int idTrial;
+    @Id
+    @Column(name = "id_fs", nullable = false, insertable = true, updatable = true)
     private int idFs;
+    @Basic
+    @Column(name = "res_value", nullable = true, insertable = true, updatable = true, length = 2147483647)
     private String resValue;
+    @ManyToOne
+    @JoinColumn(name = "id_fs", referencedColumnName = "id_fs", nullable = false, insertable =  false, updatable = false)
+    //@JoinColumn(name = "id_fs", referencedColumnName = "id_fs", nullable = false)
     private FormstructEntity formstructByIdFs;
+    @ManyToOne
+    //@JoinColumn(name = "id_trial", referencedColumnName = "id_trial", nullable = false)
+    @JoinColumn(name = "id_trial", referencedColumnName = "id_trial", nullable = false, insertable =  false, updatable = false)
     private TrialEntity trialByIdTrial;
 
-    @Id
-    @Column(name = "id_trial")
     public int getIdTrial() {
         return idTrial;
     }
@@ -25,8 +35,6 @@ public class ResultsEntity {
         this.idTrial = idTrial;
     }
 
-    @Id
-    @Column(name = "id_fs")
     public int getIdFs() {
         return idFs;
     }
@@ -35,8 +43,6 @@ public class ResultsEntity {
         this.idFs = idFs;
     }
 
-    @Basic
-    @Column(name = "res_value")
     public String getResValue() {
         return resValue;
     }
@@ -67,8 +73,6 @@ public class ResultsEntity {
         return result;
     }
 
-    @ManyToOne
-    @JoinColumn(name = "id_fs", referencedColumnName = "id_fs", nullable = false)
     public FormstructEntity getFormstructByIdFs() {
         return formstructByIdFs;
     }
@@ -77,8 +81,6 @@ public class ResultsEntity {
         this.formstructByIdFs = formstructByIdFs;
     }
 
-    @ManyToOne
-    @JoinColumn(name = "id_trial", referencedColumnName = "id_trial", nullable = false)
     public TrialEntity getTrialByIdTrial() {
         return trialByIdTrial;
     }
