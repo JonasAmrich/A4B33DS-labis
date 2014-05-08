@@ -7,9 +7,11 @@ import java.util.Collection;
  * Created by V on 7.5.2014.
  */
 @Entity
+@SequenceGenerator(name="seq_formtyp",  sequenceName="seq_formtyp", initialValue=1, allocationSize=5)
 @Table(name = "formtyp", schema = "public", catalog = "student_db13_17")
 public class FormtypEntity {
     @Id
+    @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="seq_formtyp")
     @Column(name = "id_ft", nullable = false, insertable = true, updatable = true)
     private int idFt;
     @Basic

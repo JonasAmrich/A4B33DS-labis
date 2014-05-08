@@ -19,7 +19,9 @@ public class Main {
 //        frame.setVisible(true);
 
         ExperimentsFacade facade = new ExperimentsFacade();
-        facade.addTestCustomer();
+        facade.addTestSet();
+
+        System.out.println("Done");
 
         //System.out.println(facade.countExperiments());
 

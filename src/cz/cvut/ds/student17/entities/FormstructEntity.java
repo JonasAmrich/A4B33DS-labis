@@ -7,9 +7,11 @@ import java.util.Collection;
  * Created by V on 7.5.2014.
  */
 @Entity
+@SequenceGenerator(name="seq_formstruct",  sequenceName="seq_formstruct", initialValue=1, allocationSize=5)
 @Table(name = "formstruct", schema = "public", catalog = "student_db13_17")
 public class FormstructEntity {
     @Id
+    @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="seq_formstruct")
     @Column(name = "id_fs", nullable = false, insertable = true, updatable = true)
     private int idFs;
     @Basic

@@ -8,9 +8,11 @@ import java.util.Collection;
  * Created by V on 7.5.2014.
  */
 @Entity
+@SequenceGenerator(name="seq_trial",  sequenceName="seq_trial", initialValue=1, allocationSize=5)
 @Table(name = "trial", schema = "public", catalog = "student_db13_17")
 public class TrialEntity {
     @Id
+    @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="seq_trial")
     @Column(name = "id_trial", nullable = false, insertable = true, updatable = true)
     private int idTrial;
     @Basic

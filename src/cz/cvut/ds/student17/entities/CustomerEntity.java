@@ -7,7 +7,7 @@ import java.util.Collection;
  * Created by V on 7.5.2014.
  */
 @Entity
-@SequenceGenerator(name="seq_customer",  sequenceName="seq_customer", initialValue=1, allocationSize=100)
+@SequenceGenerator(name="seq_customer",  sequenceName="seq_customer", initialValue=1, allocationSize=5)
 @Table(name = "customer", schema = "public", catalog = "student_db13_17")
 public class CustomerEntity {
 
@@ -19,7 +19,8 @@ public class CustomerEntity {
     @Column(name = "name", nullable = false, insertable = true, updatable = true, length = 2147483647)
     private String name;
     @Basic
-    @Column(name = "email", nullable = true, insertable = true, updatable = true, length = 2147483647)
+    @Column(name = "email", nullable = true, insertable = true, updatable
+            = true, length = 2147483647)
     private String email;
     @Basic
     @Column(name = "phone", nullable = true, insertable = true, updatable = true, length = 2147483647)
@@ -31,7 +32,7 @@ public class CustomerEntity {
         return idCust;
     }
 
-    public void setIdCust(int idCust) {
+    private void setIdCust(int idCust) {
         this.idCust = idCust;
     }
 
@@ -58,6 +59,7 @@ public class CustomerEntity {
     public void setPhone(String phone) {
         this.phone = phone;
     }
+
 
     @Override
     public boolean equals(Object o) {
