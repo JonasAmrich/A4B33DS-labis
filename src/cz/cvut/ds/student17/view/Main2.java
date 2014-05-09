@@ -31,7 +31,6 @@ public class Main2 {
 
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
       frame.pack();
-      main.add(new AddCustomerForm(facade, frame));
 
 
       frame.setVisible(true);

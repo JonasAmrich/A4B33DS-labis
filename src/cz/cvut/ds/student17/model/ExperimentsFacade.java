@@ -77,7 +77,22 @@ public class ExperimentsFacade {
             throw new DatabaseException();
         }
 
-        entityManager.close();
+        //entityManager.close();
+    }
+    public void addFeature(String title) throws DatabaseException{
+        entityManager.getTransaction().begin();
+        FeatureEntity fe = new FeatureEntity();
+        fe.setTitle(title);
+        try{
+            entityManager.persist(fe);
+            entityManager.getTransaction().commit();
+        }catch(RollbackException e){
+            entityManager.getTransaction().rollback(); //is it necessary to rollback if it is a Rollback exception?
+            System.out.println("Database failed.");
+            throw new DatabaseException();
+        }
+
+        //entityManager.close();
     }
     public void addTestSet(){
         entityManager.getTransaction().begin();
