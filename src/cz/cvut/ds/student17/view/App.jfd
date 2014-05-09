@@ -1,0 +1,32 @@
+JFDML JFormDesigner: "5.1.2.0.134" Java: "1.7.0_40" encoding: "UTF-8"
+
+new FormModel {
+	"i18n.autoExternalize": true
+	"i18n.bundleName": "AddCustomerForm"
+	"i18n.keyPrefix": "App"
+	contentType: "form/swing"
+	root: new FormRoot {
+		add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class com.jgoodies.forms.layout.FormLayout ) {
+			"$columnSpecs": "267dlu"
+			"$rowSpecs": "default, linegap, default"
+		} ) {
+			name: "this"
+			add( new FormContainer( "javax.swing.JMenuBar", new FormLayoutManager( class javax.swing.JMenuBar ) ) {
+				name: "menuBar1"
+				add( new FormContainer( "javax.swing.JMenu", new FormLayoutManager( class javax.swing.JMenu ) ) {
+					name: "menuNew"
+					"text": new FormMessage( null, "App.menuNew.text_4" )
+					add( new FormComponent( "javax.swing.JMenuItem" ) {
+						name: "menuNewCustomer"
+						"text": new FormMessage( null, "App.menuNewCustomer.text_4" )
+						addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "menuNewCustomerActionPerformed", true ) )
+						addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "menuNewCustomerActionPerformed", true ) )
+					} )
+				} )
+			}, new FormLayoutConstraints( class com.jgoodies.forms.layout.CellConstraints ) )
+		}, new FormLayoutConstraints( null ) {
+			"location": new java.awt.Point( 0, 0 )
+			"size": new java.awt.Dimension( 400, 300 )
+		} )
+	}
+}
