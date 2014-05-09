@@ -1,32 +1,39 @@
 package cz.cvut.ds.student17.view;
 
+import com.alee.laf.WebLookAndFeel;
 import cz.cvut.ds.student17.model.ExperimentsFacade;
 
 import javax.swing.*;
+import java.awt.*;
 
 /**
- * Created by jonasamrich on 30/04/14.
+ * Created by V on 9.5.2014.
  */
 public class Main {
-
-    private JPanel main;
-
     public static void main(String[] args) {
-//        JFrame frame = new JFrame("Main");
-//        frame.setContentPane(new Main().main);
-//        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-//        frame.pack();
-//        frame.setVisible(true);
+        try
+        {
+            // Setting up WebLookAndFeel style
+            UIManager.setLookAndFeel(WebLookAndFeel.class.getCanonicalName());
+        }
+        catch ( Throwable e )
+        {
+            // Something went wrong
+        }
 
+        JFrame frame = new JFrame("Laboratory Information System");
+        JPanel cont = new JPanel();
+        frame.setPreferredSize(new Dimension(640, 480));
+        cont.setLayout(new BoxLayout(cont, BoxLayout.Y_AXIS));
+        frame.setContentPane(cont);
         ExperimentsFacade facade = new ExperimentsFacade();
-        facade.addTestSet();
 
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.pack();
+        cont.add(new AddCustomerForm(facade, frame));
+
+
+        frame.setVisible(true);
         System.out.println("Done");
-
-        //System.out.println(facade.countExperiments());
-
-//        for (ExperimentEntity entity : facade.getAllExperiments()) {
-//            System.out.println(entity.getTitle());
-//        }
     }
 }

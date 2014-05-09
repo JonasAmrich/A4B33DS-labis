@@ -40,5 +40,12 @@
             <artifactId>hibernate-entitymanager</artifactId>
             <version>4.3.5.Final</version>
         </dependency>
-    </dependencies>
-</project>
+        <!-- TEST - not official maven repository -->
+
+                <dependency>
+                    <groupId>de.sciss</groupId>
+                    <artifactId>weblaf</artifactId>
+                    <version>1.27</version>
+                </dependency>
+            </dependencies>
+        </project>

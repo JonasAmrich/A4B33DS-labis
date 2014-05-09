@@ -9,6 +9,7 @@ import java.util.Collection;
 import java.util.List;
 
 import cz.cvut.ds.student17.entities.*;
+import cz.cvut.ds.student17.exceptions.DatabaseException;
 import org.hibernate.annotations.SourceType;
 
 /**
@@ -34,14 +35,49 @@ public class ExperimentsFacade {
         entityManager.getTransaction().commit();
         entityManager.close();
     }
+
+    /**
+     * Returns boolean whether the value would be unique in the field for the entity.
+     * @param entity
+     * @param field
+     * @param value
+     * @param <T>
+     * @return
+     */
+    public <T> boolean isUnique(Class<T> entity, String field, String value){
+        CriteriaBuilder cb = entityManager.getCriteriaBuilder();
+        CriteriaQuery<T> query = cb.createQuery(entity);
+        Root<T> sm = query.from(entity);
+        query.where(cb.equal(sm.get(field), value));
+        List<T> results = entityManager.createQuery(query).getResultList();
+        return results.isEmpty();
+    }
+
     public boolean containsFeature(String title){
         CriteriaBuilder cb = entityManager.getCriteriaBuilder();
         CriteriaQuery<FeatureEntity> query = cb.createQuery(FeatureEntity.class);
         Root<FeatureEntity> sm = query.from(FeatureEntity.class);
         query.where(cb.equal(sm.get("title"), title));
         List<FeatureEntity> results = entityManager.createQuery(query).getResultList();
-
         return results.isEmpty();
+    }
+
+    public void addCustomer(String name, String phone, String email) throws DatabaseException{
+        entityManager.getTransaction().begin();
+        CustomerEntity ce = new CustomerEntity();
+         ce.setPhone(phone);
+        ce.setEmail(email);
+        ce.setName(name);
+        try{
+            entityManager.persist(ce);
+            entityManager.getTransaction().commit();
+        }catch(RollbackException e){
+            entityManager.getTransaction().rollback(); //is it necessary to rollback if it is a Rollback exception?
+            System.out.println("Database failed.");
+            throw new DatabaseException();
+        }
+
+        entityManager.close();
     }
     public void addTestSet(){
         entityManager.getTransaction().begin();
@@ -56,8 +92,10 @@ public class ExperimentsFacade {
 
         System.out.println("should be false:");
         System.out.println(containsFeature("Kamera  2"));
+        System.out.println(isUnique(FeatureEntity.class, "title","Kamera  2"));
         System.out.println("should be true");
         System.out.println(containsFeature("Kamera 3"));
+        System.out.println(isUnique(FeatureEntity.class, "title","Kamera 3"));
         FeatureEntity fe = new FeatureEntity();
         fe.setTitle("Kamera  2");
         entityManager.persist(fe);

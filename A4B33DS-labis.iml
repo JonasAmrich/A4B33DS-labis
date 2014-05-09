@@ -40,6 +40,13 @@
     <orderEntry type="library" name="Maven: org.jboss:jandex:1.1.0.Final" level="project" />
     <orderEntry type="library" name="Maven: org.hibernate.javax.persistence:hibernate-jpa-2.0-api:1.0.1.Final" level="project" />
     <orderEntry type="library" name="Maven: org.hibernate:hibernate-entitymanager:4.3.5.Final" level="project" />
+    <orderEntry type="library" name="Maven: de.sciss:weblaf:1.27" level="project" />
+    <orderEntry type="library" name="Maven: com.thoughtworks.xstream:xstream:1.4.7" level="project" />
+    <orderEntry type="library" name="Maven: net.htmlparser.jericho:jericho-html:3.3" level="project" />
+    <orderEntry type="library" name="Maven: com.fifesoft:rsyntaxtextarea:2.5.0" level="project" />
+    <orderEntry type="library" name="Maven: com.mortennobel:java-image-scaling:0.8.5" level="project" />
+    <orderEntry type="library" name="Maven: com.jhlabs:filters:2.0.235" level="project" />
+    <orderEntry type="library" name="JGoodies Forms" level="project" />
   </component>
 </module>
 
