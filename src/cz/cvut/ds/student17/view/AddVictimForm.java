@@ -41,6 +41,20 @@ public class AddVictimForm extends JPanel {
             String date = birthdateFormattedField.getText();
             SimpleDateFormat formatter = new SimpleDateFormat("DD.MM.YYYY");
             Timestamp t = new Timestamp(formatter.parse(date).getTime());
+
+            try {
+                facade.addVictim(name,phone,email,t);
+            }catch(DatabaseException ex) {
+                System.out.println("Error occurred.");
+                JOptionPane.showMessageDialog(frame,
+                        "An error occurred.",
+                        "Database error",
+                        JOptionPane.ERROR_MESSAGE);
+                return;
+
+
+            }
+
         }catch(IllegalArgumentException|ParseException ex) {
             System.out.println("Wrong date format.");
             birthdateFormattedField.setBackground(Color.pink);
@@ -50,19 +64,11 @@ public class AddVictimForm extends JPanel {
                     JOptionPane.ERROR_MESSAGE);
             return;
         }
-
-        /*
-        try {
-            facade.addCustomer(name,phone,email);
-        }catch(DatabaseException ex) {
-            System.out.println("Error occurred.");
-            JOptionPane.showMessageDialog(frame,
-                    "An error occurred.",
-                    "Database error",
-                    JOptionPane.ERROR_MESSAGE);
+        cont.remove(this);
+        cont.revalidate();
+        cont.repaint();
 
 
-        }*/
     }
 
     private void cancelButtonActionPerformed(ActionEvent e) {

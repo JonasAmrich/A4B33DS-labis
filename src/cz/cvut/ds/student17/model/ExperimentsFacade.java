@@ -5,6 +5,8 @@ import javax.persistence.*;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
+import java.sql.Timestamp;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
@@ -62,6 +64,14 @@ public class ExperimentsFacade {
         return results.isEmpty();
     }
 
+    public <T> List<T> getAvailableEntities(Class entity){
+        CriteriaBuilder cb = entityManager.getCriteriaBuilder();
+        CriteriaQuery<T> query = cb.createQuery(entity);
+        Root<T> sm = query.from(entity);
+        List<T> results = entityManager.createQuery(query).getResultList();
+        return results;
+    }
+
     public void addCustomer(String name, String phone, String email) throws DatabaseException{
         entityManager.getTransaction().begin();
         CustomerEntity ce = new CustomerEntity();
@@ -85,6 +95,24 @@ public class ExperimentsFacade {
         fe.setTitle(title);
         try{
             entityManager.persist(fe);
+            entityManager.getTransaction().commit();
+        }catch(RollbackException e){
+            entityManager.getTransaction().rollback(); //is it necessary to rollback if it is a Rollback exception?
+            System.out.println("Database failed.");
+            throw new DatabaseException();
+        }
+
+        //entityManager.close();
+    }
+    public void addVictim(String name, String phone, String email, Timestamp birthdate) throws DatabaseException{
+        entityManager.getTransaction().begin();
+        VictimEntity ve = new VictimEntity();
+        ve.setPhone(phone);
+        ve.setEmail(email);
+        ve.setName(name);
+        ve.setBirthDate(birthdate);
+        try{
+            entityManager.persist(ve);
             entityManager.getTransaction().commit();
         }catch(RollbackException e){
             entityManager.getTransaction().rollback(); //is it necessary to rollback if it is a Rollback exception?

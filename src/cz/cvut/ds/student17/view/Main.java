@@ -1,6 +1,7 @@
 package cz.cvut.ds.student17.view;
 
 import com.alee.laf.WebLookAndFeel;
+import com.alee.laf.menu.WebMenuBar;
 import com.jgoodies.forms.factories.CC;
 import cz.cvut.ds.student17.model.ExperimentsFacade;
 
@@ -21,11 +22,12 @@ public class Main {
     private ResourceBundle bundle;
 
     /* Menu */
-    JMenuBar menuBar;
+    WebMenuBar menuBar;
     JMenu menuNew;
     JMenuItem menuNewCustomer;
     JMenuItem menuNewFeature;
     JMenuItem menuNewVictim;
+    JMenuItem menuNewDevice;
     public static void main(String[] args) {
         try {
             // Setting up WebLookAndFeel style
@@ -51,7 +53,7 @@ public class Main {
         bundle = ResourceBundle.getBundle("AddCustomerForm");
 
         /*Menu*/
-        menuBar = new JMenuBar();
+        menuBar = new WebMenuBar();
         frame.setJMenuBar(menuBar);
         menuNew = new JMenu();
         menuNewCustomer = new JMenuItem();
@@ -82,6 +84,15 @@ public class Main {
             }
         });
         menuNew.add(menuNewVictim);
+        menuNewDevice= new JMenuItem();
+        menuNewDevice.setText(bundle.getString("App.menuNewDevice.text"));
+        menuNewDevice.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                menuNewDeviceActionPerformed(e);
+            }
+        });
+        menuNew.add(menuNewDevice);
         menuBar.add(menuNew);
         //cont.add(menuBar, CC.xy(1, 1));
         //cont.add(new AddCustomerForm(facade,frame));
@@ -114,6 +125,13 @@ public class Main {
     private void menuNewVictimActionPerformed(ActionEvent e) {
         cont.remove(current);
         current = new AddVictimForm(facade, frame,cont);
+        cont.add(current);
+        cont.revalidate();
+        cont.repaint();
+    }
+    private void menuNewDeviceActionPerformed(ActionEvent e) {
+        cont.remove(current);
+        current = new AddDeviceForm(facade, frame,cont);
         cont.add(current);
         cont.revalidate();
         cont.repaint();
