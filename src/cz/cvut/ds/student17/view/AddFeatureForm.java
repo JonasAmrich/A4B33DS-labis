@@ -20,8 +20,8 @@ import cz.cvut.ds.student17.model.ExperimentsFacade;
 public class AddFeatureForm extends JPanel {
     ExperimentsFacade facade;
     JFrame frame;
-    JPanel cont;
-    public AddFeatureForm( ExperimentsFacade facade, JFrame frame, JPanel cont) {
+    Container cont;
+    public AddFeatureForm( ExperimentsFacade facade, JFrame frame, Container cont) {
         this.facade = facade;
         this.frame = frame;
         this.cont = cont;
@@ -31,6 +31,7 @@ public class AddFeatureForm extends JPanel {
     private void saveButtonActionPerformed(ActionEvent e) {
         String title = titleField.getText();
         if(facade.isUnique(FeatureEntity.class,"title",title)){
+            titleField.setBackground(Color.white);
             try {
                 facade.addFeature(title);
             }catch(DatabaseException ex) {
@@ -42,6 +43,7 @@ public class AddFeatureForm extends JPanel {
                 return;
             }
             cont.remove(this);
+            cont.putDefault();
             cont.revalidate();
             cont.repaint();
         }else{
@@ -58,6 +60,7 @@ public class AddFeatureForm extends JPanel {
 
     private void cancelButtonActionPerformed(ActionEvent e) {
         cont.remove(this);
+        cont.putDefault();
         cont.revalidate();
         cont.repaint();
     }
@@ -69,7 +72,7 @@ public class AddFeatureForm extends JPanel {
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
         // Generated using JFormDesigner Evaluation license - Ptero Bacter
-        ResourceBundle bundle = ResourceBundle.getBundle("AddCustomerForm");
+        ResourceBundle bundle = ResourceBundle.getBundle("Application");
         form = new JPanel();
         this2 = new JPanel();
         titleLabel = new JLabel();

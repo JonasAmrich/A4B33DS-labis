@@ -1,75 +1,66 @@
 /*
- * Created by JFormDesigner on Fri May 09 19:54:58 CEST 2014
+ * Created by JFormDesigner on Fri May 09 12:41:27 CEST 2014
  */
 
 package cz.cvut.ds.student17.view;
 
-import java.awt.*;
-import java.awt.event.*;
-import java.sql.Timestamp;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.*;
-import javax.swing.*;
-
-import com.alee.extended.date.WebDateField;
-import com.jgoodies.forms.factories.*;
-import com.jgoodies.forms.layout.*;
+import com.jgoodies.forms.factories.CC;
+import com.jgoodies.forms.layout.FormLayout;
+import cz.cvut.ds.student17.entities.CustomerEntity;
 import cz.cvut.ds.student17.exceptions.DatabaseException;
 import cz.cvut.ds.student17.model.ExperimentsFacade;
 
+import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.ResourceBundle;
+
 /**
- * @author Ptero Bacter
+ * @author unknown
  */
-public class AddVictimForm extends JPanel {
-    ExperimentsFacade facade;
-    JFrame frame;
-    Container cont;
-    public AddVictimForm( ExperimentsFacade facade, JFrame frame, Container cont) {
+public class EditCustomerForm extends JPanel {
+    private ExperimentsFacade facade;
+    private JFrame frame;
+    private Container cont;
+    private CustomerEntity ce;
+
+    public EditCustomerForm(ExperimentsFacade facade, JFrame frame, Container cont, int id) {
         this.facade = facade;
         this.frame = frame;
         this.cont = cont;
         initComponents();
+        fillWithCustomer(id);
     }
 
+    private void fillWithCustomer(int id){
+        try {
+            ce = facade.getEntityById(CustomerEntity.class, id);
+            nameField.setText(ce.getName());
+            phoneField.setText(ce.getPhone());
+            emailField.setText(ce.getEmail());
+        } catch (Exception ex){
+            showError();
+        }
+    }
     private void saveButtonActionPerformed(ActionEvent e) {
-        birthdateFormattedField.setBackground(Color.white);
         String name = nameField.getText();
         String phone = phoneField.getText();
         String email = emailField.getText();
+        ce.setPhone(phone);
+        ce.setName(name);
+        ce.setEmail(email);
         try {
-            String date = birthdateFormattedField.getText();
-            SimpleDateFormat formatter = new SimpleDateFormat("DD.MM.YYYY");
-            Timestamp t = new Timestamp(formatter.parse(date).getTime());
-
-            try {
-                facade.addVictim(name,phone,email,t);
-            }catch(DatabaseException ex) {
-                System.out.println("Error occurred.");
-                JOptionPane.showMessageDialog(frame,
-                        "An error occurred.",
-                        "Database error",
-                        JOptionPane.ERROR_MESSAGE);
-                return;
-
-
-            }
-
-        }catch(IllegalArgumentException|ParseException ex) {
-            System.out.println("Wrong date format.");
-            birthdateFormattedField.setBackground(Color.pink);
-            JOptionPane.showMessageDialog(frame,
-                    "Wrong Date Format",
-                    "You have wrong date format.",
-                    JOptionPane.ERROR_MESSAGE);
+            facade.updateCustomer(ce);
+        }catch(DatabaseException ex) {
+            showError();
             return;
+
+
         }
         cont.remove(this);
         cont.putDefault();
         cont.revalidate();
         cont.repaint();
-
-
     }
 
     private void cancelButtonActionPerformed(ActionEvent e) {
@@ -77,6 +68,14 @@ public class AddVictimForm extends JPanel {
         cont.putDefault();
         cont.revalidate();
         cont.repaint();
+    }
+
+    private void showError(){
+        System.out.println("Error occurred.");
+        JOptionPane.showMessageDialog(frame,
+                "An error occurred.",
+                "Database error",
+                JOptionPane.ERROR_MESSAGE);
     }
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
@@ -90,11 +89,10 @@ public class AddVictimForm extends JPanel {
         emailField = new JTextField();
         phoneLabel = new JLabel();
         phoneField = new JTextField();
-        birthdateLabel = new JLabel();
-        birthdateFormattedField = new WebDateField();
         buttons = new JPanel();
         saveButton = new JButton();
         cancelButton = new JButton();
+        deleteButton = new JButton();
 
         //======== this ========
 
@@ -122,24 +120,19 @@ public class AddVictimForm extends JPanel {
                     "4*(default, $lgap), default"));
 
                 //---- nameLabel ----
-                nameLabel.setText(bundle.getString("AddVictim.nameLabel.text"));
+                nameLabel.setText(bundle.getString("AddCustomerForm.nameLabel.text"));
                 this2.add(nameLabel, CC.xywh(3, 3, 3, 1));
                 this2.add(nameField, CC.xy(5, 3));
 
                 //---- emailLabel ----
-                emailLabel.setText(bundle.getString("AddVictim.emailLabel.text"));
+                emailLabel.setText(bundle.getString("AddCustomerForm.emailLabel.text"));
                 this2.add(emailLabel, CC.xy(3, 5));
                 this2.add(emailField, CC.xy(5, 5));
 
                 //---- phoneLabel ----
-                phoneLabel.setText(bundle.getString("AddVictim.phoneLabel.text"));
+                phoneLabel.setText(bundle.getString("AddCustomerForm.phoneLabel.text"));
                 this2.add(phoneLabel, CC.xy(3, 7));
                 this2.add(phoneField, CC.xy(5, 7));
-
-                //---- birthdateLabel ----
-                birthdateLabel.setText(bundle.getString("AddVictim.birthdateLabel.text"));
-                this2.add(birthdateLabel, CC.xy(3, 9));
-                this2.add(birthdateFormattedField, CC.xy(5, 9));
             }
             form.add(this2, CC.xy(1, 1));
         }
@@ -148,11 +141,11 @@ public class AddVictimForm extends JPanel {
         //======== buttons ========
         {
             buttons.setLayout(new FormLayout(
-                "default, $lcgap, default",
+                "2*(default, $lcgap), 58dlu",
                 "default"));
 
             //---- saveButton ----
-            saveButton.setText(bundle.getString("AddVictim.saveButton.text"));
+            saveButton.setText(bundle.getString("AddCustomerForm.saveButton.text"));
             saveButton.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
@@ -162,7 +155,7 @@ public class AddVictimForm extends JPanel {
             buttons.add(saveButton, CC.xy(1, 1));
 
             //---- cancelButton ----
-            cancelButton.setText(bundle.getString("AddVictim.cancelButton.text"));
+            cancelButton.setText(bundle.getString("AddCustomerForm.cancelButton.text"));
             cancelButton.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
@@ -170,6 +163,10 @@ public class AddVictimForm extends JPanel {
                 }
             });
             buttons.add(cancelButton, CC.xy(3, 1));
+
+            //---- deleteButton ----
+            deleteButton.setText(bundle.getString("AddCustomerForm.deleteButton.text"));
+            buttons.add(deleteButton, CC.xy(5, 1));
         }
         add(buttons, CC.xy(2, 5, CC.RIGHT, CC.DEFAULT));
         // JFormDesigner - End of component initialization  //GEN-END:initComponents
@@ -185,10 +182,9 @@ public class AddVictimForm extends JPanel {
     private JTextField emailField;
     private JLabel phoneLabel;
     private JTextField phoneField;
-    private JLabel birthdateLabel;
-    private WebDateField birthdateFormattedField;
     private JPanel buttons;
     private JButton saveButton;
     private JButton cancelButton;
+    private JButton deleteButton;
     // JFormDesigner - End of variables declaration  //GEN-END:variables
 }

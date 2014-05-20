@@ -9,6 +9,7 @@ import java.util.*;
 import javax.swing.*;
 import com.jgoodies.forms.factories.*;
 import com.jgoodies.forms.layout.*;
+import cz.cvut.ds.student17.entities.CustomerEntity;
 import cz.cvut.ds.student17.exceptions.DatabaseException;
 import cz.cvut.ds.student17.model.ExperimentsFacade;
 
@@ -16,16 +17,16 @@ import cz.cvut.ds.student17.model.ExperimentsFacade;
  * @author unknown
  */
 public class AddCustomerForm extends JPanel {
-    ExperimentsFacade facade;
-    JFrame frame;
-    JPanel cont;
-    public AddCustomerForm( ExperimentsFacade facade, JFrame frame, JPanel cont) {
+    private ExperimentsFacade facade;
+    private JFrame frame;
+    private Container cont;
+
+    public AddCustomerForm( ExperimentsFacade facade, JFrame frame, Container cont) {
         this.facade = facade;
         this.frame = frame;
         this.cont = cont;
         initComponents();
     }
-
     private void saveButtonActionPerformed(ActionEvent e) {
         String name = nameField.getText();
         String phone = phoneField.getText();
@@ -33,14 +34,14 @@ public class AddCustomerForm extends JPanel {
         try {
             facade.addCustomer(name,phone,email);
         }catch(DatabaseException ex) {
-            System.out.println("Error occurred.");
-            JOptionPane.showMessageDialog(frame,
-                    "An error occurred.",
-                    "Database error",
-                    JOptionPane.ERROR_MESSAGE);
+            showError();
+            return;
 
 
         }
+        cont.remove(this);
+        cont.revalidate();
+        cont.repaint();
     }
 
     private void cancelButtonActionPerformed(ActionEvent e) {
@@ -49,10 +50,17 @@ public class AddCustomerForm extends JPanel {
         cont.repaint();
     }
 
+    private void showError(){
+        System.out.println("Error occurred.");
+        JOptionPane.showMessageDialog(frame,
+                "An error occurred.",
+                "Database error",
+                JOptionPane.ERROR_MESSAGE);
+    }
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
         // Generated using JFormDesigner Evaluation license - Ptero Bacter
-        ResourceBundle bundle = ResourceBundle.getBundle("AddCustomerForm");
+        ResourceBundle bundle = ResourceBundle.getBundle("Application");
         form = new JPanel();
         this2 = new JPanel();
         nameLabel = new JLabel();
@@ -67,12 +75,6 @@ public class AddCustomerForm extends JPanel {
 
         //======== this ========
 
-        // JFormDesigner evaluation mark
-        setBorder(new javax.swing.border.CompoundBorder(
-            new javax.swing.border.TitledBorder(new javax.swing.border.EmptyBorder(0, 0, 0, 0),
-                "JFormDesigner Evaluation", javax.swing.border.TitledBorder.CENTER,
-                javax.swing.border.TitledBorder.BOTTOM, new java.awt.Font("Dialog", java.awt.Font.BOLD, 12),
-                java.awt.Color.red), getBorder())); addPropertyChangeListener(new java.beans.PropertyChangeListener(){public void propertyChange(java.beans.PropertyChangeEvent e){if("border".equals(e.getPropertyName()))throw new RuntimeException();}});
 
         setLayout(new FormLayout(
             "2*(default)",

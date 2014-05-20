@@ -4,9 +4,11 @@
 
 package cz.cvut.ds.student17.view;
 
+import java.awt.*;
 import java.awt.event.*;
 import java.beans.FeatureDescriptor;
 import java.util.*;
+import java.util.List;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 
@@ -14,7 +16,9 @@ import com.alee.laf.table.*;
 import com.alee.laf.scroll.WebScrollPane;
 import com.jgoodies.forms.factories.*;
 import com.jgoodies.forms.layout.*;
+import cz.cvut.ds.student17.entities.DeviceEntity;
 import cz.cvut.ds.student17.entities.FeatureEntity;
+import cz.cvut.ds.student17.exceptions.DatabaseException;
 import cz.cvut.ds.student17.model.ExperimentsFacade;
 import cz.cvut.ds.student17.model.FeaturesTableModel;
 
@@ -25,12 +29,12 @@ import cz.cvut.ds.student17.model.FeaturesTableModel;
 public class AddDeviceForm extends JPanel {
     ExperimentsFacade facade;
     JFrame frame;
-    JPanel cont;
+    Container cont;
     DefaultTableModel featureModel;
     List<FeatureEntity> lfe;
     private Object[][] data;
 
-    public AddDeviceForm( ExperimentsFacade facade, JFrame frame, JPanel cont) {
+    public AddDeviceForm( ExperimentsFacade facade, JFrame frame, Container cont) {
         this.facade = facade;
         this.frame = frame;
         this.cont = cont;
@@ -40,7 +44,6 @@ public class AddDeviceForm extends JPanel {
         initComponents();
         System.out.println("ZDE");
         lfe = facade.getAvailableEntities(FeatureEntity.class);
-        String[][] data = { {"Test 1"}, {"Test 2"}, {"TEst 3"}};
         for(FeatureEntity ent : lfe){
            Object[] row = {ent.getIdFeat(), ent.getTitle(),false};
             System.out.println(ent.getTitle());
@@ -48,6 +51,8 @@ public class AddDeviceForm extends JPanel {
         }
         featuresTable = new WebTable(featureModel);
         featuresScrollPane.setViewportView(featuresTable);
+        featuresTable.removeColumn(featuresTable.getColumn("Id"));
+
         featuresTable.repaint();
 
         cont.revalidate();
@@ -55,23 +60,59 @@ public class AddDeviceForm extends JPanel {
     }
 
     private void saveButtonActionPerformed(ActionEvent e) {
-        // TODO add your code here
-        featuresTable.removeColumn(featuresTable.getColumn("Id"));
-        featuresTable.repaint();
+        String title = titleField.getText();
+        if(facade.isUnique(DeviceEntity.class,"title",title)) {
+            titleField.setBackground(Color.white);
+            String description = descriptionTextArea.getText();
+            List<Integer> features = new ArrayList<>();
+            for (int i = 0; i < featuresTable.getRowCount(); i++) {
+                if ((boolean) featuresTable.getModel().getValueAt(i, 2)) {
+                    features.add((int) featuresTable.getModel().getValueAt(i, 0));
+                }
+            }
+            for (int f : features) {
+                System.out.println(f);
+            }
+            try {
+                facade.addDevice(title, description, features);
+            } catch (DatabaseException ex) {
+                System.out.println("Error occurred.");
+                JOptionPane.showMessageDialog(frame,
+                        "An error occurred.",
+                        "Database error",
+                        JOptionPane.ERROR_MESSAGE);
+                return;
 
-        cont.revalidate();
-        cont.repaint();
+
+            }
+            featuresTable.repaint();
+
+            cont.remove(this);
+            cont.putDefault();
+            cont.revalidate();
+            cont.repaint();
+        }else {
+            {
+                System.out.println("Title is not unique.");
+                titleField.setBackground(Color.pink);
+                JOptionPane.showMessageDialog(frame,
+                        "Title is not unique",
+                        "Title should be unique",
+                        JOptionPane.ERROR_MESSAGE);
+            }
+        }
     }
 
     private void cancelButtonActionPerformed(ActionEvent e) {
         cont.remove(this);
+        cont.putDefault();
         cont.revalidate();
         cont.repaint();
     }
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
         // Generated using JFormDesigner Evaluation license - Ptero Bacter
-        ResourceBundle bundle = ResourceBundle.getBundle("AddCustomerForm");
+        ResourceBundle bundle = ResourceBundle.getBundle("Application");
         titleLabel = new JLabel();
         titleField = new JTextField();
         descriptionLabel = new JLabel();
@@ -79,7 +120,7 @@ public class AddDeviceForm extends JPanel {
         descriptionTextArea = new JTextArea();
         featuresLabel = new JLabel();
         featuresScrollPane = new JScrollPane();
-        //featuresTable = new WebTable();
+        featuresTable = new WebTable();
         buttons = new JPanel();
         saveButton = new JButton();
         cancelButton = new JButton();

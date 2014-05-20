@@ -4,6 +4,7 @@ package cz.cvut.ds.student17.model;
 import javax.persistence.*;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.ParameterExpression;
 import javax.persistence.criteria.Root;
 import java.sql.Timestamp;
 import java.util.ArrayList;
@@ -20,10 +21,8 @@ import org.hibernate.annotations.SourceType;
 public class ExperimentsFacade {
 
     protected EntityManagerFactory emf = Persistence.createEntityManagerFactory("LabISKrizik");
-
-    protected EntityManager entityManager = emf.createEntityManager();
-
     public void addTestCustomer(){
+        EntityManager entityManager = emf.createEntityManager();
         entityManager.getTransaction().begin();
         CustomerEntity ce = new CustomerEntity();
 
@@ -47,32 +46,58 @@ public class ExperimentsFacade {
      * @return
      */
     public <T> boolean isUnique(Class<T> entity, String field, String value){
+        EntityManager entityManager = emf.createEntityManager();
         CriteriaBuilder cb = entityManager.getCriteriaBuilder();
         CriteriaQuery<T> query = cb.createQuery(entity);
         Root<T> sm = query.from(entity);
         query.where(cb.equal(sm.get(field), value));
         List<T> results = entityManager.createQuery(query).getResultList();
+        entityManager.close();
         return results.isEmpty();
     }
 
     public boolean containsFeature(String title){
+        EntityManager entityManager = emf.createEntityManager();
         CriteriaBuilder cb = entityManager.getCriteriaBuilder();
         CriteriaQuery<FeatureEntity> query = cb.createQuery(FeatureEntity.class);
         Root<FeatureEntity> sm = query.from(FeatureEntity.class);
         query.where(cb.equal(sm.get("title"), title));
         List<FeatureEntity> results = entityManager.createQuery(query).getResultList();
+        entityManager.close();
         return results.isEmpty();
     }
 
     public <T> List<T> getAvailableEntities(Class entity){
+        EntityManager entityManager = emf.createEntityManager();
         CriteriaBuilder cb = entityManager.getCriteriaBuilder();
         CriteriaQuery<T> query = cb.createQuery(entity);
         Root<T> sm = query.from(entity);
         List<T> results = entityManager.createQuery(query).getResultList();
+        entityManager.close();
         return results;
     }
 
+    public <T> T getEntityById(Class entity, int id) throws Exception {
+        EntityManager entityManager = emf.createEntityManager();
+        CriteriaBuilder cb = entityManager.getCriteriaBuilder();
+        CriteriaQuery<T> query = cb.createQuery(entity);
+        ParameterExpression<Integer> p = cb.parameter(Integer.class);
+        Root<T> sm = query.from(entity);
+        query.select(sm).where(cb.equal(sm.get("idCust"), p));
+        TypedQuery<T> tq = entityManager.createQuery(query);
+        tq.setParameter(p, id);
+        List<T> results = tq.getResultList();
+        entityManager.close();
+        if(results.isEmpty()){
+            System.out.println("zaznam nenalezen");
+            throw new Exception();
+
+        }
+        return results.get(0);
+    }
+
     public void addCustomer(String name, String phone, String email) throws DatabaseException{
+        EntityManager entityManager = emf.createEntityManager();
         entityManager.getTransaction().begin();
         CustomerEntity ce = new CustomerEntity();
          ce.setPhone(phone);
@@ -87,9 +112,53 @@ public class ExperimentsFacade {
             throw new DatabaseException();
         }
 
-        //entityManager.close();
+        entityManager.close();
+    }
+    public void updateCustomer(CustomerEntity ce) throws DatabaseException {
+        EntityManager entityManager = emf.createEntityManager();
+        entityManager.getTransaction().begin();
+        try{
+            entityManager.merge(ce);
+            entityManager.getTransaction().commit();
+        }catch(RollbackException e){
+            entityManager.getTransaction().rollback(); //is it necessary to rollback if it is a Rollback exception?
+            System.out.println("Database failed.");
+            throw new DatabaseException();
+        }
+
+        entityManager.close();
+    }
+    public void addDevice(String title, String description, List<Integer> featuresIds) throws DatabaseException{
+        EntityManager entityManager = emf.createEntityManager();
+        DeviceEntity de = new DeviceEntity();
+        de.setTitle(title);
+        de.setDescription(description);
+        System.out.println("Pridavam zarizeni:");
+
+        try{
+            entityManager.getTransaction().begin();
+            entityManager.persist(de);
+            for(Integer id : featuresIds){
+                DevFeatEntity dfe = new DevFeatEntity();
+                dfe.setIdDev(de.getIdDev());
+                dfe.setIdFeat(id);
+                System.out.println(id);
+                System.out.println(dfe.getIdFeat());
+                System.out.println(de.getIdDev());
+                System.out.println(dfe.getIdDev());
+                entityManager.persist(dfe);
+            }
+            entityManager.getTransaction().commit();
+        }catch(RuntimeException e){
+            System.out.println("Database failed.");
+            e.printStackTrace();
+            throw new DatabaseException();
+        }
+
+        entityManager.close();
     }
     public void addFeature(String title) throws DatabaseException{
+        EntityManager entityManager = emf.createEntityManager();
         entityManager.getTransaction().begin();
         FeatureEntity fe = new FeatureEntity();
         fe.setTitle(title);
@@ -102,9 +171,10 @@ public class ExperimentsFacade {
             throw new DatabaseException();
         }
 
-        //entityManager.close();
+        entityManager.close();
     }
     public void addVictim(String name, String phone, String email, Timestamp birthdate) throws DatabaseException{
+        EntityManager entityManager = emf.createEntityManager();
         entityManager.getTransaction().begin();
         VictimEntity ve = new VictimEntity();
         ve.setPhone(phone);
@@ -120,9 +190,10 @@ public class ExperimentsFacade {
             throw new DatabaseException();
         }
 
-        //entityManager.close();
+        entityManager.close();
     }
     public void addTestSet(){
+        EntityManager entityManager = emf.createEntityManager();
         entityManager.getTransaction().begin();
         CustomerEntity ce = new CustomerEntity();
 
