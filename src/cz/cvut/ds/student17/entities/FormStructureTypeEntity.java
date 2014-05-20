@@ -1,22 +1,19 @@
 package cz.cvut.ds.student17.entities;
 
 import javax.persistence.*;
-import java.util.Collection;
 
 /**
- * Created by V on 7.5.2014.
+ * Created by V on 21.5.2014.
  */
 @Entity
-@Table(name = "fstructtype", schema = "public", catalog = "student_db13_17")
-public class FstructtypeEntity {
+@Table(name = "is1_form_structure_type", schema = "public", catalog = "student_db13_17")
+public class FormStructureTypeEntity {
     @Id
     @Column(name = "id_fstype", nullable = false, insertable = true, updatable = true, length = 2147483647)
     private String idFstype;
     @Basic
     @Column(name = "description", nullable = true, insertable = true, updatable = true, length = 2147483647)
     private String description;
-    @OneToMany(mappedBy = "fstructtypeByIdFstype")
-    private Collection<FormstructEntity> formstructsByIdFstype;
 
     public String getIdFstype() {
         return idFstype;
@@ -39,7 +36,7 @@ public class FstructtypeEntity {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        FstructtypeEntity that = (FstructtypeEntity) o;
+        FormStructureTypeEntity that = (FormStructureTypeEntity) o;
 
         if (description != null ? !description.equals(that.description) : that.description != null) return false;
         if (idFstype != null ? !idFstype.equals(that.idFstype) : that.idFstype != null) return false;
@@ -52,13 +49,5 @@ public class FstructtypeEntity {
         int result = idFstype != null ? idFstype.hashCode() : 0;
         result = 31 * result + (description != null ? description.hashCode() : 0);
         return result;
-    }
-
-    public Collection<FormstructEntity> getFormstructsByIdFstype() {
-        return formstructsByIdFstype;
-    }
-
-    public void setFormstructsByIdFstype(Collection<FormstructEntity> formstructsByIdFstype) {
-        this.formstructsByIdFstype = formstructsByIdFstype;
     }
 }

@@ -5,7 +5,7 @@ import javax.persistence.Id;
 import java.io.Serializable;
 
 /**
- * Created by V on 7.5.2014.
+ * Created by V on 21.5.2014.
  */
 public class ResultsEntityPK implements Serializable {
     @Column(name = "id_trial", nullable = false, insertable = true, updatable = true)

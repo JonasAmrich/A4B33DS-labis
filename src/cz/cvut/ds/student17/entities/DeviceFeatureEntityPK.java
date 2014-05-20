@@ -5,9 +5,9 @@ import javax.persistence.Id;
 import java.io.Serializable;
 
 /**
- * Created by V on 7.5.2014.
+ * Created by V on 21.5.2014.
  */
-public class DevFeatEntityPK implements Serializable {
+public class DeviceFeatureEntityPK implements Serializable {
     @Column(name = "id_dev", nullable = false, insertable = true, updatable = true)
     @Id
     private int idDev;
@@ -36,7 +36,7 @@ public class DevFeatEntityPK implements Serializable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        DevFeatEntityPK that = (DevFeatEntityPK) o;
+        DeviceFeatureEntityPK that = (DeviceFeatureEntityPK) o;
 
         if (idDev != that.idDev) return false;
         if (idFeat != that.idFeat) return false;

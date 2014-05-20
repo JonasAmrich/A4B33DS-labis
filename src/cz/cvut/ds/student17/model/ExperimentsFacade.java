@@ -30,7 +30,8 @@ public class ExperimentsFacade {
 
         ce.setPhone("800120120");
         ce.setEmail("honza.novak@test.cz");
-        ce.setName("Honza Novak");
+        ce.setFirstName("Honza");
+        ce.setLastName("Novák");
         entityManager.persist(ce);
         //entityManager.persist(ce); //em.merge(u); for updates
         entityManager.getTransaction().commit();
@@ -96,13 +97,14 @@ public class ExperimentsFacade {
         return results.get(0);
     }
 
-    public void addCustomer(String name, String phone, String email) throws DatabaseException{
+    public void addCustomer(String firstName, String lastName, String phone, String email) throws DatabaseException{
         EntityManager entityManager = emf.createEntityManager();
         entityManager.getTransaction().begin();
         CustomerEntity ce = new CustomerEntity();
          ce.setPhone(phone);
         ce.setEmail(email);
-        ce.setName(name);
+        ce.setFirstName(firstName);
+        ce.setLastName(lastName);
         try{
             entityManager.persist(ce);
             entityManager.getTransaction().commit();
@@ -128,6 +130,21 @@ public class ExperimentsFacade {
 
         entityManager.close();
     }
+    public void removeCustomer(CustomerEntity ce) throws DatabaseException {
+        EntityManager entityManager = emf.createEntityManager();
+        entityManager.getTransaction().begin();
+        try{
+            entityManager.remove(entityManager.contains(ce) ? ce : entityManager.merge(ce));
+            System.out.println("Objekt "+ce.getLastName() + "odstranen.");
+            entityManager.getTransaction().commit();
+        }catch(RollbackException e){
+            entityManager.getTransaction().rollback(); //is it necessary to rollback if it is a Rollback exception?
+            System.out.println("Database failed.");
+            throw new DatabaseException();
+        }
+
+        entityManager.close();
+    }
     public void addDevice(String title, String description, List<Integer> featuresIds) throws DatabaseException{
         EntityManager entityManager = emf.createEntityManager();
         DeviceEntity de = new DeviceEntity();
@@ -139,7 +156,7 @@ public class ExperimentsFacade {
             entityManager.getTransaction().begin();
             entityManager.persist(de);
             for(Integer id : featuresIds){
-                DevFeatEntity dfe = new DevFeatEntity();
+                DeviceFeatureEntity dfe = new DeviceFeatureEntity();
                 dfe.setIdDev(de.getIdDev());
                 dfe.setIdFeat(id);
                 System.out.println(id);
@@ -173,13 +190,14 @@ public class ExperimentsFacade {
 
         entityManager.close();
     }
-    public void addVictim(String name, String phone, String email, Timestamp birthdate) throws DatabaseException{
+    public void addVictim(String firstName, String lastName, String phone, String email, Timestamp birthdate) throws DatabaseException{
         EntityManager entityManager = emf.createEntityManager();
         entityManager.getTransaction().begin();
         VictimEntity ve = new VictimEntity();
         ve.setPhone(phone);
         ve.setEmail(email);
-        ve.setName(name);
+        ve.setFirstName(firstName);
+        ve.setLastName(lastName);
         ve.setBirthDate(birthdate);
         try{
             entityManager.persist(ve);
@@ -201,7 +219,7 @@ public class ExperimentsFacade {
 
         ce.setPhone("800140140");
         ce.setEmail("mrkev.zelnickak@test.cz");
-        ce.setName("Mrkev Zelnička");
+        //ce.setName("Mrkev Zelnička");
         entityManager.persist(ce);
 
         System.out.println("should be false:");
@@ -214,16 +232,16 @@ public class ExperimentsFacade {
         fe.setTitle("Kamera  2");
         entityManager.persist(fe);
 
-        FormtypEntity fte = new FormtypEntity();
-        fte.setName("Jednoduchý formulář s jedním políčkem");
-        entityManager.persist(fte);
+        //FormtypEntity fte = new FormtypEntity();
+        //fte.setName("Jednoduchý formulář s jedním políčkem");
+        //entityManager.persist(fte);
 
         ExperimentEntity ee = new ExperimentEntity();
         ee.setTitle("Testování úsměvu před kamerou");
-        ee.setIdCust(ce.getIdCust());
+        //ee.setIdCust(ce.getIdCust());
         ee.setBudget(350);
         ee.setDescription("Cílem experimentu je zjistit, jak se lidé chvoají před kamerou.");
-        ee.setIdFt(fte.getIdFt());
+        //ee.setIdFt(fte.getIdFt());
 
         //entityManager.persist(ce); //em.merge(u); for updates
         try {

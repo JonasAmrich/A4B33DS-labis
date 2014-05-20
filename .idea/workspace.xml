@@ -1,26 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a2793d06-7ae8-41fe-91e2-f118a699fe63" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/cz/cvut/ds/student17/view/AddCustomerForm.properties" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/cz/cvut/ds/student17/view/Container.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/cz/cvut/ds/student17/view/DefaultPanel.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/cz/cvut/ds/student17/view/EditCustomerForm.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/cz/cvut/ds/student17/view/EditCustomerForm.jfd" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/cz/cvut/ds/student17/view/ListCustomers.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/cz/cvut/ds/student17/model/ListTableModel.java" />
-      <change type="MOVED" beforePath="C:\Users\V\SkyDrive\OI\LS2014\A4B33DS\A4B33DS-labis\src\main\resources\AddCustomerForm.properties" afterPath="$PROJECT_DIR$/src/main/resources/Application.properties" />
+    <list default="true" id="a2793d06-7ae8-41fe-91e2-f118a699fe63" name="Default" comment="Added new sql file for generating the database">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/is1_customer.uml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/cz/cvut/ds/student17/entities/ExperimentStatusEntity.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/cz/cvut/ds/student17/entities/FeatureExperimentEntity.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/cz/cvut/ds/student17/entities/FormStructureEntity.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build_db.sql" />
+      <change type="DELETED" beforePath="C:\Users\V\SkyDrive\OI\LS2014\A4B33DS\A4B33DS-labis\src\cz\cvut\ds\student17\entities\FeatExpEntity.java" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\V\SkyDrive\OI\LS2014\A4B33DS\A4B33DS-labis\src\cz\cvut\ds\student17\entities\FormstructEntity.java" afterPath="" />
+      <change type="MOVED" beforePath="C:\Users\V\SkyDrive\OI\LS2014\A4B33DS\A4B33DS-labis\src\cz\cvut\ds\student17\entities\DevFeatEntity.java" afterPath="$PROJECT_DIR$/src/cz/cvut/ds/student17/entities/DeviceFeatureEntity.java" />
+      <change type="MOVED" beforePath="C:\Users\V\SkyDrive\OI\LS2014\A4B33DS\A4B33DS-labis\src\cz\cvut\ds\student17\entities\DevFeatEntityPK.java" afterPath="$PROJECT_DIR$/src/cz/cvut/ds/student17/entities/DeviceFeatureEntityPK.java" />
+      <change type="MOVED" beforePath="C:\Users\V\SkyDrive\OI\LS2014\A4B33DS\A4B33DS-labis\src\cz\cvut\ds\student17\entities\FeatExpEntityPK.java" afterPath="$PROJECT_DIR$/src/cz/cvut/ds/student17/entities/FeatureExperimentEntityPK.java" />
+      <change type="MOVED" beforePath="C:\Users\V\SkyDrive\OI\LS2014\A4B33DS\A4B33DS-labis\src\cz\cvut\ds\student17\entities\FormtypEntity.java" afterPath="$PROJECT_DIR$/src/cz/cvut/ds/student17/entities/FormTypeEntity.java" />
+      <change type="MOVED" beforePath="C:\Users\V\SkyDrive\OI\LS2014\A4B33DS\A4B33DS-labis\src\cz\cvut\ds\student17\entities\FstructtypeEntity.java" afterPath="$PROJECT_DIR$/src/cz/cvut/ds/student17/entities/FormStructureTypeEntity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.ids" afterPath="$PROJECT_DIR$/.idea/dataSources.ids" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/A4B33DS-labis.iml" afterPath="$PROJECT_DIR$/A4B33DS-labis.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cz/cvut/ds/student17/view/AddCustomerForm.java" afterPath="$PROJECT_DIR$/src/cz/cvut/ds/student17/view/AddCustomerForm.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cz/cvut/ds/student17/view/AddCustomerForm.jfd" afterPath="$PROJECT_DIR$/src/cz/cvut/ds/student17/view/AddCustomerForm.jfd" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cz/cvut/ds/student17/view/AddDeviceForm.java" afterPath="$PROJECT_DIR$/src/cz/cvut/ds/student17/view/AddDeviceForm.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cz/cvut/ds/student17/view/AddDeviceForm.jfd" afterPath="$PROJECT_DIR$/src/cz/cvut/ds/student17/view/AddDeviceForm.jfd" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cz/cvut/ds/student17/view/AddFeatureForm.java" afterPath="$PROJECT_DIR$/src/cz/cvut/ds/student17/view/AddFeatureForm.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cz/cvut/ds/student17/view/AddFeatureForm.jfd" afterPath="$PROJECT_DIR$/src/cz/cvut/ds/student17/view/AddFeatureForm.jfd" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cz/cvut/ds/student17/view/AddVictimForm.java" afterPath="$PROJECT_DIR$/src/cz/cvut/ds/student17/view/AddVictimForm.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cz/cvut/ds/student17/view/AddVictimForm.jfd" afterPath="$PROJECT_DIR$/src/cz/cvut/ds/student17/view/AddVictimForm.jfd" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/Application.properties" afterPath="$PROJECT_DIR$/src/main/resources/Application.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cz/cvut/ds/student17/entities/CustomerEntity.java" afterPath="$PROJECT_DIR$/src/cz/cvut/ds/student17/entities/CustomerEntity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cz/cvut/ds/student17/entities/DeviceEntity.java" afterPath="$PROJECT_DIR$/src/cz/cvut/ds/student17/entities/DeviceEntity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cz/cvut/ds/student17/view/EditCustomerForm.java" afterPath="$PROJECT_DIR$/src/cz/cvut/ds/student17/view/EditCustomerForm.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cz/cvut/ds/student17/view/EditCustomerForm.jfd" afterPath="$PROJECT_DIR$/src/cz/cvut/ds/student17/view/EditCustomerForm.jfd" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cz/cvut/ds/student17/entities/ExperimentEntity.java" afterPath="$PROJECT_DIR$/src/cz/cvut/ds/student17/entities/ExperimentEntity.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cz/cvut/ds/student17/model/ExperimentsFacade.java" afterPath="$PROJECT_DIR$/src/cz/cvut/ds/student17/model/ExperimentsFacade.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cz/cvut/ds/student17/view/Main.java" afterPath="$PROJECT_DIR$/src/cz/cvut/ds/student17/view/Main.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cz/cvut/ds/student17/entities/FeatureEntity.java" afterPath="$PROJECT_DIR$/src/cz/cvut/ds/student17/entities/FeatureEntity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cz/cvut/ds/student17/view/ListCustomers.java" afterPath="$PROJECT_DIR$/src/cz/cvut/ds/student17/view/ListCustomers.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cz/cvut/ds/student17/entities/ResultsEntity.java" afterPath="$PROJECT_DIR$/src/cz/cvut/ds/student17/entities/ResultsEntity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cz/cvut/ds/student17/entities/ResultsEntityPK.java" afterPath="$PROJECT_DIR$/src/cz/cvut/ds/student17/entities/ResultsEntityPK.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cz/cvut/ds/student17/entities/RoomEntity.java" afterPath="$PROJECT_DIR$/src/cz/cvut/ds/student17/entities/RoomEntity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cz/cvut/ds/student17/entities/TrialEntity.java" afterPath="$PROJECT_DIR$/src/cz/cvut/ds/student17/entities/TrialEntity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cz/cvut/ds/student17/entities/VictimEntity.java" afterPath="$PROJECT_DIR$/src/cz/cvut/ds/student17/entities/VictimEntity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.xml" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="A4B33DS-labis.iws" />
@@ -84,56 +99,22 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="AddCustomerForm.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/cz/cvut/ds/student17/view/AddCustomerForm.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1020">
-              <caret line="23" column="77" selection-start-line="23" selection-start-column="77" selection-end-line="23" selection-end-column="77" />
-              <folding>
-                <element signature="method#initComponents#0;class#AddCustomerForm#0" expanded="false" />
-                <marker date="1400615650860" expanded="true" signature="1653:4737" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
-                <marker date="1400615650860" expanded="false" signature="4749:5313" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="EditCustomerForm.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/cz/cvut/ds/student17/view/EditCustomerForm.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="323" max-vertical-offset="1598">
-              <caret line="67" column="26" selection-start-line="67" selection-start-column="26" selection-end-line="67" selection-end-column="26" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="867" max-vertical-offset="1649">
+              <caret line="24" column="30" selection-start-line="24" selection-start-column="30" selection-end-line="24" selection-end-column="30" />
               <folding>
-                <element signature="e#3414#3586#0" expanded="true" />
-                <element signature="e#3584#3585#0" expanded="true" />
-                <element signature="e#5206#5397#0" expanded="true" />
-                <element signature="e#5382#5383#0" expanded="true" />
-                <element signature="e#5620#5813#0" expanded="true" />
-                <element signature="e#5798#5799#0" expanded="true" />
-                <marker date="1400615758832" expanded="false" signature="2255:6198" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
-                <marker date="1400615758832" expanded="true" signature="6210:6808" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Container.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/cz/cvut/ds/student17/view/Container.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="510">
-              <caret line="21" column="18" selection-start-line="21" selection-start-column="18" selection-end-line="21" selection-end-column="18" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ListCustomers.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/cz/cvut/ds/student17/view/ListCustomers.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="607" max-vertical-offset="1530">
-              <caret line="74" column="26" selection-start-line="74" selection-start-column="26" selection-end-line="74" selection-end-column="26" />
-              <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="e#3994#4166#0" expanded="true" />
+                <element signature="e#4164#4165#0" expanded="true" />
+                <element signature="e#6072#6263#0" expanded="true" />
+                <element signature="e#6248#6249#0" expanded="true" />
+                <element signature="e#6486#6679#0" expanded="true" />
+                <element signature="e#6664#6665#0" expanded="true" />
+                <element signature="e#6904#7097#0" expanded="true" />
+                <element signature="e#7082#7083#0" expanded="true" />
+                <marker date="1400626668690" expanded="false" signature="2745:7303" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
+                <marker date="1400626668690" expanded="false" signature="7315:7995" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
               </folding>
             </state>
           </provider>
@@ -142,56 +123,65 @@
       <file leaf-file-name="Main.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/cz/cvut/ds/student17/view/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.62041885" vertical-offset="257" max-vertical-offset="3128">
-              <caret line="55" column="0" selection-start-line="55" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.7120419" vertical-offset="510" max-vertical-offset="3128">
+              <caret line="74" column="61" selection-start-line="74" selection-start-column="61" selection-end-line="74" selection-end-column="61" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CustomerEntity.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/cz/cvut/ds/student17/entities/CustomerEntity.java">
+      <file leaf-file-name="RoomEntity.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/cz/cvut/ds/student17/entities/RoomEntity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="630" max-vertical-offset="1394">
-              <caret line="48" column="5" selection-start-line="48" selection-start-column="5" selection-end-line="48" selection-end-column="5" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="187" max-vertical-offset="1054">
+              <caret line="12" column="73" selection-start-line="12" selection-start-column="73" selection-end-line="12" selection-end-column="73" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DefaultPanel.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/cz/cvut/ds/student17/view/DefaultPanel.java">
+      <file leaf-file-name="TrialEntity.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/cz/cvut/ds/student17/entities/TrialEntity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="731">
-              <caret line="16" column="8" selection-start-line="16" selection-start-column="8" selection-end-line="28" selection-end-column="9" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state vertical-scroll-proportion="0.0" vertical-offset="187" max-vertical-offset="1343">
+              <caret line="26" column="122" selection-start-line="26" selection-start-column="122" selection-end-line="26" selection-end-column="122" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AddDeviceForm.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/cz/cvut/ds/student17/view/AddDeviceForm.java">
+      <file leaf-file-name="EditCustomerForm.jfd" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/cz/cvut/ds/student17/view/EditCustomerForm.jfd">
+          <provider selected="true" editor-type-id="JFormDesigner">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="VictimEntity.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/cz/cvut/ds/student17/entities/VictimEntity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1004" max-vertical-offset="1785">
-              <caret line="107" column="26" selection-start-line="107" selection-start-column="26" selection-end-line="107" selection-end-column="26" />
-              <folding>
-                <marker date="1400615784654" expanded="false" signature="3698:7347" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
-                <marker date="1400615784654" expanded="false" signature="7359:7983" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
-              </folding>
+            <state vertical-scroll-proportion="0.0" vertical-offset="187" max-vertical-offset="1666">
+              <caret line="13" column="73" selection-start-line="13" selection-start-column="73" selection-end-line="13" selection-end-column="73" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AddFeatureForm.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/cz/cvut/ds/student17/view/AddFeatureForm.java">
+      <file leaf-file-name="AddCustomerForm.jfd" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/cz/cvut/ds/student17/view/AddCustomerForm.jfd">
+          <provider selected="true" editor-type-id="JFormDesigner">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AddCustomerForm.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/cz/cvut/ds/student17/view/AddCustomerForm.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="357" max-vertical-offset="1207">
-              <caret line="62" column="26" selection-start-line="62" selection-start-column="26" selection-end-line="62" selection-end-column="26" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="29" max-vertical-offset="1105">
+              <caret line="50" column="26" selection-start-line="50" selection-start-column="26" selection-end-line="50" selection-end-column="26" />
               <folding>
-                <marker date="1400615800440" expanded="false" signature="2153:5541" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
-                <marker date="1400615800440" expanded="false" signature="5553:5987" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
+                <marker date="1400626846690" expanded="false" signature="1782:5869" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
+                <marker date="1400626846690" expanded="false" signature="5881:6527" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
               </folding>
             </state>
           </provider>
@@ -200,13 +190,20 @@
       <file leaf-file-name="AddVictimForm.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/cz/cvut/ds/student17/view/AddVictimForm.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="305" max-vertical-offset="1326">
-              <caret line="53" column="0" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1343">
+              <caret line="33" column="0" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
               <folding>
-                <marker date="1400615814598" expanded="false" signature="2475:6518" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
-                <marker date="1400615814598" expanded="false" signature="6530:7179" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
+                <marker date="1400626319851" expanded="false" signature="2550:6950" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
+                <marker date="1400626319851" expanded="false" signature="6962:7693" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
               </folding>
             </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AddVictimForm.jfd" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/cz/cvut/ds/student17/view/AddVictimForm.jfd">
+          <provider selected="true" editor-type-id="JFormDesigner">
+            <state />
           </provider>
         </entry>
       </file>
@@ -228,20 +225,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/cz/cvut/ds/student17/entities/DeviceEntity.java" />
-        <option value="$PROJECT_DIR$/src/cz/cvut/ds/student17/entities/FeatureEntity.java" />
-        <option value="$PROJECT_DIR$/src/cz/cvut/ds/student17/entities/ExperimentEntity.java" />
-        <option value="$PROJECT_DIR$/src/cz/cvut/ds/student17/entities/VictimEntity.java" />
-        <option value="$PROJECT_DIR$/src/cz/cvut/ds/student17/entities/TrialEntity.java" />
-        <option value="$PROJECT_DIR$/src/cz/cvut/ds/student17/entities/RoomEntity.java" />
-        <option value="$PROJECT_DIR$/src/cz/cvut/ds/student17/entities/FormtypEntity.java" />
-        <option value="$PROJECT_DIR$/src/cz/cvut/ds/student17/entities/FormstructEntity.java" />
-        <option value="dbtable:/4a801fa4/00605268-7679-4460-9fcc-26750cfd89a2/student_db13_17.public.experiment" />
-        <option value="$PROJECT_DIR$/src/cz/cvut/ds/student17/entities/CustomerEntity.java" />
-        <option value="$PROJECT_DIR$/src/cz/cvut/ds/student17/view/DatFail.form" />
-        <option value="$PROJECT_DIR$/src/cz/cvut/ds/student17/view/DatFail.java" />
-        <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/src/cz/cvut/ds/student17/view/AddCustomer.java" />
         <option value="$PROJECT_DIR$/src/cz/cvut/ds/student17/view/AddCustomer.form" />
         <option value="$PROJECT_DIR$/src/cz/cvut/ds/student17/view/Main.form" />
         <option value="$PROJECT_DIR$/src/cz/cvut/ds/student17/view/AddCustomerForm.form" />
@@ -261,23 +244,37 @@
         <option value="dbtable:/4a801fa4/00605268-7679-4460-9fcc-26750cfd89a2/student_db13_17.public.dev_feat" />
         <option value="dbtable:/4a801fa4/00605268-7679-4460-9fcc-26750cfd89a2/student_db13_17.public.device" />
         <option value="dbtable:/4a801fa4/00605268-7679-4460-9fcc-26750cfd89a2/student_db13_17.public.feature" />
-        <option value="$PROJECT_DIR$/src/cz/cvut/ds/student17/view/AddCustomerForm.jfd" />
         <option value="$PROJECT_DIR$/src/cz/cvut/ds/student17/view/AddDeviceForm.jfd" />
         <option value="$PROJECT_DIR$/src/cz/cvut/ds/student17/view/AddFeatureForm.jfd" />
-        <option value="$PROJECT_DIR$/src/cz/cvut/ds/student17/view/AddVictimForm.jfd" />
         <option value="$PROJECT_DIR$/src/main/resources/Application.properties" />
         <option value="$PROJECT_DIR$/src/cz/cvut/ds/student17/model/ListTableModel.java" />
-        <option value="$PROJECT_DIR$/src/cz/cvut/ds/student17/view/EditCustomerForm.jfd" />
-        <option value="$PROJECT_DIR$/src/cz/cvut/ds/student17/model/ExperimentsFacade.java" />
         <option value="$PROJECT_DIR$/src/cz/cvut/ds/student17/view/Default.java" />
         <option value="$PROJECT_DIR$/src/cz/cvut/ds/student17/view/DefaultPanel.java" />
-        <option value="$PROJECT_DIR$/src/cz/cvut/ds/student17/view/AddCustomerForm.java" />
-        <option value="$PROJECT_DIR$/src/cz/cvut/ds/student17/view/ListCustomers.java" />
-        <option value="$PROJECT_DIR$/src/cz/cvut/ds/student17/view/EditCustomerForm.java" />
         <option value="$PROJECT_DIR$/src/cz/cvut/ds/student17/view/AddDeviceForm.java" />
         <option value="$PROJECT_DIR$/src/cz/cvut/ds/student17/view/AddFeatureForm.java" />
-        <option value="$PROJECT_DIR$/src/cz/cvut/ds/student17/view/AddVictimForm.java" />
         <option value="$PROJECT_DIR$/src/cz/cvut/ds/student17/view/Container.java" />
+        <option value="dbtable:/4a801fa4/00605268-7679-4460-9fcc-26750cfd89a2/student_db13_17.public.experiment" />
+        <option value="dbtable:/4a801fa4/00605268-7679-4460-9fcc-26750cfd89a2/student_db13_17.public.formtyp" />
+        <option value="db-console:/4a801fa4/00605268-7679-4460-9fcc-26750cfd89a2/" />
+        <option value="$PROJECT_DIR$/src/cz/cvut/ds/student17/entities/VictimEntity.java" />
+        <option value="$PROJECT_DIR$/src/cz/cvut/ds/student17/entities/RoomEntity.java" />
+        <option value="$PROJECT_DIR$/src/cz/cvut/ds/student17/entities/FormTypeEntity.java" />
+        <option value="$PROJECT_DIR$/src/cz/cvut/ds/student17/entities/FeatureEntity.java" />
+        <option value="$PROJECT_DIR$/src/cz/cvut/ds/student17/entities/DeviceEntity.java" />
+        <option value="$PROJECT_DIR$/src/cz/cvut/ds/student17/entities/CustomerEntity.java" />
+        <option value="$PROJECT_DIR$/src/cz/cvut/ds/student17/model/ExperimentsFacade.java" />
+        <option value="$PROJECT_DIR$/src/cz/cvut/ds/student17/view/ListCustomers.java" />
+        <option value="$PROJECT_DIR$/src/cz/cvut/ds/student17/entities/DeviceFeatureEntity.java" />
+        <option value="$PROJECT_DIR$/src/cz/cvut/ds/student17/entities/TrialEntity.java" />
+        <option value="$PROJECT_DIR$/src/cz/cvut/ds/student17/entities/ResultsEntity.java" />
+        <option value="$PROJECT_DIR$/src/cz/cvut/ds/student17/entities/ExperimentEntity.java" />
+        <option value="$PROJECT_DIR$/src/cz/cvut/ds/student17/entities/FormStructureEntity.java" />
+        <option value="$PROJECT_DIR$/src/cz/cvut/ds/student17/view/AddCustomerForm.jfd" />
+        <option value="$PROJECT_DIR$/src/cz/cvut/ds/student17/view/AddVictimForm.jfd" />
+        <option value="$PROJECT_DIR$/src/cz/cvut/ds/student17/view/AddVictimForm.java" />
+        <option value="$PROJECT_DIR$/src/cz/cvut/ds/student17/view/EditCustomerForm.jfd" />
+        <option value="$PROJECT_DIR$/src/cz/cvut/ds/student17/view/EditCustomerForm.java" />
+        <option value="$PROJECT_DIR$/src/cz/cvut/ds/student17/view/AddCustomerForm.java" />
         <option value="$PROJECT_DIR$/src/cz/cvut/ds/student17/view/Main.java" />
       </list>
     </option>
@@ -392,6 +389,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -500,7 +498,15 @@
               <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value=".idea" />
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="student17" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="entities" />
               <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -513,10 +519,13 @@
               <option name="myItemId" value="A4B33DS-labis" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="A4B33DS-labis" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
+            </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -541,6 +550,7 @@
     <property name="JPA.DatabaseSchemaImportDialog" value="00605268-7679-4460-9fcc-26750cfd89a2" />
     <property name="OverrideImplement.combined" value="true" />
     <property name="OverrideImplement.overriding.sorted" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
@@ -550,13 +560,13 @@
       <recent name="C:\Users\V\SkyDrive\OI\LS2014\A4B33DS\A4B33DS-labis\src\cz\cvut\ds\student17\view" />
       <recent name="C:\Users\V\SkyDrive\OI\LS2014\A4B33DS\A4B33DS-labis\src\main\resources" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\V\SkyDrive\OI\LS2014\A4B33DS\A4B33DS-labis\src\main\resources" />
-      <recent name="$PROJECT_DIR$/src/main/resources/META-INF" />
-    </key>
     <key name="ImportMappingsDialog.RecentPackages">
       <recent name="cz.cvut.ds.student17.entities" />
       <recent name="cz.cvut.ds.student17" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\V\SkyDrive\OI\LS2014\A4B33DS\A4B33DS-labis\src\main\resources" />
+      <recent name="$PROJECT_DIR$/src/main/resources/META-INF" />
     </key>
   </component>
   <component name="RunManager" selected="Application.Main">
@@ -849,7 +859,9 @@
       <workItem from="1399708315366" duration="14817000" />
       <workItem from="1399972449426" duration="2257000" />
       <workItem from="1400353818000" duration="1148000" />
-      <workItem from="1400573407045" duration="21089000" />
+      <workItem from="1400573407045" duration="21179000" />
+      <workItem from="1400617037030" duration="4228000" />
+      <workItem from="1400621526876" duration="4933000" />
     </task>
     <task id="LOCAL-00001" summary="Added maven repositories&#10;Changed to newer classses instead of deprecated eclipselink&#10;CustomerEntity - added sequence&#10;!!It is possible to add a customer now.!!&#10;!!Regenerated entities and manually added some code!&#10;Added to all insertable=false, updateable=false to all joins &#10;(or something like that).&#10;TO DO:&#10;sequences in other entities, adding different entities to db">
       <created>1399501693472</created>
@@ -879,11 +891,15 @@
       <created>1399718413768</created>
       <updated>1399718413768</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Several forms for adding new entities, one for listing customers and one testing for updating customer. Not possible to delete customer nor">
+      <created>1400616942202</created>
+      <updated>1400616942202</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="103226000" />
+    <option name="totallyTimeSpent" value="112477000" />
   </component>
   <component name="TodoView" selected-index="4">
     <todo-panel id="selected-file">
@@ -909,73 +925,39 @@
     <frame x="-8" y="-8" width="1616" height="1176" extended-state="6" />
     <editor active="true" />
     <layout>
+      <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.19569288" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Persistence" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.28" sideWeight="0.5006935" order="5" side_tool="true" content_ui="tabs" />
+      <window_info id="Persistence" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.179375" sideWeight="0.5018496" order="5" side_tool="true" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.344375" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.26281112" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.188125" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24964234" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39779875" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2406367" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="JFormDesigner Error Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.114779875" sideWeight="0.5" order="15" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32677904" sideWeight="0.5" order="15" side_tool="false" content_ui="tabs" />
+      <window_info id="JFormDesigner Error Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.11423221" sideWeight="0.5" order="15" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32677904" sideWeight="0.5" order="16" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32958803" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24964234" sideWeight="0.4989899" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32904148" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.179375" sideWeight="0.49791956" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.179375" sideWeight="0.49815044" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2406367" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.194375" sideWeight="0.4989899" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Thumbnails" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32894737" sideWeight="0.5" order="16" side_tool="false" content_ui="tabs" />
-      <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.19569288" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Thumbnails" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32894737" sideWeight="0.5" order="17" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32958803" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
     </layout>
-    <layout-to-restore>
-      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.194375" sideWeight="0.4989899" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Persistence" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.28" sideWeight="0.5006935" order="5" side_tool="true" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24964234" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.26281112" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
-      <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
-      <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32958803" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.179375" sideWeight="0.49791956" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2406367" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Thumbnails" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32894737" sideWeight="0.5" order="17" side_tool="false" content_ui="tabs" />
-      <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.19569288" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.344375" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32958803" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39779875" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="JFormDesigner Error Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.114779875" sideWeight="0.5" order="15" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32677904" sideWeight="0.5" order="16" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24964234" sideWeight="0.4989899" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32904148" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-    </layout-to-restore>
   </component>
   <component name="Vcs.Log.UiProperties">
     <option name="RECENTLY_FILTERED_USER_GROUPS">
@@ -999,7 +981,8 @@
     <MESSAGE value="Add AddNewVictim Form&#10;" />
     <MESSAGE value="Added some files to git repository that were not included before&#10;Add AddNewVictim Form&#10;&#10;" />
     <MESSAGE value="Added AddDeviceForm, but it is not fully operational. It does not add anything to the model. &#10;" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added AddDeviceForm, but it is not fully operational. It does not add anything to the model. &#10;" />
+    <MESSAGE value="Several forms for adding new entities, one for listing customers and one testing for updating customer. Not possible to delete customer nor" />
+    <option name="LAST_COMMIT_MESSAGE" value="Several forms for adding new entities, one for listing customers and one testing for updating customer. Not possible to delete customer nor" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1023,129 +1006,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/cz/cvut/ds/student17/entities/FstructtypeEntity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1003">
-          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/cz/cvut/ds/student17/entities/VictimEntity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1649">
-          <caret line="14" column="35" selection-start-line="14" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/cz/cvut/ds/student17/entities/TrialEntity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2227">
-          <caret line="15" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/cz/cvut/ds/student17/entities/RoomEntity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1156">
-          <caret line="14" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/cz/cvut/ds/student17/entities/FormtypEntity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1173">
-          <caret line="13" column="38" selection-start-line="13" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/cz/cvut/ds/student17/entities/FormstructEntity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1649">
-          <caret line="9" column="53" selection-start-line="9" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/cz/cvut/ds/student17/entities/FeatureEntity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1173">
-          <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="78" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/cz/cvut/ds/student17/entities/ExperimentEntity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2074">
-          <caret line="9" column="96" selection-start-line="9" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="dbDummy://dbtable:/4a801fa4/00605268-7679-4460-9fcc-26750cfd89a2/student_db13_17.public.experiment">
-      <provider editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="935">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="com.intellij.persistence.database.editor.DatabaseTableFileEditorProvider">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/cz/cvut/ds/student17/view/DatFail.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="646">
-          <caret line="24" column="21" selection-start-line="24" selection-start-column="21" selection-end-line="24" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/cz/cvut/ds/student17/view/DatFail.form">
-      <provider selected="true" editor-type-id="ui-designer">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/cz/cvut/ds/student17/view/AddCustomerF.form">
-      <provider selected="true" editor-type-id="ui-designer">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/cz/cvut/ds/student17/exceptions/DatabaseException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="238">
-          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/cz/cvut/ds/student17/view/AddCustomerF.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1021">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/cz/cvut/ds/student17/view/Main2.form">
-      <provider selected="true" editor-type-id="ui-designer">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/cz/cvut/ds/student17/view/AppOld.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="731">
-          <caret line="26" column="8" selection-start-line="26" selection-start-column="8" selection-end-line="27" selection-end-column="30" />
-          <folding>
-            <element signature="e#942#943#0" expanded="false" />
-            <element signature="e#984#985#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="dbDummy://dbtable:/4a801fa4/00605268-7679-4460-9fcc-26750cfd89a2/student_db13_17.public.customer">
-      <provider editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="952">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="com.intellij.persistence.database.editor.DatabaseTableFileEditorProvider">
-        <state />
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.7.0_25/jre/lib/rt.jar!/javax/swing/JPanel.class">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.12611276" vertical-offset="0" max-vertical-offset="697">
@@ -1167,15 +1027,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.39193085" vertical-offset="0" max-vertical-offset="816">
           <caret line="24" column="29" selection-start-line="24" selection-start-column="29" selection-end-line="24" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/cz/cvut/ds/student17/entities/DevFeatEntity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="153" max-vertical-offset="1156">
-          <caret line="10" column="28" selection-start-line="10" selection-start-column="28" selection-end-line="10" selection-end-column="28" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1183,14 +1034,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="13149" max-vertical-offset="14824">
           <caret line="800" column="29" selection-start-line="800" selection-start-column="29" selection-end-line="800" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/cz/cvut/ds/student17/entities/DevFeatEntityPK.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="244" max-vertical-offset="833">
-          <caret line="38" column="47" selection-start-line="38" selection-start-column="47" selection-end-line="38" selection-end-column="47" />
           <folding />
         </state>
       </provider>
@@ -1207,7 +1050,6 @@
       <provider editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="102">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
       <provider selected="true" editor-type-id="com.intellij.persistence.database.editor.DatabaseTableFileEditorProvider">
@@ -1218,7 +1060,6 @@
       <provider editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="952">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
       <provider selected="true" editor-type-id="com.intellij.persistence.database.editor.DatabaseTableFileEditorProvider">
@@ -1249,15 +1090,9 @@
       <provider editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="952">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
       <provider selected="true" editor-type-id="com.intellij.persistence.database.editor.DatabaseTableFileEditorProvider">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/cz/cvut/ds/student17/view/AddVictimForm.jfd">
-      <provider selected="true" editor-type-id="JFormDesigner">
         <state />
       </provider>
     </entry>
@@ -1269,19 +1104,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/cz/cvut/ds/student17/entities/DeviceEntity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="248" max-vertical-offset="1292">
-          <caret line="25" column="50" selection-start-line="25" selection-start-column="50" selection-end-line="25" selection-end-column="50" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/cz/cvut/ds/student17/view/AddCustomerForm.properties">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="332">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1289,7 +1115,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="51" max-vertical-offset="425">
           <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="22" selection-end-column="1" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1297,41 +1122,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="306">
           <caret line="11" column="5" selection-start-line="11" selection-start-column="5" selection-end-line="11" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/cz/cvut/ds/student17/view/AddCustomerForm.jfd">
-      <provider selected="true" editor-type-id="JFormDesigner">
-        <state />
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="996">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-      <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/cz/cvut/ds/student17/view/EditCustomerForm.jfd">
-      <provider selected="true" editor-type-id="JFormDesigner">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/cz/cvut/ds/student17/model/ExperimentsFacade.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="422" max-vertical-offset="1666">
-          <caret line="120" column="36" selection-start-line="120" selection-start-column="36" selection-end-line="120" selection-end-column="36" />
-          <folding>
-            <element signature="method#addTestCustomer#0;class#ExperimentsFacade#0" expanded="false" />
-            <element signature="method#isUnique#0;class#ExperimentsFacade#0" expanded="false" />
-            <element signature="method#containsFeature#0;class#ExperimentsFacade#0" expanded="false" />
-            <element signature="method#addDevice#0;class#ExperimentsFacade#0" expanded="false" />
-            <element signature="method#addFeature#0;class#ExperimentsFacade#0" expanded="false" />
-            <element signature="method#addVictim#0;class#ExperimentsFacade#0" expanded="false" />
-            <element signature="method#addTestSet#0;class#ExperimentsFacade#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1343,44 +1133,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/cz/cvut/ds/student17/entities/CustomerEntity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="630" max-vertical-offset="1394">
-          <caret line="48" column="5" selection-start-line="48" selection-start-column="5" selection-end-line="48" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/cz/cvut/ds/student17/view/AddCustomerForm.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1020">
-          <caret line="23" column="77" selection-start-line="23" selection-start-column="77" selection-end-line="23" selection-end-column="77" />
-          <folding>
-            <element signature="method#initComponents#0;class#AddCustomerForm#0" expanded="false" />
-            <marker date="1400615650860" expanded="true" signature="1653:4737" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
-            <marker date="1400615650860" expanded="false" signature="4749:5313" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/cz/cvut/ds/student17/view/ListCustomers.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="607" max-vertical-offset="1530">
-          <caret line="74" column="26" selection-start-line="74" selection-start-column="26" selection-end-line="74" selection-end-column="26" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/cz/cvut/ds/student17/view/AddDeviceForm.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="1004" max-vertical-offset="1785">
           <caret line="107" column="26" selection-start-line="107" selection-start-column="26" selection-end-line="107" selection-end-column="26" />
-          <folding>
-            <marker date="1400615784654" expanded="false" signature="3698:7347" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
-            <marker date="1400615784654" expanded="false" signature="7359:7983" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1388,21 +1145,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="357" max-vertical-offset="1207">
           <caret line="62" column="26" selection-start-line="62" selection-start-column="26" selection-end-line="62" selection-end-column="26" />
-          <folding>
-            <marker date="1400615800440" expanded="false" signature="2153:5541" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
-            <marker date="1400615800440" expanded="false" signature="5553:5987" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/cz/cvut/ds/student17/view/AddVictimForm.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="305" max-vertical-offset="1326">
-          <caret line="53" column="0" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
-          <folding>
-            <marker date="1400615814598" expanded="false" signature="2475:6518" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
-            <marker date="1400615814598" expanded="false" signature="6530:7179" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1410,24 +1153,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="510">
           <caret line="21" column="18" selection-start-line="21" selection-start-column="18" selection-end-line="21" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/cz/cvut/ds/student17/view/EditCustomerForm.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="323" max-vertical-offset="1598">
-          <caret line="67" column="26" selection-start-line="67" selection-start-column="26" selection-end-line="67" selection-end-column="26" />
-          <folding>
-            <element signature="e#3414#3586#0" expanded="true" />
-            <element signature="e#3584#3585#0" expanded="true" />
-            <element signature="e#5206#5397#0" expanded="true" />
-            <element signature="e#5382#5383#0" expanded="true" />
-            <element signature="e#5620#5813#0" expanded="true" />
-            <element signature="e#5798#5799#0" expanded="true" />
-            <marker date="1400615758832" expanded="false" signature="2255:6198" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
-            <marker date="1400615758832" expanded="true" signature="6210:6808" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1435,16 +1160,386 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="731">
           <caret line="16" column="8" selection-start-line="16" selection-start-column="8" selection-end-line="28" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="dbDummy://dbtable:/4a801fa4/00605268-7679-4460-9fcc-26750cfd89a2/student_db13_17.public.formtyp">
+      <provider editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="102">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="com.intellij.persistence.database.editor.DatabaseTableFileEditorProvider">
+        <state />
+      </provider>
+    </entry>
+    <entry file="dbDummy://dbtable:/4a801fa4/00605268-7679-4460-9fcc-26750cfd89a2/student_db13_17.public.experiment">
+      <provider editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="952">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="com.intellij.persistence.database.editor.DatabaseTableFileEditorProvider">
+        <state />
+      </provider>
+    </entry>
+    <entry file="dbDummy://db-console:/4a801fa4/00605268-7679-4460-9fcc-26750cfd89a2/">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.1724138" vertical-offset="0" max-vertical-offset="136">
+          <caret line="2" column="45" selection-start-line="2" selection-start-column="45" selection-end-line="2" selection-end-column="106" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://DATABASE/dc03c444-e752-4796-9910-061bfdd43b85.table:student_db13_17.public.is1_customer">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>DATABASE</ID>
+          <OriginalElement>dc03c444-e752-4796-9910-061bfdd43b85.table:student_db13_17.public.is1_customer</OriginalElement>
+          <nodes>
+            <node x="530.3499999999999" y="468.5">dc03c444-e752-4796-9910-061bfdd43b85.table:student_db13_17.public.is1_device_feature</node>
+            <node x="914.8166666666666" y="30.0">dc03c444-e752-4796-9910-061bfdd43b85.table:student_db13_17.public.is1_form_type</node>
+            <node x="836.0" y="229.0">dc03c444-e752-4796-9910-061bfdd43b85.table:student_db13_17.public.is1_feature</node>
+            <node x="770.025" y="468.5">dc03c444-e752-4796-9910-061bfdd43b85.table:student_db13_17.public.is1_feature_experiment</node>
+            <node x="420.0" y="219.0">dc03c444-e752-4796-9910-061bfdd43b85.table:student_db13_17.public.is1_device</node>
+            <node x="588.0" y="179.0">dc03c444-e752-4796-9910-061bfdd43b85.table:student_db13_17.public.is1_experiment</node>
+            <node x="177.0" y="179.0">dc03c444-e752-4796-9910-061bfdd43b85.table:student_db13_17.public.is1_victim</node>
+            <node x="617.775" y="647.0">dc03c444-e752-4796-9910-061bfdd43b85.table:student_db13_17.public.is1_results</node>
+            <node x="970.5666666666666" y="448.0">dc03c444-e752-4796-9910-061bfdd43b85.table:student_db13_17.public.is1_form_structure</node>
+            <node x="405.0666666666666" y="0.0">dc03c444-e752-4796-9910-061bfdd43b85.table:student_db13_17.public.is1_customer</node>
+            <node x="616.0666666666666" y="40.5">dc03c444-e752-4796-9910-061bfdd43b85.table:student_db13_17.public.is1_experiment_status</node>
+            <node x="0.0" y="219.0">dc03c444-e752-4796-9910-061bfdd43b85.table:student_db13_17.public.is1_room</node>
+            <node x="1012.3166666666666" y="229.0">dc03c444-e752-4796-9910-061bfdd43b85.table:student_db13_17.public.is1_form_structure_type</node>
+            <node x="201.3166666666666" y="408.0">dc03c444-e752-4796-9910-061bfdd43b85.table:student_db13_17.public.is1_trial</node>
+          </nodes>
+          <notes />
+          <edges>
+            <edge source="dc03c444-e752-4796-9910-061bfdd43b85.table:student_db13_17.public.is1_feature_experiment" target="dc03c444-e752-4796-9910-061bfdd43b85.table:student_db13_17.public.is1_experiment">
+              <point x="-37.25" y="-34.0" />
+              <point x="807.275" y="378.0" />
+              <point x="759.0" y="378.0" />
+              <point x="57.0" y="84.5" />
+            </edge>
+            <edge source="dc03c444-e752-4796-9910-061bfdd43b85.table:student_db13_17.public.is1_device_feature" target="dc03c444-e752-4796-9910-061bfdd43b85.table:student_db13_17.public.is1_device">
+              <point x="-32.0" y="-34.0" />
+              <point x="562.3499999999999" y="368.0" />
+              <point x="531.0" y="368.0" />
+              <point x="37.0" y="44.5" />
+            </edge>
+            <edge source="dc03c444-e752-4796-9910-061bfdd43b85.table:student_db13_17.public.is1_trial" target="dc03c444-e752-4796-9910-061bfdd43b85.table:student_db13_17.public.is1_device">
+              <point x="31.25" y="-94.5" />
+              <point x="357.5666666666666" y="368.0" />
+              <point x="457.0" y="368.0" />
+              <point x="-37.0" y="44.5" />
+            </edge>
+            <edge source="dc03c444-e752-4796-9910-061bfdd43b85.table:student_db13_17.public.is1_results" target="dc03c444-e752-4796-9910-061bfdd43b85.table:student_db13_17.public.is1_form_structure">
+              <point x="37.5" y="-44.5" />
+              <point x="730.275" y="622.0" />
+              <point x="1049.0666666666666" y="622.0" />
+              <point x="0.0" y="54.5" />
+            </edge>
+            <edge source="dc03c444-e752-4796-9910-061bfdd43b85.table:student_db13_17.public.is1_experiment" target="dc03c444-e752-4796-9910-061bfdd43b85.table:student_db13_17.public.is1_form_type">
+              <point x="76.0" y="-84.5" />
+              <point x="778.0" y="154.0" />
+              <point x="943.8166666666666" y="154.0" />
+              <point x="-29.0" y="34.5" />
+            </edge>
+            <edge source="dc03c444-e752-4796-9910-061bfdd43b85.table:student_db13_17.public.is1_trial" target="dc03c444-e752-4796-9910-061bfdd43b85.table:student_db13_17.public.is1_experiment">
+              <point x="93.75" y="-94.5" />
+              <point x="420.0666666666666" y="378.0" />
+              <point x="645.0" y="378.0" />
+              <point x="-57.0" y="84.5" />
+            </edge>
+            <edge source="dc03c444-e752-4796-9910-061bfdd43b85.table:student_db13_17.public.is1_trial" target="dc03c444-e752-4796-9910-061bfdd43b85.table:student_db13_17.public.is1_victim">
+              <point x="-31.25" y="-94.5" />
+              <point x="295.0666666666666" y="388.0" />
+              <point x="288.5" y="388.0" />
+              <point x="0.0" y="84.5" />
+            </edge>
+            <edge source="dc03c444-e752-4796-9910-061bfdd43b85.table:student_db13_17.public.is1_results" target="dc03c444-e752-4796-9910-061bfdd43b85.table:student_db13_17.public.is1_trial">
+              <point x="-37.5" y="-44.5" />
+              <point x="655.275" y="622.0" />
+              <point x="326.3166666666666" y="622.0" />
+              <point x="0.0" y="94.5" />
+            </edge>
+            <edge source="dc03c444-e752-4796-9910-061bfdd43b85.table:student_db13_17.public.is1_form_structure" target="dc03c444-e752-4796-9910-061bfdd43b85.table:student_db13_17.public.is1_form_type">
+              <point x="-39.25" y="-54.5" />
+              <point x="1009.8166666666666" y="388.0" />
+              <point x="1001.8166666666666" y="388.0" />
+              <point x="29.0" y="34.5" />
+            </edge>
+            <edge source="dc03c444-e752-4796-9910-061bfdd43b85.table:student_db13_17.public.is1_form_structure" target="dc03c444-e752-4796-9910-061bfdd43b85.table:student_db13_17.public.is1_form_structure_type">
+              <point x="39.25" y="-54.5" />
+              <point x="1088.3166666666666" y="388.0" />
+              <point x="1096.3166666666666" y="388.0" />
+              <point x="0.0" y="34.5" />
+            </edge>
+            <edge source="dc03c444-e752-4796-9910-061bfdd43b85.table:student_db13_17.public.is1_experiment" target="dc03c444-e752-4796-9910-061bfdd43b85.table:student_db13_17.public.is1_experiment_status">
+              <point x="0.0" y="-84.5" />
+              <point x="702.0" y="154.0" />
+              <point x="708.5666666666666" y="154.0" />
+              <point x="0.0" y="24.0" />
+            </edge>
+            <edge source="dc03c444-e752-4796-9910-061bfdd43b85.table:student_db13_17.public.is1_feature_experiment" target="dc03c444-e752-4796-9910-061bfdd43b85.table:student_db13_17.public.is1_feature">
+              <point x="37.25" y="-34.0" />
+              <point x="881.775" y="388.0" />
+              <point x="933.5" y="388.0" />
+              <point x="32.5" y="34.5" />
+            </edge>
+            <edge source="dc03c444-e752-4796-9910-061bfdd43b85.table:student_db13_17.public.is1_device_feature" target="dc03c444-e752-4796-9910-061bfdd43b85.table:student_db13_17.public.is1_feature">
+              <point x="32.0" y="-34.0" />
+              <point x="626.3499999999999" y="388.0" />
+              <point x="868.5" y="388.0" />
+              <point x="-32.5" y="34.5" />
+            </edge>
+            <edge source="dc03c444-e752-4796-9910-061bfdd43b85.table:student_db13_17.public.is1_experiment" target="dc03c444-e752-4796-9910-061bfdd43b85.table:student_db13_17.public.is1_customer">
+              <point x="-76.0" y="-84.5" />
+              <point x="626.0" y="154.0" />
+              <point x="500.5666666666666" y="154.0" />
+              <point x="0.0" y="64.5" />
+            </edge>
+            <edge source="dc03c444-e752-4796-9910-061bfdd43b85.table:student_db13_17.public.is1_trial" target="dc03c444-e752-4796-9910-061bfdd43b85.table:student_db13_17.public.is1_room">
+              <point x="-93.75" y="-94.5" />
+              <point x="232.5666666666666" y="388.0" />
+              <point x="78.5" y="388.0" />
+              <point x="0.0" y="44.5" />
+            </edge>
+          </edges>
+          <settings layout="Hierarchic Group" zoom="0.7768526228143214" x="298.9389067524116" y="171.6950696677385" />
+          <SelectedNodes>
+            <node>dc03c444-e752-4796-9910-061bfdd43b85.table:student_db13_17.public.is1_customer</node>
+            <node>dc03c444-e752-4796-9910-061bfdd43b85.table:student_db13_17.public.is1_trial</node>
+          </SelectedNodes>
+          <Categories>
+            <Category>Key columns</Category>
+            <Category>Columns</Category>
+          </Categories>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cz/cvut/ds/student17/model/ExperimentsFacade.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="68" max-vertical-offset="4267">
+          <caret line="35" column="41" selection-start-line="35" selection-start-column="41" selection-end-line="35" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cz/cvut/ds/student17/view/ListCustomers.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="107" max-vertical-offset="1105">
+          <caret line="55" column="82" selection-start-line="55" selection-start-column="82" selection-end-line="55" selection-end-column="82" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cz/cvut/ds/student17/entities/CustomerEntity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="34" max-vertical-offset="1360">
+          <caret line="8" column="33" selection-start-line="8" selection-start-column="33" selection-end-line="8" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cz/cvut/ds/student17/entities/DeviceEntity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1054">
+          <caret line="8" column="33" selection-start-line="8" selection-start-column="33" selection-end-line="8" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cz/cvut/ds/student17/entities/DeviceFeatureEntity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1037">
+          <caret line="18" column="123" selection-start-line="18" selection-start-column="123" selection-end-line="18" selection-end-column="123" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cz/cvut/ds/student17/entities/DeviceFeatureEntityPK.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="833">
+          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cz/cvut/ds/student17/entities/ExperimentEntity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="187" max-vertical-offset="1632">
+          <caret line="28" column="131" selection-start-line="28" selection-start-column="131" selection-end-line="28" selection-end-column="131" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cz/cvut/ds/student17/entities/ExperimentStatusEntity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="663">
+          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cz/cvut/ds/student17/entities/FeatureEntity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="901">
+          <caret line="12" column="73" selection-start-line="12" selection-start-column="73" selection-end-line="12" selection-end-column="73" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cz/cvut/ds/student17/entities/FeatureExperimentEntity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="884">
+          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cz/cvut/ds/student17/entities/FeatureExperimentEntityPK.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="833">
+          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cz/cvut/ds/student17/entities/FormStructureEntity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="119" max-vertical-offset="1020">
+          <caret line="19" column="120" selection-start-line="19" selection-start-column="120" selection-end-line="19" selection-end-column="120" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cz/cvut/ds/student17/entities/FormStructureTypeEntity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="867">
+          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cz/cvut/ds/student17/entities/FormTypeEntity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="901">
+          <caret line="12" column="82" selection-start-line="12" selection-start-column="82" selection-end-line="12" selection-end-column="82" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cz/cvut/ds/student17/entities/ResultsEntity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="153" max-vertical-offset="1156">
+          <caret line="21" column="126" selection-start-line="21" selection-start-column="126" selection-end-line="21" selection-end-column="126" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cz/cvut/ds/student17/entities/ResultsEntityPK.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="833">
+          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cz/cvut/ds/student17/entities/RoomEntity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1054">
+          <caret line="12" column="73" selection-start-line="12" selection-start-column="73" selection-end-line="12" selection-end-column="73" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cz/cvut/ds/student17/entities/TrialEntity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="187" max-vertical-offset="1343">
+          <caret line="26" column="122" selection-start-line="26" selection-start-column="122" selection-end-line="26" selection-end-column="122" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cz/cvut/ds/student17/entities/VictimEntity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="187" max-vertical-offset="1666">
+          <caret line="13" column="73" selection-start-line="13" selection-start-column="73" selection-end-line="13" selection-end-column="73" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cz/cvut/ds/student17/view/AddVictimForm.jfd">
+      <provider selected="true" editor-type-id="JFormDesigner">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cz/cvut/ds/student17/view/AddVictimForm.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1343">
+          <caret line="33" column="0" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <marker date="1400626319851" expanded="false" signature="2550:6950" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
+            <marker date="1400626319851" expanded="false" signature="6962:7693" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cz/cvut/ds/student17/view/AddCustomerForm.jfd">
+      <provider selected="true" editor-type-id="JFormDesigner">
+        <state />
+      </provider>
+      <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
+        <state />
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="996">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cz/cvut/ds/student17/view/EditCustomerForm.jfd">
+      <provider selected="true" editor-type-id="JFormDesigner">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cz/cvut/ds/student17/view/AddCustomerForm.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="29" max-vertical-offset="1105">
+          <caret line="50" column="26" selection-start-line="50" selection-start-column="26" selection-end-line="50" selection-end-column="26" />
+          <folding>
+            <marker date="1400626846690" expanded="false" signature="1782:5869" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
+            <marker date="1400626846690" expanded="false" signature="5881:6527" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cz/cvut/ds/student17/view/EditCustomerForm.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="867" max-vertical-offset="1649">
+          <caret line="24" column="30" selection-start-line="24" selection-start-column="30" selection-end-line="24" selection-end-column="30" />
+          <folding>
+            <element signature="e#3994#4166#0" expanded="true" />
+            <element signature="e#4164#4165#0" expanded="true" />
+            <element signature="e#6072#6263#0" expanded="true" />
+            <element signature="e#6248#6249#0" expanded="true" />
+            <element signature="e#6486#6679#0" expanded="true" />
+            <element signature="e#6664#6665#0" expanded="true" />
+            <element signature="e#6904#7097#0" expanded="true" />
+            <element signature="e#7082#7083#0" expanded="true" />
+            <marker date="1400626668690" expanded="false" signature="2745:7303" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
+            <marker date="1400626668690" expanded="false" signature="7315:7995" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/cz/cvut/ds/student17/view/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.62041885" vertical-offset="257" max-vertical-offset="3128">
-          <caret line="55" column="0" selection-start-line="55" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.7120419" vertical-offset="510" max-vertical-offset="3128">
+          <caret line="74" column="61" selection-start-line="74" selection-start-column="61" selection-end-line="74" selection-end-column="61" />
           <folding />
         </state>
       </provider>

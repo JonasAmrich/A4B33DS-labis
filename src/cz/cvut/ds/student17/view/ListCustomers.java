@@ -36,8 +36,8 @@ public class ListCustomers extends JPanel{
     private ExperimentsFacade facade;
     private JFrame frame;
     private Container cont;
-    private JTable table;
-    private JScrollPane scrollpane;
+    private WebTable table;
+    private WebScrollPane scrollpane;
     ListTableModel customersModel;
     List<CustomerEntity> lce;
     private Object[][] data;
@@ -49,23 +49,24 @@ public class ListCustomers extends JPanel{
     }
     private void initComponents(){
         ResourceBundle bundle = ResourceBundle.getBundle("Application");
-        String header[] = {"Id", "Name", "Email","Phone"};
+        String header[] = {"Id", "Last Name","First Name", "Email","Phone"};
         customersModel = new ListTableModel(data,header);
         lce = facade.getAvailableEntities(CustomerEntity.class);
         for(CustomerEntity ent : lce){
-            Object[] row = {ent.getIdCust(), ent.getName(),ent.getEmail(),ent.getPhone()};
+            Object[] row = {ent.getIdCust(), ent.getLastName(),ent.getFirstName(),ent.getEmail(),ent.getPhone()};
             //,ent.getExperimentsByIdCust().size()
              //not efficient - jpa gets all experiments and then it  count them in java
-            System.out.println(ent.getName());
+            System.out.println(ent.getLastName());
             customersModel.addRow(row);
         }
 
 
-        table = new JTable(customersModel);
+        table = new WebTable(customersModel);
         table.setColumnSelectionAllowed(false);
         table.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
-        scrollpane = new JScrollPane(table);
-        //scrollpane.setPreferredSize(new Dimension(400, 650));
+        table.setPreferredSize(new Dimension(370, 360));
+        scrollpane = new WebScrollPane(table);
+        scrollpane.setPreferredSize(new Dimension(400, 380));
         scrollpane.setViewportView(table);
         //add(scrollpane, CC.xy(5, 5, CC.DEFAULT, CC.FILL));
         this.add(scrollpane, BorderLayout.CENTER);

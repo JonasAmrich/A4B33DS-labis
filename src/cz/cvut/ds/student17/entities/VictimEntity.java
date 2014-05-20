@@ -2,22 +2,24 @@ package cz.cvut.ds.student17.entities;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
-import java.util.Collection;
 
 /**
- * Created by V on 7.5.2014.
+ * Created by V on 21.5.2014.
  */
 @Entity
-@SequenceGenerator(name="seq_victim",  sequenceName="seq_victim", initialValue=1, allocationSize=5)
-@Table(name = "victim", schema = "public", catalog = "student_db13_17")
+@SequenceGenerator(name="seq_is1_victim",  sequenceName="seq_is1_victim", initialValue=1, allocationSize=5)
+@Table(name = "is1_victim", schema = "public", catalog = "student_db13_17")
 public class VictimEntity {
     @Id
-    @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="seq_victim")
+    @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="seq_is1_victim")
     @Column(name = "id_vic", nullable = false, insertable = true, updatable = true)
     private int idVic;
     @Basic
-    @Column(name = "name", nullable = false, insertable = true, updatable = true, length = 2147483647)
-    private String name;
+    @Column(name = "last_name", nullable = false, insertable = true, updatable = true, length = 2147483647)
+    private String lastName;
+    @Basic
+    @Column(name = "first_name", nullable = true, insertable = true, updatable = true, length = 2147483647)
+    private String firstName;
     @Basic
     @Column(name = "email", nullable = true, insertable = true, updatable = true, length = 2147483647)
     private String email;
@@ -30,8 +32,6 @@ public class VictimEntity {
     @Basic
     @Column(name = "credits", nullable = false, insertable = true, updatable = true)
     private int credits;
-    @OneToMany(mappedBy = "victimByIdVic")
-    private Collection<TrialEntity> trialsByIdVic;
 
     public int getIdVic() {
         return idVic;
@@ -41,12 +41,20 @@ public class VictimEntity {
         this.idVic = idVic;
     }
 
-    public String getName() {
-        return name;
+    public String getLastName() {
+        return lastName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
     public String getEmail() {
@@ -92,7 +100,8 @@ public class VictimEntity {
         if (idVic != that.idVic) return false;
         if (birthDate != null ? !birthDate.equals(that.birthDate) : that.birthDate != null) return false;
         if (email != null ? !email.equals(that.email) : that.email != null) return false;
-        if (name != null ? !name.equals(that.name) : that.name != null) return false;
+        if (firstName != null ? !firstName.equals(that.firstName) : that.firstName != null) return false;
+        if (lastName != null ? !lastName.equals(that.lastName) : that.lastName != null) return false;
         if (phone != null ? !phone.equals(that.phone) : that.phone != null) return false;
 
         return true;
@@ -101,19 +110,12 @@ public class VictimEntity {
     @Override
     public int hashCode() {
         int result = idVic;
-        result = 31 * result + (name != null ? name.hashCode() : 0);
+        result = 31 * result + (lastName != null ? lastName.hashCode() : 0);
+        result = 31 * result + (firstName != null ? firstName.hashCode() : 0);
         result = 31 * result + (email != null ? email.hashCode() : 0);
         result = 31 * result + (phone != null ? phone.hashCode() : 0);
         result = 31 * result + (birthDate != null ? birthDate.hashCode() : 0);
         result = 31 * result + credits;
         return result;
-    }
-
-    public Collection<TrialEntity> getTrialsByIdVic() {
-        return trialsByIdVic;
-    }
-
-    public void setTrialsByIdVic(Collection<TrialEntity> trialsByIdVic) {
-        this.trialsByIdVic = trialsByIdVic;
     }
 }

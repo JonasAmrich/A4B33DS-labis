@@ -3,10 +3,10 @@ package cz.cvut.ds.student17.entities;
 import javax.persistence.*;
 
 /**
- * Created by V on 7.5.2014.
+ * Created by V on 21.5.2014.
  */
 @Entity
-@Table(name = "results", schema = "public", catalog = "student_db13_17")
+@Table(name = "is1_results", schema = "public", catalog = "student_db13_17")
 @IdClass(ResultsEntityPK.class)
 public class ResultsEntity {
     @Id
@@ -19,13 +19,8 @@ public class ResultsEntity {
     @Column(name = "res_value", nullable = true, insertable = true, updatable = true, length = 2147483647)
     private String resValue;
     @ManyToOne
-    @JoinColumn(name = "id_fs", referencedColumnName = "id_fs", nullable = false, insertable =  false, updatable = false)
-    //@JoinColumn(name = "id_fs", referencedColumnName = "id_fs", nullable = false)
-    private FormstructEntity formstructByIdFs;
-    @ManyToOne
-    //@JoinColumn(name = "id_trial", referencedColumnName = "id_trial", nullable = false)
     @JoinColumn(name = "id_trial", referencedColumnName = "id_trial", nullable = false, insertable =  false, updatable = false)
-    private TrialEntity trialByIdTrial;
+    private TrialEntity is1TrialByIdTrial;
 
     public int getIdTrial() {
         return idTrial;
@@ -73,19 +68,11 @@ public class ResultsEntity {
         return result;
     }
 
-    public FormstructEntity getFormstructByIdFs() {
-        return formstructByIdFs;
+    public TrialEntity getIs1TrialByIdTrial() {
+        return is1TrialByIdTrial;
     }
 
-    public void setFormstructByIdFs(FormstructEntity formstructByIdFs) {
-        this.formstructByIdFs = formstructByIdFs;
-    }
-
-    public TrialEntity getTrialByIdTrial() {
-        return trialByIdTrial;
-    }
-
-    public void setTrialByIdTrial(TrialEntity trialByIdTrial) {
-        this.trialByIdTrial = trialByIdTrial;
+    public void setIs1TrialByIdTrial(TrialEntity is1TrialByIdTrial) {
+        this.is1TrialByIdTrial = is1TrialByIdTrial;
     }
 }

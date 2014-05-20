@@ -1,17 +1,16 @@
 package cz.cvut.ds.student17.entities;
 
 import javax.persistence.*;
-import java.util.Collection;
 
 /**
- * Created by V on 7.5.2014.
+ * Created by V on 21.5.2014.
  */
 @Entity
-@SequenceGenerator(name="seq_device",  sequenceName="seq_device", initialValue=1, allocationSize=5)
-@Table(name = "device", schema = "public", catalog = "student_db13_17")
+@SequenceGenerator(name="seq_is1_device",  sequenceName="seq_is1_device", initialValue=1, allocationSize=5)
+@Table(name = "is1_device", schema = "public", catalog = "student_db13_17")
 public class DeviceEntity {
     @Id
-    @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="seq_device")
+    @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="seq_is1_device")
     @Column(name = "id_dev", nullable = false, insertable = true, updatable = true)
     private int idDev;
     @Basic
@@ -20,10 +19,6 @@ public class DeviceEntity {
     @Basic
     @Column(name = "description", nullable = true, insertable = true, updatable = true, length = 2147483647)
     private String description;
-    @OneToMany(mappedBy = "deviceByIdDev")
-    private Collection<DevFeatEntity> devFeatsByIdDev;
-    @OneToMany(mappedBy = "deviceByIdDev")
-    private Collection<TrialEntity> trialsByIdDev;
 
     public int getIdDev() {
         return idDev;
@@ -69,21 +64,5 @@ public class DeviceEntity {
         result = 31 * result + (title != null ? title.hashCode() : 0);
         result = 31 * result + (description != null ? description.hashCode() : 0);
         return result;
-    }
-
-    public Collection<DevFeatEntity> getDevFeatsByIdDev() {
-        return devFeatsByIdDev;
-    }
-
-    public void setDevFeatsByIdDev(Collection<DevFeatEntity> devFeatsByIdDev) {
-        this.devFeatsByIdDev = devFeatsByIdDev;
-    }
-
-    public Collection<TrialEntity> getTrialsByIdDev() {
-        return trialsByIdDev;
-    }
-
-    public void setTrialsByIdDev(Collection<TrialEntity> trialsByIdDev) {
-        this.trialsByIdDev = trialsByIdDev;
     }
 }

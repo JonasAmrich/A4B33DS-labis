@@ -28,11 +28,12 @@ public class AddCustomerForm extends JPanel {
         initComponents();
     }
     private void saveButtonActionPerformed(ActionEvent e) {
-        String name = nameField.getText();
+        String lastName = lastNameField.getText();
+        String firstName = firstNameField.getText();
         String phone = phoneField.getText();
         String email = emailField.getText();
         try {
-            facade.addCustomer(name,phone,email);
+            facade.addCustomer(firstName,lastName,phone,email);
         }catch(DatabaseException ex) {
             showError();
             return;
@@ -40,12 +41,14 @@ public class AddCustomerForm extends JPanel {
 
         }
         cont.remove(this);
+        cont.putDefault();
         cont.revalidate();
         cont.repaint();
     }
 
     private void cancelButtonActionPerformed(ActionEvent e) {
         cont.remove(this);
+        cont.putDefault();
         cont.revalidate();
         cont.repaint();
     }
@@ -63,8 +66,10 @@ public class AddCustomerForm extends JPanel {
         ResourceBundle bundle = ResourceBundle.getBundle("Application");
         form = new JPanel();
         this2 = new JPanel();
-        nameLabel = new JLabel();
-        nameField = new JTextField();
+        firstNameLabel = new JLabel();
+        firstNameField = new JTextField();
+        lastNameLabel = new JLabel();
+        lastNameField = new JTextField();
         emailLabel = new JLabel();
         emailField = new JTextField();
         phoneLabel = new JLabel();
@@ -75,10 +80,16 @@ public class AddCustomerForm extends JPanel {
 
         //======== this ========
 
+        // JFormDesigner evaluation mark
+        setBorder(new javax.swing.border.CompoundBorder(
+            new javax.swing.border.TitledBorder(new javax.swing.border.EmptyBorder(0, 0, 0, 0),
+                "JFormDesigner Evaluation", javax.swing.border.TitledBorder.CENTER,
+                javax.swing.border.TitledBorder.BOTTOM, new java.awt.Font("Dialog", java.awt.Font.BOLD, 12),
+                java.awt.Color.red), getBorder())); addPropertyChangeListener(new java.beans.PropertyChangeListener(){public void propertyChange(java.beans.PropertyChangeEvent e){if("border".equals(e.getPropertyName()))throw new RuntimeException();}});
 
         setLayout(new FormLayout(
             "2*(default)",
-            "2*(default, $lgap), default"));
+            "3*(default, $lgap), default"));
 
         //======== form ========
         {
@@ -92,10 +103,15 @@ public class AddCustomerForm extends JPanel {
                     "2*(default, $lcgap), 93dlu",
                     "4*(default, $lgap), default"));
 
-                //---- nameLabel ----
-                nameLabel.setText(bundle.getString("AddCustomerForm.nameLabel.text"));
-                this2.add(nameLabel, CC.xywh(3, 3, 3, 1));
-                this2.add(nameField, CC.xy(5, 3));
+                //---- firstNameLabel ----
+                firstNameLabel.setText(bundle.getString("AddCustomerForm.firstNameLabel.text"));
+                this2.add(firstNameLabel, CC.xy(3, 1));
+                this2.add(firstNameField, CC.xy(5, 1));
+
+                //---- lastNameLabel ----
+                lastNameLabel.setText(bundle.getString("AddCustomerForm.lastNameLabel.text"));
+                this2.add(lastNameLabel, CC.xywh(3, 3, 3, 1));
+                this2.add(lastNameField, CC.xy(5, 3));
 
                 //---- emailLabel ----
                 emailLabel.setText(bundle.getString("AddCustomerForm.emailLabel.text"));
@@ -109,7 +125,7 @@ public class AddCustomerForm extends JPanel {
             }
             form.add(this2, CC.xy(1, 1));
         }
-        add(form, CC.xy(2, 3));
+        add(form, CC.xy(2, 5));
 
         //======== buttons ========
         {
@@ -137,7 +153,7 @@ public class AddCustomerForm extends JPanel {
             });
             buttons.add(cancelButton, CC.xy(3, 1));
         }
-        add(buttons, CC.xy(2, 5, CC.RIGHT, CC.DEFAULT));
+        add(buttons, CC.xy(2, 7, CC.RIGHT, CC.DEFAULT));
         // JFormDesigner - End of component initialization  //GEN-END:initComponents
     }
 
@@ -145,8 +161,10 @@ public class AddCustomerForm extends JPanel {
     // Generated using JFormDesigner Evaluation license - Ptero Bacter
     private JPanel form;
     private JPanel this2;
-    private JLabel nameLabel;
-    private JTextField nameField;
+    private JLabel firstNameLabel;
+    private JTextField firstNameField;
+    private JLabel lastNameLabel;
+    private JTextField lastNameField;
     private JLabel emailLabel;
     private JTextField emailField;
     private JLabel phoneLabel;

@@ -22,15 +22,28 @@ new FormModel {
 				} ) {
 					name: "this2"
 					add( new FormComponent( "javax.swing.JLabel" ) {
-						name: "nameLabel"
-						"text": new FormMessage( null, "AddVictim.nameLabel.text" )
+						name: "firstNameLabel"
+						"text": new FormMessage( null, "AddVictim.firstNameLabel.text" )
+					}, new FormLayoutConstraints( class com.jgoodies.forms.layout.CellConstraints ) {
+						"gridX": 3
+						"gridY": 1
+					} )
+					add( new FormComponent( "javax.swing.JTextField" ) {
+						name: "firstNameField"
+					}, new FormLayoutConstraints( class com.jgoodies.forms.layout.CellConstraints ) {
+						"gridX": 5
+						"gridY": 1
+					} )
+					add( new FormComponent( "javax.swing.JLabel" ) {
+						name: "lastNameLabel"
+						"text": new FormMessage( null, "AddVictim.lastNameLabel.text" )
 					}, new FormLayoutConstraints( class com.jgoodies.forms.layout.CellConstraints ) {
 						"gridWidth": 3
 						"gridX": 3
 						"gridY": 3
 					} )
 					add( new FormComponent( "javax.swing.JTextField" ) {
-						name: "nameField"
+						name: "lastNameField"
 					}, new FormLayoutConstraints( class com.jgoodies.forms.layout.CellConstraints ) {
 						"gridX": 5
 						"gridY": 3

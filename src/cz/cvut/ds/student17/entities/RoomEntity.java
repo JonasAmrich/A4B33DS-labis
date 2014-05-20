@@ -1,17 +1,16 @@
 package cz.cvut.ds.student17.entities;
 
 import javax.persistence.*;
-import java.util.Collection;
 
 /**
- * Created by V on 7.5.2014.
+ * Created by V on 21.5.2014.
  */
 @Entity
-@SequenceGenerator(name="seq_room",  sequenceName="seq_room", initialValue=1, allocationSize=5)
-@Table(name = "room", schema = "public", catalog = "student_db13_17")
+@SequenceGenerator(name="seq_is1_room",  sequenceName="seq_is1_room", initialValue=1, allocationSize=5)
+@Table(name = "is1_room", schema = "public", catalog = "student_db13_17")
 public class RoomEntity {
     @Id
-    @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="seq_room")
+    @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="seq_is1_room")
     @Column(name = "id_room", nullable = false, insertable = true, updatable = true)
     private int idRoom;
     @Basic
@@ -20,8 +19,6 @@ public class RoomEntity {
     @Basic
     @Column(name = "code", nullable = true, insertable = true, updatable = true, length = 50)
     private String code;
-    @OneToMany(mappedBy = "roomByIdRoom")
-    private Collection<TrialEntity> trialsByIdRoom;
 
     public int getIdRoom() {
         return idRoom;
@@ -67,13 +64,5 @@ public class RoomEntity {
         result = 31 * result + (name != null ? name.hashCode() : 0);
         result = 31 * result + (code != null ? code.hashCode() : 0);
         return result;
-    }
-
-    public Collection<TrialEntity> getTrialsByIdRoom() {
-        return trialsByIdRoom;
-    }
-
-    public void setTrialsByIdRoom(Collection<TrialEntity> trialsByIdRoom) {
-        this.trialsByIdRoom = trialsByIdRoom;
     }
 }

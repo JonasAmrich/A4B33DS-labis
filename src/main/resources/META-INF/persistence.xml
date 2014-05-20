@@ -17,6 +17,20 @@
         <class>cz.cvut.ds.student17.entities.RoomEntity</class>
         <class>cz.cvut.ds.student17.entities.TrialEntity</class>
         <class>cz.cvut.ds.student17.entities.VictimEntity</class>
+        <class>cz.cvut.ds.student17.entities.CustomerEntity</class>
+        <class>cz.cvut.ds.student17.entities.DeviceEntity</class>
+        <class>cz.cvut.ds.student17.entities.DeviceFeatureEntity</class>
+        <class>cz.cvut.ds.student17.entities.ExperimentEntity</class>
+        <class>cz.cvut.ds.student17.entities.ExperimentStatusEntity</class>
+        <class>cz.cvut.ds.student17.entities.FeatureEntity</class>
+        <class>cz.cvut.ds.student17.entities.FeatureExperimentEntity</class>
+        <class>cz.cvut.ds.student17.entities.FormStructureEntity</class>
+        <class>cz.cvut.ds.student17.entities.FormStructureTypeEntity</class>
+        <class>cz.cvut.ds.student17.entities.FormTypeEntity</class>
+        <class>cz.cvut.ds.student17.entities.ResultsEntity</class>
+        <class>cz.cvut.ds.student17.entities.RoomEntity</class>
+        <class>cz.cvut.ds.student17.entities.TrialEntity</class>
+        <class>cz.cvut.ds.student17.entities.VictimEntity</class>
         <properties>
             <property name="toplink.jdbc.url" value="jdbc:postgresql://krizik.felk.cvut.cz:5434/student_db13_17"/>
             <property name="toplink.jdbc.driver" value="org.postgresql.Driver"/>

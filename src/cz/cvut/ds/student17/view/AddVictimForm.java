@@ -34,7 +34,8 @@ public class AddVictimForm extends JPanel {
 
     private void saveButtonActionPerformed(ActionEvent e) {
         birthdateFormattedField.setBackground(Color.white);
-        String name = nameField.getText();
+        String lastName = lastNameField.getText();
+        String firstName = firstNameField.getText();
         String phone = phoneField.getText();
         String email = emailField.getText();
         try {
@@ -43,7 +44,7 @@ public class AddVictimForm extends JPanel {
             Timestamp t = new Timestamp(formatter.parse(date).getTime());
 
             try {
-                facade.addVictim(name,phone,email,t);
+                facade.addVictim(firstName,lastName,phone,email,t);
             }catch(DatabaseException ex) {
                 System.out.println("Error occurred.");
                 JOptionPane.showMessageDialog(frame,
@@ -84,8 +85,10 @@ public class AddVictimForm extends JPanel {
         ResourceBundle bundle = ResourceBundle.getBundle("Application");
         form = new JPanel();
         this2 = new JPanel();
-        nameLabel = new JLabel();
-        nameField = new JTextField();
+        firstNameLabel = new JLabel();
+        firstNameField = new JTextField();
+        lastNameLabel = new JLabel();
+        lastNameField = new JTextField();
         emailLabel = new JLabel();
         emailField = new JTextField();
         phoneLabel = new JLabel();
@@ -121,10 +124,15 @@ public class AddVictimForm extends JPanel {
                     "2*(default, $lcgap), 93dlu",
                     "4*(default, $lgap), default"));
 
-                //---- nameLabel ----
-                nameLabel.setText(bundle.getString("AddVictim.nameLabel.text"));
-                this2.add(nameLabel, CC.xywh(3, 3, 3, 1));
-                this2.add(nameField, CC.xy(5, 3));
+                //---- firstNameLabel ----
+                firstNameLabel.setText(bundle.getString("AddVictim.firstNameLabel.text"));
+                this2.add(firstNameLabel, CC.xy(3, 1));
+                this2.add(firstNameField, CC.xy(5, 1));
+
+                //---- lastNameLabel ----
+                lastNameLabel.setText(bundle.getString("AddVictim.lastNameLabel.text"));
+                this2.add(lastNameLabel, CC.xywh(3, 3, 3, 1));
+                this2.add(lastNameField, CC.xy(5, 3));
 
                 //---- emailLabel ----
                 emailLabel.setText(bundle.getString("AddVictim.emailLabel.text"));
@@ -179,8 +187,10 @@ public class AddVictimForm extends JPanel {
     // Generated using JFormDesigner Evaluation license - Ptero Bacter
     private JPanel form;
     private JPanel this2;
-    private JLabel nameLabel;
-    private JTextField nameField;
+    private JLabel firstNameLabel;
+    private JTextField firstNameField;
+    private JLabel lastNameLabel;
+    private JTextField lastNameField;
     private JLabel emailLabel;
     private JTextField emailField;
     private JLabel phoneLabel;

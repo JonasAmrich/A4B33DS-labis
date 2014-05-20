@@ -8,7 +8,7 @@ new FormModel {
 	root: new FormRoot {
 		add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class com.jgoodies.forms.layout.FormLayout ) {
 			"$rowSpecs": "default, linegap, default, linegap, default"
-			"$columnSpecs": "default, default"
+			"$columnSpecs": "default, 175dlu, default"
 		} ) {
 			name: "this"
 			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class com.jgoodies.forms.layout.FormLayout ) {
@@ -22,15 +22,28 @@ new FormModel {
 				} ) {
 					name: "this2"
 					add( new FormComponent( "javax.swing.JLabel" ) {
-						name: "nameLabel"
-						"text": new FormMessage( null, "AddCustomerForm.nameLabel.text" )
+						name: "firstNameLabel"
+						"text": new FormMessage( null, "AddCustomerForm.firstNameLabel.text" )
+					}, new FormLayoutConstraints( class com.jgoodies.forms.layout.CellConstraints ) {
+						"gridX": 3
+						"gridY": 1
+					} )
+					add( new FormComponent( "javax.swing.JTextField" ) {
+						name: "firstNameField"
+					}, new FormLayoutConstraints( class com.jgoodies.forms.layout.CellConstraints ) {
+						"gridX": 5
+						"gridY": 1
+					} )
+					add( new FormComponent( "javax.swing.JLabel" ) {
+						name: "lastNameLabel"
+						"text": new FormMessage( null, "AddCustomerForm.lastNameLabel.text" )
 					}, new FormLayoutConstraints( class com.jgoodies.forms.layout.CellConstraints ) {
 						"gridWidth": 3
 						"gridX": 3
 						"gridY": 3
 					} )
 					add( new FormComponent( "javax.swing.JTextField" ) {
-						name: "nameField"
+						name: "lastNameField"
 					}, new FormLayoutConstraints( class com.jgoodies.forms.layout.CellConstraints ) {
 						"gridX": 5
 						"gridY": 3
@@ -88,8 +101,9 @@ new FormModel {
 					"gridY": 1
 				} )
 				add( new FormComponent( "javax.swing.JButton" ) {
-					name: "deleteButton"
-					"text": new FormMessage( null, "AddCustomerForm.deleteButton.text" )
+					name: "removeButton"
+					"text": new FormMessage( null, "AddCustomerForm.removeButton.text" )
+					addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "removeButtonActionPerformed", true ) )
 				}, new FormLayoutConstraints( class com.jgoodies.forms.layout.CellConstraints ) {
 					"gridX": 5
 					"gridY": 1
@@ -100,8 +114,8 @@ new FormModel {
 				"hAlign": sfield com.jgoodies.forms.layout.CellConstraints RIGHT
 			} )
 		}, new FormLayoutConstraints( null ) {
-			"location": new java.awt.Point( 425, 65 )
-			"size": new java.awt.Dimension( 265, 220 )
+			"location": new java.awt.Point( 420, 60 )
+			"size": new java.awt.Dimension( 310, 220 )
 		} )
 	}
 }

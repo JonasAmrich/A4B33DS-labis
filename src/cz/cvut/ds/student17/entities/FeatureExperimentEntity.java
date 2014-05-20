@@ -1,18 +1,19 @@
 package cz.cvut.ds.student17.entities;
 
-import javax.persistence.Column;
-import javax.persistence.Id;
-import java.io.Serializable;
+import javax.persistence.*;
 
 /**
- * Created by V on 7.5.2014.
+ * Created by V on 21.5.2014.
  */
-public class FeatExpEntityPK implements Serializable {
+@Entity
+@Table(name = "is1_feature_experiment", schema = "public", catalog = "student_db13_17")
+@IdClass(FeatureExperimentEntityPK.class)
+public class FeatureExperimentEntity {
+    @Id
     @Column(name = "id_exp", nullable = false, insertable = true, updatable = true)
-    @Id
     private int idExp;
-    @Column(name = "id_feat", nullable = false, insertable = true, updatable = true)
     @Id
+    @Column(name = "id_feat", nullable = false, insertable = true, updatable = true)
     private int idFeat;
 
     public int getIdExp() {
@@ -36,7 +37,7 @@ public class FeatExpEntityPK implements Serializable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        FeatExpEntityPK that = (FeatExpEntityPK) o;
+        FeatureExperimentEntity that = (FeatureExperimentEntity) o;
 
         if (idExp != that.idExp) return false;
         if (idFeat != that.idFeat) return false;

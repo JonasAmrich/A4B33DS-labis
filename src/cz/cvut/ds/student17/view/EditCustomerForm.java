@@ -35,7 +35,8 @@ public class EditCustomerForm extends JPanel {
     private void fillWithCustomer(int id){
         try {
             ce = facade.getEntityById(CustomerEntity.class, id);
-            nameField.setText(ce.getName());
+            lastNameField.setText(ce.getLastName());
+            firstNameField.setText(ce.getFirstName());
             phoneField.setText(ce.getPhone());
             emailField.setText(ce.getEmail());
         } catch (Exception ex){
@@ -43,11 +44,13 @@ public class EditCustomerForm extends JPanel {
         }
     }
     private void saveButtonActionPerformed(ActionEvent e) {
-        String name = nameField.getText();
+        String lastName = lastNameField.getText();
+        String firstName = firstNameField.getText();
         String phone = phoneField.getText();
         String email = emailField.getText();
         ce.setPhone(phone);
-        ce.setName(name);
+        ce.setLastName(lastName);
+        ce.setFirstName(firstName);
         ce.setEmail(email);
         try {
             facade.updateCustomer(ce);
@@ -70,6 +73,20 @@ public class EditCustomerForm extends JPanel {
         cont.repaint();
     }
 
+    private void removeButtonActionPerformed(ActionEvent e) {
+        try {
+            facade.removeCustomer(ce);
+        }catch(DatabaseException ex) {
+            showError();
+            return;
+        }
+
+        cont.remove(this);
+        cont.putDefault();
+        cont.revalidate();
+        cont.repaint();
+    }
+
     private void showError(){
         System.out.println("Error occurred.");
         JOptionPane.showMessageDialog(frame,
@@ -83,8 +100,10 @@ public class EditCustomerForm extends JPanel {
         ResourceBundle bundle = ResourceBundle.getBundle("Application");
         form = new JPanel();
         this2 = new JPanel();
-        nameLabel = new JLabel();
-        nameField = new JTextField();
+        firstNameLabel = new JLabel();
+        firstNameField = new JTextField();
+        lastNameLabel = new JLabel();
+        lastNameField = new JTextField();
         emailLabel = new JLabel();
         emailField = new JTextField();
         phoneLabel = new JLabel();
@@ -92,7 +111,7 @@ public class EditCustomerForm extends JPanel {
         buttons = new JPanel();
         saveButton = new JButton();
         cancelButton = new JButton();
-        deleteButton = new JButton();
+        removeButton = new JButton();
 
         //======== this ========
 
@@ -104,7 +123,7 @@ public class EditCustomerForm extends JPanel {
                 java.awt.Color.red), getBorder())); addPropertyChangeListener(new java.beans.PropertyChangeListener(){public void propertyChange(java.beans.PropertyChangeEvent e){if("border".equals(e.getPropertyName()))throw new RuntimeException();}});
 
         setLayout(new FormLayout(
-            "2*(default)",
+            "default, 175dlu, default",
             "2*(default, $lgap), default"));
 
         //======== form ========
@@ -119,10 +138,15 @@ public class EditCustomerForm extends JPanel {
                     "2*(default, $lcgap), 93dlu",
                     "4*(default, $lgap), default"));
 
-                //---- nameLabel ----
-                nameLabel.setText(bundle.getString("AddCustomerForm.nameLabel.text"));
-                this2.add(nameLabel, CC.xywh(3, 3, 3, 1));
-                this2.add(nameField, CC.xy(5, 3));
+                //---- firstNameLabel ----
+                firstNameLabel.setText(bundle.getString("AddCustomerForm.firstNameLabel.text"));
+                this2.add(firstNameLabel, CC.xy(3, 1));
+                this2.add(firstNameField, CC.xy(5, 1));
+
+                //---- lastNameLabel ----
+                lastNameLabel.setText(bundle.getString("AddCustomerForm.lastNameLabel.text"));
+                this2.add(lastNameLabel, CC.xywh(3, 3, 3, 1));
+                this2.add(lastNameField, CC.xy(5, 3));
 
                 //---- emailLabel ----
                 emailLabel.setText(bundle.getString("AddCustomerForm.emailLabel.text"));
@@ -164,9 +188,15 @@ public class EditCustomerForm extends JPanel {
             });
             buttons.add(cancelButton, CC.xy(3, 1));
 
-            //---- deleteButton ----
-            deleteButton.setText(bundle.getString("AddCustomerForm.deleteButton.text"));
-            buttons.add(deleteButton, CC.xy(5, 1));
+            //---- removeButton ----
+            removeButton.setText(bundle.getString("AddCustomerForm.removeButton.text"));
+            removeButton.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    removeButtonActionPerformed(e);
+                }
+            });
+            buttons.add(removeButton, CC.xy(5, 1));
         }
         add(buttons, CC.xy(2, 5, CC.RIGHT, CC.DEFAULT));
         // JFormDesigner - End of component initialization  //GEN-END:initComponents
@@ -176,8 +206,10 @@ public class EditCustomerForm extends JPanel {
     // Generated using JFormDesigner Evaluation license - Ptero Bacter
     private JPanel form;
     private JPanel this2;
-    private JLabel nameLabel;
-    private JTextField nameField;
+    private JLabel firstNameLabel;
+    private JTextField firstNameField;
+    private JLabel lastNameLabel;
+    private JTextField lastNameField;
     private JLabel emailLabel;
     private JTextField emailField;
     private JLabel phoneLabel;
@@ -185,6 +217,6 @@ public class EditCustomerForm extends JPanel {
     private JPanel buttons;
     private JButton saveButton;
     private JButton cancelButton;
-    private JButton deleteButton;
+    private JButton removeButton;
     // JFormDesigner - End of variables declaration  //GEN-END:variables
 }

@@ -6,7 +6,7 @@
         <setting name="validation-enabled" value="true" />
         <setting name="provider-name" value="EclipseLink" />
         <datasource-mapping>
-          <factory-entry name="LabISKrizik" />
+          <factory-entry name="LabISKrizik" value="00605268-7679-4460-9fcc-26750cfd89a2" />
           <factory-entry name="NewPersistenceUnit" value="00605268-7679-4460-9fcc-26750cfd89a2" />
         </datasource-mapping>
         <deploymentDescriptor name="persistence.xml" url="file://$MODULE_DIR$/src/main/resources/META-INF/persistence.xml" />

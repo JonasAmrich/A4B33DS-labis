@@ -1,26 +1,21 @@
 package cz.cvut.ds.student17.entities;
 
 import javax.persistence.*;
-import java.util.Collection;
 
 /**
- * Created by V on 7.5.2014.
+ * Created by V on 21.5.2014.
  */
 @Entity
-@SequenceGenerator(name="seq_feature",  sequenceName="seq_feature", initialValue=1, allocationSize=5)
-@Table(name = "feature", schema = "public", catalog = "student_db13_17")
+@SequenceGenerator(name="seq_is1_feature",  sequenceName="seq_is1_feature", initialValue=1, allocationSize=5)
+@Table(name = "is1_feature", schema = "public", catalog = "student_db13_17")
 public class FeatureEntity {
     @Id
-    @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="seq_feature")
+    @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="seq_is1_feature")
     @Column(name = "id_feat", nullable = false, insertable = true, updatable = true)
     private int idFeat;
     @Basic
     @Column(name = "title", nullable = false, insertable = true, updatable = true, length = 2147483647)
     private String title;
-    @OneToMany(mappedBy = "featureByIdFeat")
-    private Collection<DevFeatEntity> devFeatsByIdFeat;
-    @OneToMany(mappedBy = "featureByIdFeat")
-    private Collection<FeatExpEntity> featExpsByIdFeat;
 
     public int getIdFeat() {
         return idFeat;
@@ -56,21 +51,5 @@ public class FeatureEntity {
         int result = idFeat;
         result = 31 * result + (title != null ? title.hashCode() : 0);
         return result;
-    }
-
-    public Collection<DevFeatEntity> getDevFeatsByIdFeat() {
-        return devFeatsByIdFeat;
-    }
-
-    public void setDevFeatsByIdFeat(Collection<DevFeatEntity> devFeatsByIdFeat) {
-        this.devFeatsByIdFeat = devFeatsByIdFeat;
-    }
-
-    public Collection<FeatExpEntity> getFeatExpsByIdFeat() {
-        return featExpsByIdFeat;
-    }
-
-    public void setFeatExpsByIdFeat(Collection<FeatExpEntity> featExpsByIdFeat) {
-        this.featExpsByIdFeat = featExpsByIdFeat;
     }
 }
