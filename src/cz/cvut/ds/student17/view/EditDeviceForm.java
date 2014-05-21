@@ -137,6 +137,23 @@ public class EditDeviceForm extends MyPanel {
         cont.revalidate();
         cont.repaint();
     }
+
+    private void removeButtonActionPerformed(ActionEvent e) {
+        try {
+            facade.removeDevice(de);
+        }catch(DatabaseException ex) {
+            showError();
+            return;
+        }
+
+        cont.remove(this);
+        previous.updateData();
+        cont.setCurrent(previous);
+        cont.add(cont.getCurrent());
+        cont.revalidate();
+        cont.repaint();
+    }
+
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
         // Generated using JFormDesigner Evaluation license - Ptero Bacter
@@ -220,6 +237,12 @@ public class EditDeviceForm extends MyPanel {
 
             //---- removeButton ----
             removeButton.setText(bundle.getString("AddDeviceForm.removeButton.text"));
+            removeButton.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    removeButtonActionPerformed(e);
+                }
+            });
             buttons.add(removeButton, CC.xy(5, 1));
         }
         add(buttons, CC.xy(5, 13, CC.RIGHT, CC.DEFAULT));

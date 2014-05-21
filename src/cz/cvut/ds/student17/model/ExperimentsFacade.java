@@ -13,6 +13,8 @@ import java.util.List;
 
 import cz.cvut.ds.student17.entities.*;
 import cz.cvut.ds.student17.exceptions.DatabaseException;
+import org.hibernate.FlushMode;
+import org.hibernate.Session;
 import org.hibernate.annotations.SourceType;
 
 /**
@@ -109,6 +111,24 @@ public class ExperimentsFacade {
 
         return results;
     }
+/*
+    public List<CustomerEntity> getEntitiesByIdHaving(int id, String column) throws Exception {
+        EntityManager entityManager = emf.createEntityManager();
+        CriteriaBuilder cb = entityManager.getCriteriaBuilder();
+
+        CriteriaQuery<CustomerEntity> query = cb.createQuery(CustomerEntity.class);
+        ParameterExpression<Integer> p = cb.parameter(Integer.class);
+        Root<CustomerEntity> sm = query.from(CustomerEntity.class);
+        query.select(sm.get("idCust"),cb.count(sm.get("idCust")));
+        query.groupBy(sm.get("idCust"),sm.get("statusCode"));
+        query.having(cb.equal(sm.get("statusCode"),"OK"));
+        TypedQuery<CustomerEntity> tq = entityManager.createQuery(query);
+        tq.setParameter(p, id);
+        List<T> results = tq.getResultList();
+        entityManager.close();
+
+        return results;
+    }*/
 
     public <T> T getFirstEntityById(Class entity, int id, String column) throws Exception {
         List<T> results = getEntitiesById(entity,id,column);
@@ -138,6 +158,40 @@ public class ExperimentsFacade {
         }
         return results.get(0);
 
+    }
+
+    public void addNewTrial(String animalStr, String colorStr, String nameStr) throws Exception {
+        EntityManager entityManager = emf.createEntityManager();
+        Session session = (Session) entityManager.getDelegate();
+        session.setFlushMode(FlushMode.MANUAL);
+        entityManager.getTransaction().begin();
+        TrialEntity te = new TrialEntity();
+        te.setIdExp(2);
+        te.setCost(10);
+        te.setIdVic(10);
+        entityManager.persist(te);
+        System.out.println(te.getIdTrial());
+        ResultsEntity animal = new ResultsEntity();
+        animal.setIdFs(2);
+        animal.setIdTrial(te.getIdTrial());
+        animal.setResValue(animalStr);
+        ResultsEntity color = new ResultsEntity();
+        color.setIdFs(1);
+        color.setIdTrial(te.getIdTrial());
+        color.setResValue(colorStr);
+        ResultsEntity name = new ResultsEntity();
+        name.setIdFs(3);
+        name.setIdTrial(te.getIdTrial());
+        name.setResValue(nameStr);
+        entityManager.persist(animal);
+        entityManager.persist(color);
+        entityManager.persist(name);
+        session.flush();
+
+        entityManager.getTransaction().commit();
+        entityManager.clear();
+        session.close();
+        System.out.println("Uoženo");
     }
 
     public void addCustomer(String firstName, String lastName, String phone, String email) throws DatabaseException{
@@ -243,6 +297,21 @@ public class ExperimentsFacade {
         entityManager.close();
 
     }
+    public void removeDevice(DeviceEntity de) throws DatabaseException {
+        EntityManager entityManager = emf.createEntityManager();
+        entityManager.getTransaction().begin();
+        try{
+            entityManager.remove(entityManager.contains(de) ? de : entityManager.merge(de));
+            System.out.println("Objekt "+de.getTitle() + "odstranen.");
+            entityManager.getTransaction().commit();
+        }catch(RollbackException e){
+            System.out.println("Database failed. Maybe this device is in a trial");
+            throw new DatabaseException();
+        }
+
+        entityManager.close();
+    }
+
     public void addFeature(String title) throws DatabaseException{
         EntityManager entityManager = emf.createEntityManager();
         entityManager.getTransaction().begin();

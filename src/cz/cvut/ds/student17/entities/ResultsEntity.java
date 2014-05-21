@@ -19,7 +19,7 @@ public class ResultsEntity {
     @Column(name = "res_value", nullable = true, insertable = true, updatable = true, length = 2147483647)
     private String resValue;
     @ManyToOne
-    @JoinColumn(name = "id_trial", referencedColumnName = "id_trial", nullable = false, insertable =  false, updatable = false)
+    @JoinColumn(name = "id_trial", referencedColumnName = "id_trial", nullable = false,insertable = false, updatable = false)
     private TrialEntity is1TrialByIdTrial;
 
     public int getIdTrial() {

@@ -39,6 +39,9 @@ public class Main {
     JMenuItem menuListDevices;
     JMenuItem menuListExperiments;
 
+    JMenu menuTest;
+    JMenuItem menuTestExample;
+    JMenuItem menuTestResults;
 
 
 
@@ -169,6 +172,28 @@ public class Main {
         menuList.add(menuListVictims);
         menuBar.add(menuList);
 
+        menuTest = new JMenu();
+        menuTest.setText("Test");
+        menuTestExample = new JMenuItem();
+        menuTestExample.setText("Example");
+        menuTestExample.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                menuTestExampleActionPerformed(e);
+            }
+        });
+        menuTest.add(menuTestExample);
+        menuTestResults = new JMenuItem();
+        menuTestResults.setText("Example results");
+        menuTestResults.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                menuTestExampleActionPerformed(e);
+            }
+        });
+        menuTest.add(menuTestResults);
+        menuBar.add(menuTest);
+
         //cont.add(menuBar, CC.xy(1, 1));
         //cont.add(new AddCustomerForm(facade,frame));
 
@@ -257,6 +282,15 @@ public class Main {
         cont.remove(cont.getCurrent());
         cont.hideDefault();
         cont.setCurrent(new ListExperiments(facade, frame,cont));
+        cont.add(cont.getCurrent());
+        cont.revalidate();
+        cont.repaint();
+        frame.pack();
+    }
+    private void menuTestExampleActionPerformed(ActionEvent e) {
+        cont.remove(cont.getCurrent());
+        cont.hideDefault();
+        cont.setCurrent(new TestExampleForm(facade, frame,cont,defaultPanel));
         cont.add(cont.getCurrent());
         cont.revalidate();
         cont.repaint();

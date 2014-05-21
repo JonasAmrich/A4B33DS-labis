@@ -23,12 +23,37 @@ public class TrialEntity {
     @Basic
     @Column(name = "cost", nullable = false, insertable = true, updatable = true)
     private int cost;
+
+    public int getIdVic() {
+        return idVic;
+    }
+
+    public void setIdVic(int idVic) {
+        this.idVic = idVic;
+    }
+
+    @Basic
+    @Column(name = "id_exp", nullable = false, insertable = true, updatable = true)
+    private int idExp;
+
+    public int getIdExp() {
+        return idExp;
+    }
+
+    public void setIdExp(int idExp) {
+        this.idExp = idExp;
+    }
+
+    @Basic
+    @Column(name = "id_vic", nullable = false, insertable = true, updatable = true)
+    private int idVic;
     @ManyToOne
     @JoinColumn(name = "id_vic", referencedColumnName = "id_vic", nullable = false, insertable =  false, updatable = false)
     private VictimEntity is1VictimByIdVic;
     @ManyToOne
     @JoinColumn(name = "id_room", referencedColumnName = "id_room", nullable = false, insertable =  false, updatable = false)
     private RoomEntity is1RoomByIdRoom;
+
     @ManyToOne
     @JoinColumn(name = "id_dev", referencedColumnName = "id_dev", nullable = false, insertable =  false, updatable = false)
     private DeviceEntity is1DeviceByIdDev;

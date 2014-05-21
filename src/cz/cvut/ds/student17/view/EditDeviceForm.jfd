@@ -83,6 +83,7 @@ new FormModel {
 				add( new FormComponent( "javax.swing.JButton" ) {
 					name: "removeButton"
 					"text": new FormMessage( null, "AddDeviceForm.removeButton.text" )
+					addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "removeButtonActionPerformed", true ) )
 				}, new FormLayoutConstraints( class com.jgoodies.forms.layout.CellConstraints ) {
 					"gridX": 5
 					"gridY": 1
