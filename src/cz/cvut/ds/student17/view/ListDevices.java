@@ -34,14 +34,14 @@ import cz.cvut.ds.student17.model.ListTableModel;
 /**
  * Created by V on 20.5.2014.
  */
-public class ListDevices extends JPanel{
+public class ListDevices extends MyPanel{
 
     private ExperimentsFacade facade;
     private JFrame frame;
     private Container cont;
     private WebTable table;
     private WebScrollPane scrollpane;
-    private JPanel me;
+    private MyPanel me;
     ListTableModel devicesModel;
     List<DeviceEntity> lde;
     private Object[][] data;
@@ -73,7 +73,7 @@ public class ListDevices extends JPanel{
                 int id = (int) table.getModel().getValueAt(table.getSelectedRow(), 0);
                 System.out.println(id);
                 cont.remove(me);
-                cont.setCurrent(new EditDeviceForm(facade, frame,cont,id));
+                cont.setCurrent(new EditDeviceForm(facade, frame,cont,id,me));
                 cont.addCurrent();
                 cont.revalidate();
                 cont.repaint();

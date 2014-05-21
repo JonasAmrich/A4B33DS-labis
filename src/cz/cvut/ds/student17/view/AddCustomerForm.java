@@ -16,16 +16,17 @@ import cz.cvut.ds.student17.model.ExperimentsFacade;
 /**
  * @author unknown
  */
-public class AddCustomerForm extends JPanel {
+public class AddCustomerForm extends MyPanel {
     private ExperimentsFacade facade;
     private JFrame frame;
     private Container cont;
-    private JPanel previous;
+    private MyPanel previous;
 
-    public AddCustomerForm( ExperimentsFacade facade, JFrame frame, Container cont, JPanel previous) {
+    public AddCustomerForm( ExperimentsFacade facade, JFrame frame, Container cont, MyPanel previous) {
         this.facade = facade;
         this.frame = frame;
         this.cont = cont;
+        this.previous = previous;
         initComponents();
     }
     private void saveButtonActionPerformed(ActionEvent e) {
@@ -42,14 +43,16 @@ public class AddCustomerForm extends JPanel {
 
         }
         cont.remove(this);
-        cont.putDefault();
+        cont.setCurrent(previous);
+        cont.add(cont.getCurrent());
         cont.revalidate();
         cont.repaint();
     }
 
     private void cancelButtonActionPerformed(ActionEvent e) {
         cont.remove(this);
-        cont.putDefault();
+        cont.setCurrent(previous);
+        cont.add(cont.getCurrent());
         cont.revalidate();
         cont.repaint();
     }

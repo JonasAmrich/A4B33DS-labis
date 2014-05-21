@@ -26,18 +26,21 @@ import cz.cvut.ds.student17.model.FeaturesTableModel;
 /**
  * @author Ptero Bacter
  */
-public class AddDeviceForm extends JPanel {
+public class AddDeviceForm extends MyPanel {
     ExperimentsFacade facade;
     JFrame frame;
     Container cont;
     DefaultTableModel featureModel;
     List<FeatureEntity> lfe;
     private Object[][] data;
+    private MyPanel previous;
 
-    public AddDeviceForm( ExperimentsFacade facade, JFrame frame, Container cont) {
+
+    public AddDeviceForm( ExperimentsFacade facade, JFrame frame, Container cont, MyPanel previous) {
         this.facade = facade;
         this.frame = frame;
         this.cont = cont;
+        this.previous = previous;
 
         String header[] = {"Id", "Available Features", "include?"};
         featureModel = new FeaturesTableModel(header,0);
@@ -88,7 +91,8 @@ public class AddDeviceForm extends JPanel {
             featuresTable.repaint();
 
             cont.remove(this);
-            cont.putDefault();
+            cont.setCurrent(previous);
+            cont.add(cont.getCurrent());
             cont.revalidate();
             cont.repaint();
         }else {
@@ -105,7 +109,8 @@ public class AddDeviceForm extends JPanel {
 
     private void cancelButtonActionPerformed(ActionEvent e) {
         cont.remove(this);
-        cont.putDefault();
+        cont.setCurrent(previous);
+        cont.add(cont.getCurrent());
         cont.revalidate();
         cont.repaint();
     }

@@ -20,7 +20,7 @@ import java.util.ResourceBundle;
 public class Main {
     private JFrame frame;
     private Container cont;
-    private JPanel defaultPanel;
+    private MyPanel defaultPanel;
     private ExperimentsFacade facade;
     private ResourceBundle bundle;
 
@@ -67,7 +67,7 @@ public class Main {
         cont.setCurrent(defaultPanel);
         cont.putDefault();
 
-        frame.setPreferredSize(new Dimension(640, 480));
+        frame.setPreferredSize(new Dimension(640, 550));
         cont.setLayout(new BoxLayout(cont, BoxLayout.Y_AXIS));
         frame.setContentPane(cont);
         facade = new ExperimentsFacade();
@@ -186,7 +186,7 @@ public class Main {
     private void menuNewCustomerActionPerformed(ActionEvent e) {
         cont.remove(cont.getCurrent());
         cont.hideDefault();
-        cont.setCurrent(new AddCustomerForm(facade, frame,cont));
+        cont.setCurrent(new AddCustomerForm(facade, frame,cont,defaultPanel));
         cont.add(cont.getCurrent());
         cont.revalidate();
         cont.repaint();
@@ -195,7 +195,7 @@ public class Main {
     private void menuNewFeatureActionPerformed(ActionEvent e) {
         cont.remove(cont.getCurrent());
         cont.hideDefault();
-        cont.setCurrent(new AddFeatureForm(facade, frame,cont));
+        cont.setCurrent(new AddFeatureForm(facade, frame,cont,defaultPanel));
         cont.add(cont.getCurrent());
         cont.revalidate();
         cont.repaint();
@@ -203,7 +203,7 @@ public class Main {
     private void menuNewVictimActionPerformed(ActionEvent e) {
         cont.remove(cont.getCurrent());
         cont.hideDefault();
-        cont.setCurrent(new AddVictimForm(facade, frame,cont));
+        cont.setCurrent(new AddVictimForm(facade, frame,cont,defaultPanel));
         cont.add(cont.getCurrent());
         cont.revalidate();
         cont.repaint();
@@ -211,7 +211,7 @@ public class Main {
     private void menuNewDeviceActionPerformed(ActionEvent e) {
         cont.remove(cont.getCurrent());
         cont.hideDefault();
-        cont.setCurrent(new AddDeviceForm(facade, frame,cont));
+        cont.setCurrent(new AddDeviceForm(facade, frame,cont,defaultPanel));
         cont.add(cont.getCurrent());
         cont.revalidate();
         cont.repaint();

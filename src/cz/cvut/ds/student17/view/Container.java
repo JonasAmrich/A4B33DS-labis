@@ -6,10 +6,10 @@ import javax.swing.*;
  * Created by V on 20.5.2014.
  */
 public class Container extends JPanel {
-    private JPanel defaultPanel;
-    private  JPanel current;
+    private MyPanel defaultPanel;
+    private  MyPanel current;
 
-    public Container(JPanel defaultPanel){
+    public Container(MyPanel defaultPanel){
         super();
         this.defaultPanel = defaultPanel;
     }
@@ -27,7 +27,7 @@ public class Container extends JPanel {
         return current;
     }
 
-    public void setCurrent(JPanel current) {
+    public void setCurrent(MyPanel current) {
         this.current = current;
     }
     public void addCurrent(){

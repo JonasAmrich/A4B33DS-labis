@@ -4,6 +4,7 @@ import com.alee.laf.scroll.WebScrollPane;
 import com.alee.laf.table.WebTable;
 import com.jgoodies.forms.factories.CC;
 import com.jgoodies.forms.layout.FormLayout;
+import com.thoughtworks.xstream.mapper.Mapper;
 import cz.cvut.ds.student17.entities.CustomerEntity;
 import cz.cvut.ds.student17.entities.FeatureEntity;
 import cz.cvut.ds.student17.exceptions.DatabaseException;
@@ -33,17 +34,18 @@ import cz.cvut.ds.student17.model.ListTableModel;
 /**
  * Created by V on 20.5.2014.
  */
-public class ListCustomers extends JPanel{
+public class ListCustomers extends MyPanel{
 
     private ExperimentsFacade facade;
     private JFrame frame;
     private Container cont;
     private WebTable table;
     private WebScrollPane scrollpane;
-    private JPanel me;
+    private MyPanel me;
     ListTableModel customersModel;
     List<CustomerEntity> lce;
     private Object[][] data;
+
     public ListCustomers( ExperimentsFacade facade, JFrame frame, Container cont) {
         this.facade = facade;
         this.frame = frame;
@@ -52,6 +54,7 @@ public class ListCustomers extends JPanel{
     }
     private void initComponents(){
         ResourceBundle bundle = ResourceBundle.getBundle("Application");
+        data = null;
         String header[] = {"Id", "Last Name","First Name", "Email","Phone"};
         customersModel = new ListTableModel(data,header);
         lce = facade.getAvailableEntities(CustomerEntity.class);
@@ -74,7 +77,7 @@ public class ListCustomers extends JPanel{
                 int id = (int) table.getModel().getValueAt(table.getSelectedRow(), 0);
                 System.out.println(id);
                 cont.remove(me);
-                cont.setCurrent(new EditCustomerForm(facade, frame,cont,id));
+                cont.setCurrent(new EditCustomerForm(facade, frame,cont,id,me));
                 cont.addCurrent();
                 cont.revalidate();
                 cont.repaint();

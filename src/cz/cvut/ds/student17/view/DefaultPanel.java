@@ -9,7 +9,7 @@ import java.util.logging.Logger;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 
-public class DefaultPanel extends JPanel {
+public class DefaultPanel extends MyPanel {
 
     private BufferedImage image;
 

@@ -26,23 +26,31 @@ import java.util.ResourceBundle;
 /**
  * @author unknown
  */
-public class EditCustomerForm extends JPanel {
+public class EditCustomerForm extends MyPanel {
     private ExperimentsFacade facade;
     private JFrame frame;
     private Container cont;
     private CustomerEntity ce;
     private WebScrollPane scrollpane;
-    private JPanel me;
+    private MyPanel me;
     ListTableModel devicesModel;
     List<ExperimentEntity> lde;
     private Object[][] data;
+    private MyPanel previous;
 
 
-    public EditCustomerForm(ExperimentsFacade facade, JFrame frame, Container cont, int id) {
+
+    public EditCustomerForm(ExperimentsFacade facade, JFrame frame, Container cont, int id, MyPanel previous) {
         this.facade = facade;
         this.frame = frame;
         this.cont = cont;
+        this.previous = previous;
         initComponents();
+        updateData(id);
+
+    }
+
+    public void updateData(int id){
         fillWithCustomer(id);
 
         try {
@@ -66,7 +74,9 @@ public class EditCustomerForm extends JPanel {
 
         cont.repaint();
     }
-
+    public void updateData(){
+        updateData(ce.getIdCust());
+    }
     private void makeTableSelectable(){
         me = this;
         table.getSelectionModel().addListSelectionListener(new ListSelectionListener(){
@@ -75,7 +85,7 @@ public class EditCustomerForm extends JPanel {
                 System.out.println(id);
                 cont.remove(me);
                 //TODO: New ExperimentForm
-                cont.setCurrent(new EditExperimentForm(facade, frame,cont,id));
+                cont.setCurrent(new EditExperimentForm(facade, frame,cont,id,me));
                 cont.addCurrent();
                 cont.revalidate();
                 cont.repaint();
@@ -112,14 +122,19 @@ public class EditCustomerForm extends JPanel {
 
         }
         cont.remove(this);
-        cont.putDefault();
+        previous = new ListCustomers(facade,frame,cont); //update daval nullpointer exception a neni duvod udelat vse znovu
+        cont.setCurrent(previous);
+        cont.add(cont.getCurrent());
         cont.revalidate();
         cont.repaint();
     }
 
     private void cancelButtonActionPerformed(ActionEvent e) {
         cont.remove(this);
-        cont.putDefault();
+
+        cont.setCurrent(previous);
+        previous.updateData();
+        cont.add(cont.getCurrent());
         cont.revalidate();
         cont.repaint();
     }
@@ -133,7 +148,9 @@ public class EditCustomerForm extends JPanel {
         }
 
         cont.remove(this);
-        cont.putDefault();
+        previous.updateData();
+        cont.setCurrent(previous);
+        cont.add(cont.getCurrent());
         cont.revalidate();
         cont.repaint();
     }

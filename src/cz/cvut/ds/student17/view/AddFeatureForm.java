@@ -17,14 +17,17 @@ import cz.cvut.ds.student17.model.ExperimentsFacade;
 /**
  * @author Ptero Bacter
  */
-public class AddFeatureForm extends JPanel {
+public class AddFeatureForm extends MyPanel {
     ExperimentsFacade facade;
     JFrame frame;
     Container cont;
-    public AddFeatureForm( ExperimentsFacade facade, JFrame frame, Container cont) {
+    private MyPanel previous;
+
+    public AddFeatureForm( ExperimentsFacade facade, JFrame frame, Container cont, MyPanel previous) {
         this.facade = facade;
         this.frame = frame;
         this.cont = cont;
+        this.previous = previous;
         initComponents();
     }
 
@@ -43,7 +46,8 @@ public class AddFeatureForm extends JPanel {
                 return;
             }
             cont.remove(this);
-            cont.putDefault();
+            cont.setCurrent(previous);
+            cont.add(cont.getCurrent());
             cont.revalidate();
             cont.repaint();
         }else{
@@ -60,7 +64,8 @@ public class AddFeatureForm extends JPanel {
 
     private void cancelButtonActionPerformed(ActionEvent e) {
         cont.remove(this);
-        cont.putDefault();
+        cont.setCurrent(previous);
+        cont.add(cont.getCurrent());
         cont.revalidate();
         cont.repaint();
     }

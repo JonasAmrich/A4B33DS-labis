@@ -9,6 +9,7 @@ import com.alee.laf.table.WebTable;
 import com.jgoodies.forms.factories.CC;
 import com.jgoodies.forms.layout.FormLayout;
 import cz.cvut.ds.student17.entities.ExperimentEntity;
+import cz.cvut.ds.student17.entities.ExperimentStatusEntity;
 import cz.cvut.ds.student17.entities.TrialEntity;
 import cz.cvut.ds.student17.exceptions.DatabaseException;
 import cz.cvut.ds.student17.model.ExperimentsFacade;
@@ -17,30 +18,35 @@ import cz.cvut.ds.student17.model.ListTableModel;
 import javax.swing.*;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.ParseException;
 import java.util.List;
 import java.util.ResourceBundle;
 
 /**
  * @author unknown
  */
-public class EditExperimentForm extends JPanel {
+public class EditExperimentForm extends MyPanel {
     private ExperimentsFacade facade;
     private JFrame frame;
     private Container cont;
     private ExperimentEntity ee;
     private WebScrollPane scrollpane;
-    private JPanel me;
+    private MyPanel me;
     ListTableModel devicesModel;
     List<TrialEntity> lte;
     private Object[][] data;
+    private MyPanel previous;
 
 
-    public EditExperimentForm(ExperimentsFacade facade, JFrame frame, Container cont, int id) {
+
+    public EditExperimentForm(ExperimentsFacade facade, JFrame frame, Container cont, int id, MyPanel previous) {
         this.facade = facade;
         this.frame = frame;
         this.cont = cont;
+        this.previous = previous;
         initComponents();
         fillWithExperiment(id);
 
@@ -96,12 +102,15 @@ public class EditExperimentForm extends JPanel {
         String status = statusField.getText();
         String budget = budgetField.getText();
 
-        //TODO: validation of data
+        if(!validateFields()){
+            return;
+        }
 
         //TODO: selectable features aka selecting features for devices
         ee.setTitle(title);
         ee.setDescription(description);
         ee.setStatusCode(status);
+        ee.setBudget(Integer.parseInt(budget));
         try {
 
             facade.updateExperiment(ee);
@@ -112,14 +121,72 @@ public class EditExperimentForm extends JPanel {
 
         }
         cont.remove(this);
-        cont.putDefault();
+        previous.updateData();
+        cont.setCurrent(previous);
+        cont.add(cont.getCurrent());
         cont.revalidate();
         cont.repaint();
     }
 
+    private boolean validateFields(){
+        titleField.setBackground(Color.white);
+        budgetField.setBackground(Color.white);
+        statusField.setBackground(Color.white);
+        boolean correct = true;
+        String message = "";
+        try{
+            if(titleField.getText().equals(ee.getTitle()) || facade.isUnique(ExperimentEntity.class,"title",titleField.getText())) {
+                System.out.println("Title v poradku");
+            }else{
+                correct = false;
+                message += "\n Title must be unique";
+                titleField.setBackground(Color.pink);
+
+            }
+        }catch(Exception e){
+            e.printStackTrace();
+            showError();
+        }
+        try{
+        if(facade.isUnique(ExperimentStatusEntity.class,"statusCode",statusField.getText())){
+                correct = false;
+                message += "\n Status code is not valid (Try 'OK')";
+                statusField.setBackground(Color.pink);
+
+            }
+        }catch(Exception e){
+            e.printStackTrace();
+            showError();
+        }
+        try{
+            int i = Integer.parseInt(budgetField.getText());
+            if(i<0){
+                correct = false;
+                message += "\n Budget cannot be negative";
+                budgetField.setBackground(Color.pink);
+
+            }
+        }catch(Exception e){
+                correct = false;
+            message += "\n Budget must be a nummber";
+            budgetField.setBackground(Color.pink);
+
+        }
+        if(!correct){
+            System.out.println("Error occurred.");
+            JOptionPane.showMessageDialog(frame,
+                    message,
+                    "Wrong input",
+                    JOptionPane.ERROR_MESSAGE);
+        }
+        return correct;
+
+    }
     private void cancelButtonActionPerformed(ActionEvent e) {
         cont.remove(this);
-        cont.putDefault();
+        previous.updateData();
+        cont.setCurrent(previous);
+        cont.add(cont.getCurrent());
         cont.revalidate();
         cont.repaint();
     }
@@ -133,7 +200,9 @@ public class EditExperimentForm extends JPanel {
         }
 
         cont.remove(this);
-        cont.putDefault();
+        previous.updateData();
+        cont.setCurrent(previous);
+        cont.add(cont.getCurrent());
         cont.revalidate();
         cont.repaint();
     }

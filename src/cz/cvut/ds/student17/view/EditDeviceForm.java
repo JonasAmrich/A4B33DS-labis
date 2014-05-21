@@ -26,7 +26,7 @@ import java.util.ResourceBundle;
 /**
  * @author Ptero Bacter
  */
-public class EditDeviceForm extends JPanel {
+public class EditDeviceForm extends MyPanel {
     ExperimentsFacade facade;
     JFrame frame;
     Container cont;
@@ -34,11 +34,14 @@ public class EditDeviceForm extends JPanel {
     List<FeatureEntity> lfe;
     private DeviceEntity de;
     private Object[][] data;
+    private MyPanel previous;
 
-    public EditDeviceForm(ExperimentsFacade facade, JFrame frame, Container cont, int id) {
+
+    public EditDeviceForm(ExperimentsFacade facade, JFrame frame, Container cont, int id, MyPanel previous) {
         this.facade = facade;
         this.frame = frame;
         this.cont = cont;
+        this.previous = previous;
 
         String header[] = {"Id", "Available Features", "include?"};
         featureModel = new FeaturesTableModel(header,0);
@@ -103,7 +106,8 @@ public class EditDeviceForm extends JPanel {
             featuresTable.repaint();
 
             cont.remove(this);
-            cont.putDefault();
+            cont.setCurrent(previous);
+            cont.add(cont.getCurrent());
             cont.revalidate();
             cont.repaint();
         }else {
@@ -128,7 +132,8 @@ public class EditDeviceForm extends JPanel {
 
     private void cancelButtonActionPerformed(ActionEvent e) {
         cont.remove(this);
-        cont.putDefault();
+        cont.setCurrent(previous);
+        cont.add(cont.getCurrent());
         cont.revalidate();
         cont.repaint();
     }

@@ -35,14 +35,14 @@ import cz.cvut.ds.student17.model.ListTableModel;
 /**
  * Created by V on 20.5.2014.
  */
-public class ListExperiments extends JPanel{
+public class ListExperiments extends MyPanel{
 
     private ExperimentsFacade facade;
     private JFrame frame;
     private Container cont;
     private WebTable table;
     private WebScrollPane scrollpane;
-    private JPanel me;
+    private MyPanel me;
     ListTableModel devicesModel;
     List<ExperimentEntity> lde;
     private Object[][] data;
