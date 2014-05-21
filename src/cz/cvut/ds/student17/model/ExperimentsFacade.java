@@ -68,6 +68,23 @@ public class ExperimentsFacade {
         return results.isEmpty();
     }
 
+    public boolean containsDeviceFeaturePair(int idDev, int idFeat){
+        EntityManager entityManager = emf.createEntityManager();
+        CriteriaBuilder cb = entityManager.getCriteriaBuilder();
+        CriteriaQuery<DeviceFeatureEntity> query = cb.createQuery(DeviceFeatureEntity.class);
+        Root<DeviceFeatureEntity> sm = query.from(DeviceFeatureEntity.class);
+        query.select(sm);
+        ParameterExpression<Integer> dev = cb.parameter(Integer.class);
+        ParameterExpression<Integer> feat = cb.parameter(Integer.class);
+        query.where(cb.equal(sm.get("idDev"), dev),cb.equal(sm.get("idFeat"), feat));
+        TypedQuery<DeviceFeatureEntity> tq = entityManager.createQuery(query);
+        tq.setParameter(dev, idDev);
+        tq.setParameter(feat, idFeat);
+        List<DeviceFeatureEntity> results = tq.getResultList();
+        entityManager.close();
+        return !results.isEmpty();
+    }
+
     public <T> List<T> getAvailableEntities(Class entity){
         EntityManager entityManager = emf.createEntityManager();
         CriteriaBuilder cb = entityManager.getCriteriaBuilder();
@@ -78,7 +95,7 @@ public class ExperimentsFacade {
         return results;
     }
 
-    public <T> T getEntityById(Class entity, int id, String column) throws Exception {
+    public <T> List<T> getEntitiesById(Class entity, int id, String column) throws Exception {
         EntityManager entityManager = emf.createEntityManager();
         CriteriaBuilder cb = entityManager.getCriteriaBuilder();
         CriteriaQuery<T> query = cb.createQuery(entity);
@@ -89,6 +106,12 @@ public class ExperimentsFacade {
         tq.setParameter(p, id);
         List<T> results = tq.getResultList();
         entityManager.close();
+
+        return results;
+    }
+
+    public <T> T getFirstEntityById(Class entity, int id, String column) throws Exception {
+        List<T> results = getEntitiesById(entity,id,column);
         if(results.isEmpty()){
             System.out.println("zaznam nenalezen");
             throw new Exception();
@@ -159,10 +182,6 @@ public class ExperimentsFacade {
                 DeviceFeatureEntity dfe = new DeviceFeatureEntity();
                 dfe.setIdDev(de.getIdDev());
                 dfe.setIdFeat(id);
-                System.out.println(id);
-                System.out.println(dfe.getIdFeat());
-                System.out.println(de.getIdDev());
-                System.out.println(dfe.getIdDev());
                 entityManager.persist(dfe);
             }
             entityManager.getTransaction().commit();
@@ -173,6 +192,36 @@ public class ExperimentsFacade {
         }
 
         entityManager.close();
+    }
+    public void updateDevice(DeviceEntity de,List<Integer> featuresIds) throws DatabaseException {
+        EntityManager entityManager = emf.createEntityManager();
+        entityManager.getTransaction().begin();
+        try{
+            entityManager.merge(de);
+            List<DeviceFeatureEntity> lfe = getEntitiesById(DeviceFeatureEntity.class, de.getIdDev(), "idDev");
+            for(DeviceFeatureEntity ent : lfe){
+                if(featuresIds.contains(ent)){
+                    featuresIds.remove(ent);
+                }else{
+                    entityManager.remove(entityManager.contains(ent) ? ent : entityManager.merge(ent));
+                }
+            }
+            for(Integer id : featuresIds){
+                DeviceFeatureEntity dfe = new DeviceFeatureEntity();
+                dfe.setIdDev(de.getIdDev());
+                dfe.setIdFeat(id);
+                entityManager.persist(dfe);
+            }
+            entityManager.getTransaction().commit();
+        }catch(Exception e){
+            e.printStackTrace();
+            entityManager.getTransaction().rollback(); //is it necessary to rollback if it is a Rollback exception?
+            System.out.println("Database failed.");
+            throw new DatabaseException();
+        }
+
+        entityManager.close();
+
     }
     public void addFeature(String title) throws DatabaseException{
         EntityManager entityManager = emf.createEntityManager();

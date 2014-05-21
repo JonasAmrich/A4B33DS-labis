@@ -73,11 +73,8 @@ public class ListDevices extends JPanel{
                 int id = (int) table.getModel().getValueAt(table.getSelectedRow(), 0);
                 System.out.println(id);
                 cont.remove(me);
-                //TODO:
-                //Add EditDeviceForm
-                cont.putDefault();
-                //cont.setCurrent(new EditCustomerForm(facade, frame,cont,id));
-                //cont.addCurrent();
+                cont.setCurrent(new EditDeviceForm(facade, frame,cont,id));
+                cont.addCurrent();
                 cont.revalidate();
                 cont.repaint();
             }
