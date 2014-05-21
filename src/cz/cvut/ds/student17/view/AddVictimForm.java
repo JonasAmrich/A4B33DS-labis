@@ -40,9 +40,10 @@ public class AddVictimForm extends JPanel {
         String email = emailField.getText();
         try {
             String date = birthdateFormattedField.getText();
+            System.out.println(date);
             SimpleDateFormat formatter = new SimpleDateFormat("DD.MM.YYYY");
             Timestamp t = new Timestamp(formatter.parse(date).getTime());
-
+            System.out.println(formatter.format(new Date(t.getTime())));
             try {
                 facade.addVictim(firstName,lastName,phone,email,t);
             }catch(DatabaseException ex) {

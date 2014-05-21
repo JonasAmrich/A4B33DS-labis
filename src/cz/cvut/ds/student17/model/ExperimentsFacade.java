@@ -78,13 +78,13 @@ public class ExperimentsFacade {
         return results;
     }
 
-    public <T> T getEntityById(Class entity, int id) throws Exception {
+    public <T> T getEntityById(Class entity, int id, String column) throws Exception {
         EntityManager entityManager = emf.createEntityManager();
         CriteriaBuilder cb = entityManager.getCriteriaBuilder();
         CriteriaQuery<T> query = cb.createQuery(entity);
         ParameterExpression<Integer> p = cb.parameter(Integer.class);
         Root<T> sm = query.from(entity);
-        query.select(sm).where(cb.equal(sm.get("idCust"), p));
+        query.select(sm).where(cb.equal(sm.get(column), p));
         TypedQuery<T> tq = entityManager.createQuery(query);
         tq.setParameter(p, id);
         List<T> results = tq.getResultList();

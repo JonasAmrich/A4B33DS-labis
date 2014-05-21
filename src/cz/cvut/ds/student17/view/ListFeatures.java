@@ -5,6 +5,7 @@ import com.alee.laf.table.WebTable;
 import com.jgoodies.forms.factories.CC;
 import com.jgoodies.forms.layout.FormLayout;
 import cz.cvut.ds.student17.entities.CustomerEntity;
+import cz.cvut.ds.student17.entities.DeviceEntity;
 import cz.cvut.ds.student17.entities.FeatureEntity;
 import cz.cvut.ds.student17.exceptions.DatabaseException;
 import cz.cvut.ds.student17.model.ExperimentsFacade;
@@ -33,7 +34,7 @@ import cz.cvut.ds.student17.model.ListTableModel;
 /**
  * Created by V on 20.5.2014.
  */
-public class ListCustomers extends JPanel{
+public class ListFeatures extends JPanel{
 
     private ExperimentsFacade facade;
     private JFrame frame;
@@ -41,10 +42,10 @@ public class ListCustomers extends JPanel{
     private WebTable table;
     private WebScrollPane scrollpane;
     private JPanel me;
-    ListTableModel customersModel;
-    List<CustomerEntity> lce;
+    ListTableModel featuresModel;
+    List<FeatureEntity> lfe;
     private Object[][] data;
-    public ListCustomers( ExperimentsFacade facade, JFrame frame, Container cont) {
+    public ListFeatures( ExperimentsFacade facade, JFrame frame, Container cont) {
         this.facade = facade;
         this.frame = frame;
         this.cont = cont;
@@ -52,19 +53,16 @@ public class ListCustomers extends JPanel{
     }
     private void initComponents(){
         ResourceBundle bundle = ResourceBundle.getBundle("Application");
-        String header[] = {"Id", "Last Name","First Name", "Email","Phone"};
-        customersModel = new ListTableModel(data,header);
-        lce = facade.getAvailableEntities(CustomerEntity.class);
-        for(CustomerEntity ent : lce){
-            Object[] row = {ent.getIdCust(), ent.getLastName(),ent.getFirstName(),ent.getEmail(),ent.getPhone()};
-            //,ent.getExperimentsByIdCust().size()
-             //not efficient - jpa gets all experiments and then it  count them in java
-            System.out.println(ent.getLastName());
-            customersModel.addRow(row);
+        String header[] = {"Id", "Title"};
+        featuresModel = new ListTableModel(data,header);
+        lfe = facade.getAvailableEntities(FeatureEntity.class);
+        for(FeatureEntity ent : lfe){
+            Object[] row = {ent.getIdFeat(), ent.getTitle()};
+            featuresModel.addRow(row);
         }
 
 
-        table = new WebTable(customersModel);
+        table = new WebTable(featuresModel);
         table.setColumnSelectionAllowed(false);
         table.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
         table.setPreferredSize(new Dimension(370, 360));
@@ -74,8 +72,11 @@ public class ListCustomers extends JPanel{
                 int id = (int) table.getModel().getValueAt(table.getSelectedRow(), 0);
                 System.out.println(id);
                 cont.remove(me);
-                cont.setCurrent(new EditCustomerForm(facade, frame,cont,id));
-                cont.addCurrent();
+                //TODO:
+                //Add EditDeviceForm
+                cont.putDefault();
+                //cont.setCurrent(new EditCustomerForm(facade, frame,cont,id));
+                //cont.addCurrent();
                 cont.revalidate();
                 cont.repaint();
             }

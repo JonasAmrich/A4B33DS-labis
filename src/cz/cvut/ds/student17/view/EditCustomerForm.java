@@ -34,12 +34,13 @@ public class EditCustomerForm extends JPanel {
 
     private void fillWithCustomer(int id){
         try {
-            ce = facade.getEntityById(CustomerEntity.class, id);
+            ce = facade.getEntityById(CustomerEntity.class, id, "idCust");
             lastNameField.setText(ce.getLastName());
             firstNameField.setText(ce.getFirstName());
             phoneField.setText(ce.getPhone());
             emailField.setText(ce.getEmail());
         } catch (Exception ex){
+            ex.printStackTrace();
             showError();
         }
     }

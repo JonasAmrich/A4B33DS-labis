@@ -7,6 +7,7 @@ import javax.swing.*;
  */
 public class Container extends JPanel {
     private JPanel defaultPanel;
+    private  JPanel current;
 
     public Container(JPanel defaultPanel){
         super();
@@ -20,5 +21,16 @@ public class Container extends JPanel {
     public void hideDefault(){
         remove(defaultPanel);
         repaint();
+    }
+
+    public JPanel getCurrent() {
+        return current;
+    }
+
+    public void setCurrent(JPanel current) {
+        this.current = current;
+    }
+    public void addCurrent(){
+        add(current);
     }
 }

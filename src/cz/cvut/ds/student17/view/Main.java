@@ -20,7 +20,6 @@ import java.util.ResourceBundle;
 public class Main {
     private JFrame frame;
     private Container cont;
-    private JPanel current;
     private JPanel defaultPanel;
     private ExperimentsFacade facade;
     private ResourceBundle bundle;
@@ -64,9 +63,10 @@ public class Main {
             ex.printStackTrace();
         }
         defaultPanel = new DefaultPanel();
-        current = defaultPanel;
-        cont = new Container(current);
+        cont = new Container(defaultPanel);
+        cont.setCurrent(defaultPanel);
         cont.putDefault();
+
         frame.setPreferredSize(new Dimension(640, 480));
         cont.setLayout(new BoxLayout(cont, BoxLayout.Y_AXIS));
         frame.setContentPane(cont);
@@ -136,9 +136,21 @@ public class Main {
         menuList.add(menuListExperiments);
         menuListDevices= new JMenuItem();
         menuListDevices.setText(bundle.getString("App.menuListDevices.text"));
+        menuListDevices.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                menuListDevicesActionPerformed(e);
+            }
+        });
         menuList.add(menuListDevices);
         menuListFeatures = new JMenuItem();
         menuListFeatures.setText(bundle.getString("App.menuListFeatures.text"));
+        menuListFeatures.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                menuListFeaturesActionPerformed(e);
+            }
+        });
         menuList.add(menuListFeatures);
         menuListVictims = new JMenuItem();
         menuListVictims.setText(bundle.getString("App.menuListVictims.text"));
@@ -166,55 +178,71 @@ public class Main {
     }
 
     private void menuNewCustomerActionPerformed(ActionEvent e) {
-        cont.remove(current);
+        cont.remove(cont.getCurrent());
         cont.hideDefault();
-        current = new AddCustomerForm(facade, frame,cont);
-        cont.add(current);
+        cont.setCurrent(new AddCustomerForm(facade, frame,cont));
+        cont.add(cont.getCurrent());
         cont.revalidate();
         cont.repaint();
     }
 
     private void menuNewFeatureActionPerformed(ActionEvent e) {
-        cont.remove(current);
+        cont.remove(cont.getCurrent());
         cont.hideDefault();
-        current = new AddFeatureForm(facade, frame,cont);
-        cont.add(current);
+        cont.setCurrent(new AddFeatureForm(facade, frame,cont));
+        cont.add(cont.getCurrent());
         cont.revalidate();
         cont.repaint();
     }
     private void menuNewVictimActionPerformed(ActionEvent e) {
-        cont.remove(current);
+        cont.remove(cont.getCurrent());
         cont.hideDefault();
-        current = new AddVictimForm(facade, frame,cont);
-        cont.add(current);
+        cont.setCurrent(new AddVictimForm(facade, frame,cont));
+        cont.add(cont.getCurrent());
         cont.revalidate();
         cont.repaint();
     }
     private void menuNewDeviceActionPerformed(ActionEvent e) {
-        cont.remove(current);
+        cont.remove(cont.getCurrent());
         cont.hideDefault();
-        current = new AddDeviceForm(facade, frame,cont);
-        cont.add(current);
+        cont.setCurrent(new AddDeviceForm(facade, frame,cont));
+        cont.add(cont.getCurrent());
         cont.revalidate();
         cont.repaint();
     }
 
     private void menuListCustomersActionPerformed(ActionEvent e) {
-        cont.remove(current);
+        cont.remove(cont.getCurrent());
         cont.hideDefault();
-        current = new ListCustomers(facade, frame,cont);
-        cont.add(current);
+        cont.setCurrent(new ListCustomers(facade, frame,cont));
+        cont.add(cont.getCurrent());
         cont.revalidate();
         cont.repaint();
         frame.pack();
     }
     private void menuListVictimsActionPerformed(ActionEvent e) {
-        cont.remove(current);
+        cont.remove(cont.getCurrent());
         cont.hideDefault();
-        System.out.println("Stisknuto");
-        current = new EditCustomerForm(facade, frame,cont,115);
-
-        cont.add(current);
+        cont.setCurrent(new ListVictims(facade, frame,cont));
+        cont.add(cont.getCurrent());
+        cont.revalidate();
+        cont.repaint();
+        frame.pack();
+    }
+    private void menuListDevicesActionPerformed(ActionEvent e) {
+        cont.remove(cont.getCurrent());
+        cont.hideDefault();
+        cont.setCurrent(new ListDevices(facade, frame,cont));
+        cont.add(cont.getCurrent());
+        cont.revalidate();
+        cont.repaint();
+        frame.pack();
+    }
+    private void menuListFeaturesActionPerformed(ActionEvent e) {
+        cont.remove(cont.getCurrent());
+        cont.hideDefault();
+        cont.setCurrent(new ListFeatures(facade, frame,cont));
+        cont.add(cont.getCurrent());
         cont.revalidate();
         cont.repaint();
         frame.pack();

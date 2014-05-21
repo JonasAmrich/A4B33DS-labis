@@ -5,7 +5,9 @@ import com.alee.laf.table.WebTable;
 import com.jgoodies.forms.factories.CC;
 import com.jgoodies.forms.layout.FormLayout;
 import cz.cvut.ds.student17.entities.CustomerEntity;
+import cz.cvut.ds.student17.entities.DeviceEntity;
 import cz.cvut.ds.student17.entities.FeatureEntity;
+import cz.cvut.ds.student17.entities.VictimEntity;
 import cz.cvut.ds.student17.exceptions.DatabaseException;
 import cz.cvut.ds.student17.model.ExperimentsFacade;
 
@@ -13,6 +15,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -33,7 +37,7 @@ import cz.cvut.ds.student17.model.ListTableModel;
 /**
  * Created by V on 20.5.2014.
  */
-public class ListCustomers extends JPanel{
+public class ListVictims extends JPanel{
 
     private ExperimentsFacade facade;
     private JFrame frame;
@@ -41,10 +45,10 @@ public class ListCustomers extends JPanel{
     private WebTable table;
     private WebScrollPane scrollpane;
     private JPanel me;
-    ListTableModel customersModel;
-    List<CustomerEntity> lce;
+    ListTableModel victimsModel;
+    List<VictimEntity> lve;
     private Object[][] data;
-    public ListCustomers( ExperimentsFacade facade, JFrame frame, Container cont) {
+    public ListVictims( ExperimentsFacade facade, JFrame frame, Container cont) {
         this.facade = facade;
         this.frame = frame;
         this.cont = cont;
@@ -52,19 +56,18 @@ public class ListCustomers extends JPanel{
     }
     private void initComponents(){
         ResourceBundle bundle = ResourceBundle.getBundle("Application");
-        String header[] = {"Id", "Last Name","First Name", "Email","Phone"};
-        customersModel = new ListTableModel(data,header);
-        lce = facade.getAvailableEntities(CustomerEntity.class);
-        for(CustomerEntity ent : lce){
-            Object[] row = {ent.getIdCust(), ent.getLastName(),ent.getFirstName(),ent.getEmail(),ent.getPhone()};
-            //,ent.getExperimentsByIdCust().size()
-             //not efficient - jpa gets all experiments and then it  count them in java
-            System.out.println(ent.getLastName());
-            customersModel.addRow(row);
+        String header[] = {"Id", "First Name","Last Name","Birthdate","Credits"};
+        victimsModel = new ListTableModel(data,header);
+        lve = facade.getAvailableEntities(VictimEntity.class);
+        for(VictimEntity ent : lve){
+            DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+            df.setTimeZone(TimeZone.getTimeZone("Europe/London"));
+            Object[] row = {ent.getIdVic(),ent.getFirstName(),ent.getLastName(),df.format(new Date(ent.getBirthDate().getTime()+(ent.getBirthDate().getNanos() / 1000000))), ent.getCredits()};
+            victimsModel.addRow(row);
         }
 
 
-        table = new WebTable(customersModel);
+        table = new WebTable(victimsModel);
         table.setColumnSelectionAllowed(false);
         table.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
         table.setPreferredSize(new Dimension(370, 360));
@@ -74,8 +77,11 @@ public class ListCustomers extends JPanel{
                 int id = (int) table.getModel().getValueAt(table.getSelectedRow(), 0);
                 System.out.println(id);
                 cont.remove(me);
-                cont.setCurrent(new EditCustomerForm(facade, frame,cont,id));
-                cont.addCurrent();
+                //TODO:
+                //Add EditDeviceForm
+                cont.putDefault();
+                //cont.setCurrent(new EditCustomerForm(facade, frame,cont,id));
+                //cont.addCurrent();
                 cont.revalidate();
                 cont.repaint();
             }
