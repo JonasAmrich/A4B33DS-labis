@@ -20,8 +20,9 @@ public class AddCustomerForm extends JPanel {
     private ExperimentsFacade facade;
     private JFrame frame;
     private Container cont;
+    private JPanel previous;
 
-    public AddCustomerForm( ExperimentsFacade facade, JFrame frame, Container cont) {
+    public AddCustomerForm( ExperimentsFacade facade, JFrame frame, Container cont, JPanel previous) {
         this.facade = facade;
         this.frame = frame;
         this.cont = cont;

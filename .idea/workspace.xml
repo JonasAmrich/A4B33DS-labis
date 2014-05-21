@@ -2,12 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a2793d06-7ae8-41fe-91e2-f118a699fe63" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/cz/cvut/ds/student17/view/EditDeviceForm.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/cz/cvut/ds/student17/view/EditDeviceForm.jfd" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/cz/cvut/ds/student17/view/EditExperimentForm.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/cz/cvut/ds/student17/view/EditExperimentForm.jfd" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/cz/cvut/ds/student17/view/ListExperiments.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cz/cvut/ds/student17/view/AddCustomerForm.java" afterPath="$PROJECT_DIR$/src/cz/cvut/ds/student17/view/AddCustomerForm.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/Application.properties" afterPath="$PROJECT_DIR$/src/main/resources/Application.properties" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cz/cvut/ds/student17/view/EditCustomerForm.java" afterPath="$PROJECT_DIR$/src/cz/cvut/ds/student17/view/EditCustomerForm.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cz/cvut/ds/student17/view/EditCustomerForm.jfd" afterPath="$PROJECT_DIR$/src/cz/cvut/ds/student17/view/EditCustomerForm.jfd" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cz/cvut/ds/student17/entities/ExperimentEntity.java" afterPath="$PROJECT_DIR$/src/cz/cvut/ds/student17/entities/ExperimentEntity.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cz/cvut/ds/student17/model/ExperimentsFacade.java" afterPath="$PROJECT_DIR$/src/cz/cvut/ds/student17/model/ExperimentsFacade.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cz/cvut/ds/student17/view/ListDevices.java" afterPath="$PROJECT_DIR$/src/cz/cvut/ds/student17/view/ListDevices.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cz/cvut/ds/student17/view/Main.java" afterPath="$PROJECT_DIR$/src/cz/cvut/ds/student17/view/Main.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cz/cvut/ds/student17/entities/TrialEntity.java" afterPath="$PROJECT_DIR$/src/cz/cvut/ds/student17/entities/TrialEntity.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="A4B33DS-labis.iws" />
@@ -185,7 +190,7 @@
                         <point x="0.0" y="44.5" />
                       </edge>
                     </edges>
-                    <settings layout="Hierarchic Group" zoom="0.7768526228143214" x="641.0" y="368.0" />
+                    <settings layout="Hierarchic Group" zoom="0.7768526228143214" x="641.0" y="312.6484458735262" />
                     <SelectedNodes>
                       <node>dc03c444-e752-4796-9910-061bfdd43b85.table:student_db13_17.public.is1_customer</node>
                       <node>dc03c444-e752-4796-9910-061bfdd43b85.table:student_db13_17.public.is1_trial</node>
@@ -212,112 +217,114 @@
       <file leaf-file-name="EditCustomerForm.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/cz/cvut/ds/student17/view/EditCustomerForm.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1666">
-              <caret line="36" column="63" selection-start-line="36" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="715" max-vertical-offset="2346">
+              <caret line="77" column="0" selection-start-line="77" selection-start-column="0" selection-end-line="77" selection-end-column="0" />
               <folding>
-                <marker date="1400636914508" expanded="false" signature="2794:7352" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
-                <marker date="1400636914508" expanded="false" signature="7364:8044" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
+                <marker date="1400658810955" expanded="false" signature="4810:10117" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
+                <marker date="1400658810955" expanded="false" signature="10129:10938" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Main.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/cz/cvut/ds/student17/view/Main.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="509" max-vertical-offset="3434">
-              <caret line="228" column="23" selection-start-line="228" selection-start-column="23" selection-end-line="228" selection-end-column="23" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ExperimentsFacade.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="ExperimentsFacade.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/cz/cvut/ds/student17/model/ExperimentsFacade.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.33246073" vertical-offset="2993" max-vertical-offset="5100">
-              <caret line="203" column="44" selection-start-line="203" selection-start-column="44" selection-end-line="203" selection-end-column="44" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AddDeviceForm.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/cz/cvut/ds/student17/view/AddDeviceForm.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="969" max-vertical-offset="1785">
-              <caret line="97" column="52" selection-start-line="97" selection-start-column="52" selection-end-line="97" selection-end-column="52" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="596" max-vertical-offset="3672">
+              <caret line="103" column="0" selection-start-line="103" selection-start-column="0" selection-end-line="103" selection-end-column="0" />
               <folding>
-                <marker date="1400615784654" expanded="false" signature="3698:7347" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
-                <marker date="1400615784654" expanded="false" signature="7359:7983" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
+                <element signature="method#isUnique#0;class#ExperimentsFacade#0" expanded="false" />
+                <element signature="method#containsFeature#0;class#ExperimentsFacade#0" expanded="false" />
+                <element signature="method#containsDeviceFeaturePair#0;class#ExperimentsFacade#0" expanded="false" />
+                <element signature="method#getAvailableEntities#0;class#ExperimentsFacade#0" expanded="false" />
+                <element signature="method#getFirstEntityById#0;class#ExperimentsFacade#0" expanded="false" />
+                <element signature="method#getFirstEntityByTextId#0;class#ExperimentsFacade#0" expanded="false" />
+                <element signature="method#removeCustomer#0;class#ExperimentsFacade#0" expanded="false" />
+                <element signature="method#addDevice#0;class#ExperimentsFacade#0" expanded="false" />
+                <element signature="method#updateDevice#0;class#ExperimentsFacade#0" expanded="false" />
+                <element signature="method#addVictim#0;class#ExperimentsFacade#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ListCustomers.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/cz/cvut/ds/student17/view/ListCustomers.java">
+      <file leaf-file-name="EditExperimentForm.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/cz/cvut/ds/student17/view/EditExperimentForm.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1275">
-              <caret line="76" column="48" selection-start-line="76" selection-start-column="48" selection-end-line="76" selection-end-column="48" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="239" max-vertical-offset="2363">
+              <caret line="39" column="74" selection-start-line="39" selection-start-column="74" selection-end-line="39" selection-end-column="74" />
+              <folding>
+                <marker date="1400658945211" expanded="false" signature="4811:10671" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
+                <marker date="1400658945211" expanded="false" signature="10683:11573" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TrialEntity.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/cz/cvut/ds/student17/entities/TrialEntity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="101" max-vertical-offset="1513">
+              <caret line="83" column="13" selection-start-line="83" selection-start-column="13" selection-end-line="83" selection-end-column="13" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AddCustomerForm.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="EditCustomerForm.jfd" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/cz/cvut/ds/student17/view/EditCustomerForm.jfd">
+          <provider selected="true" editor-type-id="JFormDesigner">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="EditDeviceForm.jfd" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/cz/cvut/ds/student17/view/EditDeviceForm.jfd">
+          <provider selected="true" editor-type-id="JFormDesigner">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ExperimentEntity.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/cz/cvut/ds/student17/entities/ExperimentEntity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="764" max-vertical-offset="1921">
+              <caret line="122" column="26" selection-start-line="122" selection-start-column="26" selection-end-line="122" selection-end-column="26" />
+              <folding>
+                <element signature="e#3934#3935#0" expanded="true" />
+                <element signature="e#3967#3968#0" expanded="true" />
+                <element signature="e#4019#4020#0" expanded="true" />
+                <element signature="e#4063#4064#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AddCustomerForm.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/cz/cvut/ds/student17/view/AddCustomerForm.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="84" max-vertical-offset="1105">
-              <caret line="52" column="23" selection-start-line="52" selection-start-column="23" selection-end-line="52" selection-end-column="23" />
+            <state vertical-scroll-proportion="0.33376962" vertical-offset="0" max-vertical-offset="1122">
+              <caret line="24" column="91" selection-start-line="24" selection-start-column="91" selection-end-line="24" selection-end-column="91" />
               <folding>
-                <marker date="1400626846690" expanded="false" signature="1782:5869" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
-                <marker date="1400626846690" expanded="false" signature="5881:6527" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
+                <marker date="1400659186437" expanded="false" signature="1828:5915" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
+                <marker date="1400659186437" expanded="false" signature="5927:6573" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="FeaturesTableModel.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/cz/cvut/ds/student17/model/FeaturesTableModel.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="425">
-              <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="22" selection-end-column="1" />
-              <folding />
-            </state>
+      <file leaf-file-name="EditExperimentForm.jfd" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/cz/cvut/ds/student17/view/EditExperimentForm.jfd">
+          <provider selected="true" editor-type-id="JFormDesigner">
+            <state />
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ListTableModel.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/cz/cvut/ds/student17/model/ListTableModel.java">
+      <file leaf-file-name="Container.class" pinned="false" current="false" current-in-tab="false">
+        <entry file="jar://C:/Program Files/Java/jdk1.7.0_25/jre/lib/rt.jar!/java/awt/Container.class">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="306">
-              <caret line="11" column="5" selection-start-line="11" selection-start-column="5" selection-end-line="11" selection-end-column="5" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="EditDeviceForm.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/cz/cvut/ds/student17/view/EditDeviceForm.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="884" max-vertical-offset="2176">
-              <caret line="92" column="37" selection-start-line="92" selection-start-column="37" selection-end-line="92" selection-end-column="37" />
-              <folding>
-                <element signature="e#7918#8111#0" expanded="true" />
-                <element signature="e#8096#8097#0" expanded="true" />
-                <marker date="1400637819451" expanded="false" signature="4627:8495" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
-                <marker date="1400637819451" expanded="false" signature="8507:9165" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ListDevices.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/cz/cvut/ds/student17/view/ListDevices.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="17" max-vertical-offset="1241">
-              <caret line="76" column="34" selection-start-line="76" selection-start-column="34" selection-end-line="76" selection-end-column="34" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="6440" max-vertical-offset="7191">
+              <caret line="418" column="0" selection-start-line="418" selection-start-column="0" selection-end-line="418" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -342,13 +349,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/cz/cvut/ds/student17/view/App.jfd" />
-        <option value="$PROJECT_DIR$/src/cz/cvut/ds/student17/view/AppOld.java" />
-        <option value="dbtable:/4a801fa4/00605268-7679-4460-9fcc-26750cfd89a2/student_db13_17.public.customer" />
-        <option value="$PROJECT_DIR$/src/cz/cvut/ds/student17/view/Main2.java" />
-        <option value="$PROJECT_DIR$/src/cz/cvut/ds/student17/view/App.java" />
-        <option value="$PROJECT_DIR$/src/cz/cvut/ds/student17/view/AddVictim.jfd" />
-        <option value="$PROJECT_DIR$/src/cz/cvut/ds/student17/view/AddVictim.java" />
         <option value="$PROJECT_DIR$/src/main/resources/AddCustomerForm.properties" />
         <option value="dbtable:/4a801fa4/00605268-7679-4460-9fcc-26750cfd89a2/student_db13_17.public.victim" />
         <option value="$PROJECT_DIR$/src/cz/cvut/ds/student17/model/FeaturesTableModel.java" />
@@ -365,7 +365,6 @@
         <option value="$PROJECT_DIR$/src/cz/cvut/ds/student17/view/AddFeatureForm.java" />
         <option value="dbtable:/4a801fa4/00605268-7679-4460-9fcc-26750cfd89a2/student_db13_17.public.experiment" />
         <option value="dbtable:/4a801fa4/00605268-7679-4460-9fcc-26750cfd89a2/student_db13_17.public.formtyp" />
-        <option value="db-console:/4a801fa4/00605268-7679-4460-9fcc-26750cfd89a2/" />
         <option value="$PROJECT_DIR$/src/cz/cvut/ds/student17/entities/VictimEntity.java" />
         <option value="$PROJECT_DIR$/src/cz/cvut/ds/student17/entities/RoomEntity.java" />
         <option value="$PROJECT_DIR$/src/cz/cvut/ds/student17/entities/FormTypeEntity.java" />
@@ -373,26 +372,34 @@
         <option value="$PROJECT_DIR$/src/cz/cvut/ds/student17/entities/DeviceEntity.java" />
         <option value="$PROJECT_DIR$/src/cz/cvut/ds/student17/entities/CustomerEntity.java" />
         <option value="$PROJECT_DIR$/src/cz/cvut/ds/student17/entities/DeviceFeatureEntity.java" />
-        <option value="$PROJECT_DIR$/src/cz/cvut/ds/student17/entities/TrialEntity.java" />
         <option value="$PROJECT_DIR$/src/cz/cvut/ds/student17/entities/ResultsEntity.java" />
-        <option value="$PROJECT_DIR$/src/cz/cvut/ds/student17/entities/ExperimentEntity.java" />
         <option value="$PROJECT_DIR$/src/cz/cvut/ds/student17/entities/FormStructureEntity.java" />
         <option value="$PROJECT_DIR$/src/cz/cvut/ds/student17/view/AddCustomerForm.jfd" />
         <option value="$PROJECT_DIR$/src/cz/cvut/ds/student17/view/AddVictimForm.jfd" />
-        <option value="$PROJECT_DIR$/src/cz/cvut/ds/student17/view/EditCustomerForm.jfd" />
-        <option value="$PROJECT_DIR$/src/cz/cvut/ds/student17/view/AddCustomerForm.java" />
         <option value="$PROJECT_DIR$/src/cz/cvut/ds/student17/view/Container.java" />
         <option value="$PROJECT_DIR$/src/cz/cvut/ds/student17/view/ListCustomers.java" />
         <option value="$PROJECT_DIR$/src/cz/cvut/ds/student17/view/ListFeatures.java" />
-        <option value="$PROJECT_DIR$/src/cz/cvut/ds/student17/view/EditCustomerForm.java" />
-        <option value="$PROJECT_DIR$/src/cz/cvut/ds/student17/view/Main.java" />
         <option value="$PROJECT_DIR$/src/cz/cvut/ds/student17/view/ListVictims.java" />
         <option value="$PROJECT_DIR$/src/cz/cvut/ds/student17/view/AddVictimForm.java" />
         <option value="dbtable:/4a801fa4/00605268-7679-4460-9fcc-26750cfd89a2/student_db13_17.public.is1_victim" />
         <option value="$PROJECT_DIR$/src/cz/cvut/ds/student17/view/EditDeviceForm.jfd" />
         <option value="$PROJECT_DIR$/src/cz/cvut/ds/student17/view/ListDevices.java" />
+        <option value="dbtable:/4a801fa4/00605268-7679-4460-9fcc-26750cfd89a2/student_db13_17.public.is1_experiment" />
+        <option value="dbtable:/4a801fa4/00605268-7679-4460-9fcc-26750cfd89a2/student_db13_17.public.is1_customer" />
+        <option value="dbtable:/4a801fa4/00605268-7679-4460-9fcc-26750cfd89a2/student_db13_17.public.is1_experiment_status" />
+        <option value="dbtable:/4a801fa4/00605268-7679-4460-9fcc-26750cfd89a2/student_db13_17.public.is1_form_type" />
+        <option value="db-console:/4a801fa4/00605268-7679-4460-9fcc-26750cfd89a2/" />
+        <option value="$PROJECT_DIR$/src/cz/cvut/ds/student17/view/Main.java" />
+        <option value="$PROJECT_DIR$/src/cz/cvut/ds/student17/view/ListExperiments.java" />
         <option value="$PROJECT_DIR$/src/cz/cvut/ds/student17/view/EditDeviceForm.java" />
+        <option value="$PROJECT_DIR$/src/cz/cvut/ds/student17/entities/TrialEntity.java" />
+        <option value="$PROJECT_DIR$/src/cz/cvut/ds/student17/entities/ExperimentEntity.java" />
         <option value="$PROJECT_DIR$/src/cz/cvut/ds/student17/model/ExperimentsFacade.java" />
+        <option value="$PROJECT_DIR$/src/cz/cvut/ds/student17/view/EditCustomerForm.jfd" />
+        <option value="$PROJECT_DIR$/src/cz/cvut/ds/student17/view/EditExperimentForm.jfd" />
+        <option value="$PROJECT_DIR$/src/cz/cvut/ds/student17/view/EditCustomerForm.java" />
+        <option value="$PROJECT_DIR$/src/cz/cvut/ds/student17/view/EditExperimentForm.java" />
+        <option value="$PROJECT_DIR$/src/cz/cvut/ds/student17/view/AddCustomerForm.java" />
       </list>
     </option>
   </component>
@@ -978,7 +985,7 @@
       <workItem from="1400353818000" duration="1148000" />
       <workItem from="1400573407045" duration="21179000" />
       <workItem from="1400617037030" duration="4228000" />
-      <workItem from="1400621526876" duration="15268000" />
+      <workItem from="1400621526876" duration="24599000" />
     </task>
     <task id="LOCAL-00001" summary="Added maven repositories&#10;Changed to newer classses instead of deprecated eclipselink&#10;CustomerEntity - added sequence&#10;!!It is possible to add a customer now.!!&#10;!!Regenerated entities and manually added some code!&#10;Added to all insertable=false, updateable=false to all joins &#10;(or something like that).&#10;TO DO:&#10;sequences in other entities, adding different entities to db">
       <created>1399501693472</created>
@@ -1020,11 +1027,15 @@
       <created>1400634264535</created>
       <updated>1400634264535</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="New EditDeviceForm (completed)">
+      <created>1400638504984</created>
+      <updated>1400638504984</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="122812000" />
+    <option name="totallyTimeSpent" value="132143000" />
   </component>
   <component name="TodoView" selected-index="4">
     <todo-panel id="selected-file">
@@ -1143,11 +1154,12 @@
     <MESSAGE value="Several forms for adding new entities, one for listing customers and one testing for updating customer. Not possible to delete customer nor" />
     <MESSAGE value="BIGGER CHANGES&#10;entities completely new, changed names of tables, names of Victims and Customers divided into first and last names" />
     <MESSAGE value="DATE -&gt; Timestampt -&gt; DATE problems - almost a random generator" />
-    <option name="LAST_COMMIT_MESSAGE" value="DATE -&gt; Timestampt -&gt; DATE problems - almost a random generator" />
+    <MESSAGE value="New EditDeviceForm (completed)" />
+    <option name="LAST_COMMIT_MESSAGE" value="New EditDeviceForm (completed)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="1" />
+      <option name="time" value="2" />
     </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
@@ -1167,97 +1179,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/cz/cvut/ds/student17/view/AddDeviceForm.jfd">
-      <provider selected="true" editor-type-id="JFormDesigner">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/cz/cvut/ds/student17/view/AddFeatureForm.jfd">
-      <provider selected="true" editor-type-id="JFormDesigner">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/cz/cvut/ds/student17/view/App.jfd">
-      <provider selected="true" editor-type-id="JFormDesigner">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/cz/cvut/ds/student17/view/AppOld.jfd">
-      <provider selected="true" editor-type-id="JFormDesigner">
-        <state />
-      </provider>
-    </entry>
-    <entry file="dbDummy://dbtable:/4a801fa4/00605268-7679-4460-9fcc-26750cfd89a2/student_db13_17.public.device">
-      <provider editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="952">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="com.intellij.persistence.database.editor.DatabaseTableFileEditorProvider">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/Application.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="816">
-          <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/cz/cvut/ds/student17/view/AddCustomerForm.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="332">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/cz/cvut/ds/student17/view/Main2.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1003">
-          <caret line="36" column="0" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/cz/cvut/ds/student17/view/AddFeatureForm.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="357" max-vertical-offset="1207">
-          <caret line="62" column="26" selection-start-line="62" selection-start-column="26" selection-end-line="62" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="dbDummy://dbtable:/4a801fa4/00605268-7679-4460-9fcc-26750cfd89a2/student_db13_17.public.formtyp">
-      <provider editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="102">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="com.intellij.persistence.database.editor.DatabaseTableFileEditorProvider">
-        <state />
-      </provider>
-    </entry>
-    <entry file="dbDummy://dbtable:/4a801fa4/00605268-7679-4460-9fcc-26750cfd89a2/student_db13_17.public.experiment">
-      <provider editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="952">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="com.intellij.persistence.database.editor.DatabaseTableFileEditorProvider">
-        <state />
-      </provider>
-    </entry>
-    <entry file="dbDummy://db-console:/4a801fa4/00605268-7679-4460-9fcc-26750cfd89a2/">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.1724138" vertical-offset="0" max-vertical-offset="136">
-          <caret line="2" column="45" selection-start-line="2" selection-start-column="45" selection-end-line="2" selection-end-column="106" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="uml://DATABASE/dc03c444-e752-4796-9910-061bfdd43b85.table:student_db13_17.public.is1_customer">
       <provider selected="true" editor-type-id="UmlEditorProvider">
         <state>
@@ -1384,42 +1305,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/cz/cvut/ds/student17/entities/DeviceFeatureEntity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1037">
-          <caret line="18" column="123" selection-start-line="18" selection-start-column="123" selection-end-line="18" selection-end-column="123" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/cz/cvut/ds/student17/entities/DeviceFeatureEntityPK.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="833">
           <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/cz/cvut/ds/student17/entities/ExperimentEntity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="187" max-vertical-offset="1632">
-          <caret line="28" column="131" selection-start-line="28" selection-start-column="131" selection-end-line="28" selection-end-column="131" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/cz/cvut/ds/student17/entities/ExperimentStatusEntity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="663">
-          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/cz/cvut/ds/student17/entities/FeatureEntity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="901">
-          <caret line="12" column="73" selection-start-line="12" selection-start-column="73" selection-end-line="12" selection-end-column="73" />
           <folding />
         </state>
       </provider>
@@ -1488,14 +1377,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/cz/cvut/ds/student17/entities/TrialEntity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="187" max-vertical-offset="1343">
-          <caret line="26" column="122" selection-start-line="26" selection-start-column="122" selection-end-line="26" selection-end-column="122" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/cz/cvut/ds/student17/entities/VictimEntity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="187" max-vertical-offset="1666">
@@ -1507,19 +1388,6 @@
     <entry file="file://$PROJECT_DIR$/src/cz/cvut/ds/student17/view/AddVictimForm.jfd">
       <provider selected="true" editor-type-id="JFormDesigner">
         <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/cz/cvut/ds/student17/view/AddCustomerForm.jfd">
-      <provider selected="true" editor-type-id="JFormDesigner">
-        <state />
-      </provider>
-      <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
-        <state />
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="996">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/cz/cvut/ds/student17/view/DefaultPanel.java">
@@ -1549,14 +1417,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="34" max-vertical-offset="1360">
           <caret line="8" column="33" selection-start-line="8" selection-start-column="33" selection-end-line="8" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/cz/cvut/ds/student17/view/ListFeatures.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="374" max-vertical-offset="1275">
-          <caret line="77" column="45" selection-start-line="0" selection-start-column="0" selection-end-line="100" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1591,16 +1451,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/cz/cvut/ds/student17/view/EditCustomerForm.jfd">
-      <provider selected="true" editor-type-id="JFormDesigner">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/cz/cvut/ds/student17/view/EditDeviceForm.jfd">
-      <provider selected="true" editor-type-id="JFormDesigner">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/cz/cvut/ds/student17/entities/DeviceEntity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="33" max-vertical-offset="1054">
@@ -1625,72 +1475,156 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/cz/cvut/ds/student17/view/AddCustomerForm.java">
+    <entry file="file://$PROJECT_DIR$/src/cz/cvut/ds/student17/view/AddDeviceForm.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1105">
-          <caret line="52" column="23" selection-start-line="52" selection-start-column="23" selection-end-line="52" selection-end-column="23" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="969" max-vertical-offset="1785">
+          <caret line="97" column="52" selection-start-line="97" selection-start-column="52" selection-end-line="97" selection-end-column="52" />
           <folding>
-            <marker date="1400626846690" expanded="false" signature="1782:5869" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
-            <marker date="1400626846690" expanded="false" signature="5881:6527" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
+            <marker date="1400615784654" expanded="false" signature="-1:-1" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
+            <marker date="1400615784654" expanded="false" signature="-1:-1" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/cz/cvut/ds/student17/view/Main.java">
+    <entry file="file://$PROJECT_DIR$/src/cz/cvut/ds/student17/view/ListFeatures.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="2789" max-vertical-offset="3604">
-          <caret line="228" column="23" selection-start-line="228" selection-start-column="23" selection-end-line="228" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/cz/cvut/ds/student17/view/ListCustomers.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="407" max-vertical-offset="1275">
-          <caret line="76" column="48" selection-start-line="76" selection-start-column="48" selection-end-line="76" selection-end-column="48" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="272" max-vertical-offset="1275">
+          <caret line="83" column="46" selection-start-line="83" selection-start-column="46" selection-end-line="83" selection-end-column="46" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/cz/cvut/ds/student17/view/ListDevices.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="17" max-vertical-offset="1241">
-          <caret line="76" column="34" selection-start-line="76" selection-start-column="34" selection-end-line="76" selection-end-column="34" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="477" max-vertical-offset="1241">
+          <caret line="98" column="0" selection-start-line="98" selection-start-column="0" selection-end-line="98" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/cz/cvut/ds/student17/view/EditCustomerForm.java">
+    <entry file="dbDummy://dbtable:/4a801fa4/00605268-7679-4460-9fcc-26750cfd89a2/student_db13_17.public.is1_form_type">
+      <provider editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="102">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="com.intellij.persistence.database.editor.DatabaseTableFileEditorProvider">
+        <state />
+      </provider>
+    </entry>
+    <entry file="dbDummy://dbtable:/4a801fa4/00605268-7679-4460-9fcc-26750cfd89a2/student_db13_17.public.is1_customer">
+      <provider editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="102">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="com.intellij.persistence.database.editor.DatabaseTableFileEditorProvider">
+        <state />
+      </provider>
+    </entry>
+    <entry file="dbDummy://dbtable:/4a801fa4/00605268-7679-4460-9fcc-26750cfd89a2/student_db13_17.public.is1_experiment_status">
+      <provider editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="102">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="com.intellij.persistence.database.editor.DatabaseTableFileEditorProvider">
+        <state />
+      </provider>
+    </entry>
+    <entry file="dbDummy://dbtable:/4a801fa4/00605268-7679-4460-9fcc-26750cfd89a2/student_db13_17.public.is1_experiment">
+      <provider editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="102">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="com.intellij.persistence.database.editor.DatabaseTableFileEditorProvider">
+        <state />
+      </provider>
+    </entry>
+    <entry file="dbDummy://db-console:/4a801fa4/00605268-7679-4460-9fcc-26750cfd89a2/">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1666">
-          <caret line="36" column="63" selection-start-line="36" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="762">
+          <caret line="0" column="100" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="100" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cz/cvut/ds/student17/view/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1419" max-vertical-offset="3689">
+          <caret line="143" column="59" selection-start-line="143" selection-start-column="59" selection-end-line="143" selection-end-column="59" />
           <folding>
-            <marker date="1400636914508" expanded="false" signature="2794:7352" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
-            <marker date="1400636914508" expanded="false" signature="7364:8044" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
+            <element signature="e#4676#4856#0" expanded="true" />
+            <element signature="e#4845#4846#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/cz/cvut/ds/student17/view/AddDeviceForm.java">
+    <entry file="file://$PROJECT_DIR$/src/cz/cvut/ds/student17/view/ListCustomers.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="969" max-vertical-offset="1785">
-          <caret line="97" column="52" selection-start-line="97" selection-start-column="52" selection-end-line="97" selection-end-column="52" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="154" max-vertical-offset="1275">
+          <caret line="63" column="9" selection-start-line="63" selection-start-column="9" selection-end-line="64" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cz/cvut/ds/student17/entities/FeatureEntity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="901">
+          <caret line="37" column="35" selection-start-line="37" selection-start-column="35" selection-end-line="37" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.7.0_25/jre/lib/rt.jar!/javax/swing/table/DefaultTableColumnModel.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="660" max-vertical-offset="1411">
+          <caret line="78" column="0" selection-start-line="78" selection-start-column="0" selection-end-line="78" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cz/cvut/ds/student17/view/ListExperiments.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="820" max-vertical-offset="1768">
+          <caret line="96" column="24" selection-start-line="96" selection-start-column="24" selection-end-line="96" selection-end-column="24" />
           <folding>
-            <marker date="1400615784654" expanded="false" signature="3698:7347" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
-            <marker date="1400615784654" expanded="false" signature="7359:7983" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
+            <element signature="e#3752#4275#0" expanded="true" />
+            <element signature="e#4264#4265#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cz/cvut/ds/student17/view/AddDeviceForm.jfd">
+      <provider selected="true" editor-type-id="JFormDesigner">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cz/cvut/ds/student17/view/AddCustomerForm.jfd">
+      <provider selected="true" editor-type-id="JFormDesigner">
+        <state />
+      </provider>
+      <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
+        <state />
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="996">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/cz/cvut/ds/student17/view/EditDeviceForm.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="884" max-vertical-offset="2176">
-          <caret line="92" column="37" selection-start-line="92" selection-start-column="37" selection-end-line="92" selection-end-column="37" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="102" max-vertical-offset="3689">
+          <caret line="53" column="24" selection-start-line="53" selection-start-column="24" selection-end-line="53" selection-end-column="51" />
           <folding>
-            <element signature="e#7918#8111#0" expanded="true" />
-            <element signature="e#8096#8097#0" expanded="true" />
-            <marker date="1400637819451" expanded="false" signature="4627:8495" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
-            <marker date="1400637819451" expanded="false" signature="8507:9165" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
+            <marker date="1400637819451" expanded="true" signature="-1:-1" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
+            <marker date="1400637819451" expanded="true" signature="-1:-1" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
           </folding>
         </state>
       </provider>
@@ -1809,7 +1743,7 @@
               <point x="0.0" y="44.5" />
             </edge>
           </edges>
-          <settings layout="Hierarchic Group" zoom="0.7768526228143214" x="641.0" y="368.0" />
+          <settings layout="Hierarchic Group" zoom="0.7768526228143214" x="641.0" y="312.6484458735262" />
           <SelectedNodes>
             <node>dc03c444-e752-4796-9910-061bfdd43b85.table:student_db13_17.public.is1_customer</node>
             <node>dc03c444-e752-4796-9910-061bfdd43b85.table:student_db13_17.public.is1_trial</node>
@@ -1821,11 +1755,123 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/cz/cvut/ds/student17/entities/ExperimentStatusEntity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="663">
+          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cz/cvut/ds/student17/entities/DeviceFeatureEntity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1037">
+          <caret line="18" column="123" selection-start-line="18" selection-start-column="123" selection-end-line="18" selection-end-column="123" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/Application.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="68" max-vertical-offset="986">
+          <caret line="37" column="33" selection-start-line="37" selection-start-column="33" selection-end-line="37" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cz/cvut/ds/student17/view/EditCustomerForm.jfd">
+      <provider selected="true" editor-type-id="JFormDesigner">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cz/cvut/ds/student17/view/EditDeviceForm.jfd">
+      <provider selected="true" editor-type-id="JFormDesigner">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cz/cvut/ds/student17/view/EditExperimentForm.jfd">
+      <provider selected="true" editor-type-id="JFormDesigner">
+        <state />
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.7.0_25/jre/lib/rt.jar!/java/awt/Container.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="6440" max-vertical-offset="7191">
+          <caret line="418" column="0" selection-start-line="418" selection-start-column="0" selection-end-line="418" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cz/cvut/ds/student17/view/EditCustomerForm.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="715" max-vertical-offset="2346">
+          <caret line="77" column="0" selection-start-line="77" selection-start-column="0" selection-end-line="77" selection-end-column="0" />
+          <folding>
+            <marker date="1400658810955" expanded="false" signature="4810:10117" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
+            <marker date="1400658810955" expanded="false" signature="10129:10938" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cz/cvut/ds/student17/entities/TrialEntity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="560" max-vertical-offset="1581">
+          <caret line="83" column="13" selection-start-line="83" selection-start-column="13" selection-end-line="83" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/cz/cvut/ds/student17/model/ExperimentsFacade.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33246073" vertical-offset="2993" max-vertical-offset="5100">
-          <caret line="203" column="44" selection-start-line="203" selection-start-column="44" selection-end-line="203" selection-end-column="44" />
-          <folding />
+        <state vertical-scroll-proportion="0.0" vertical-offset="596" max-vertical-offset="3672">
+          <caret line="103" column="0" selection-start-line="103" selection-start-column="0" selection-end-line="103" selection-end-column="0" />
+          <folding>
+            <element signature="method#isUnique#0;class#ExperimentsFacade#0" expanded="false" />
+            <element signature="method#containsFeature#0;class#ExperimentsFacade#0" expanded="false" />
+            <element signature="method#containsDeviceFeaturePair#0;class#ExperimentsFacade#0" expanded="false" />
+            <element signature="method#getAvailableEntities#0;class#ExperimentsFacade#0" expanded="false" />
+            <element signature="method#getFirstEntityById#0;class#ExperimentsFacade#0" expanded="false" />
+            <element signature="method#getFirstEntityByTextId#0;class#ExperimentsFacade#0" expanded="false" />
+            <element signature="method#removeCustomer#0;class#ExperimentsFacade#0" expanded="false" />
+            <element signature="method#addDevice#0;class#ExperimentsFacade#0" expanded="false" />
+            <element signature="method#updateDevice#0;class#ExperimentsFacade#0" expanded="false" />
+            <element signature="method#addVictim#0;class#ExperimentsFacade#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cz/cvut/ds/student17/view/EditExperimentForm.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="239" max-vertical-offset="2363">
+          <caret line="39" column="74" selection-start-line="39" selection-start-column="74" selection-end-line="39" selection-end-column="74" />
+          <folding>
+            <marker date="1400658945211" expanded="false" signature="4811:10671" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
+            <marker date="1400658945211" expanded="false" signature="10683:11573" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cz/cvut/ds/student17/entities/ExperimentEntity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="764" max-vertical-offset="1921">
+          <caret line="122" column="26" selection-start-line="122" selection-start-column="26" selection-end-line="122" selection-end-column="26" />
+          <folding>
+            <element signature="e#3934#3935#0" expanded="true" />
+            <element signature="e#3967#3968#0" expanded="true" />
+            <element signature="e#4019#4020#0" expanded="true" />
+            <element signature="e#4063#4064#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cz/cvut/ds/student17/view/AddCustomerForm.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33376962" vertical-offset="0" max-vertical-offset="1122">
+          <caret line="24" column="91" selection-start-line="24" selection-start-column="91" selection-end-line="24" selection-end-column="91" />
+          <folding>
+            <marker date="1400659186437" expanded="false" signature="1828:5915" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
+            <marker date="1400659186437" expanded="false" signature="5927:6573" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
+          </folding>
         </state>
       </provider>
     </entry>

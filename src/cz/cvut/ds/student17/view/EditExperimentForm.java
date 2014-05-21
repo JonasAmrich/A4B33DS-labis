@@ -5,12 +5,11 @@
 package cz.cvut.ds.student17.view;
 
 import com.alee.laf.scroll.WebScrollPane;
-import com.alee.laf.table.*;
+import com.alee.laf.table.WebTable;
 import com.jgoodies.forms.factories.CC;
 import com.jgoodies.forms.layout.FormLayout;
-import cz.cvut.ds.student17.entities.CustomerEntity;
 import cz.cvut.ds.student17.entities.ExperimentEntity;
-import cz.cvut.ds.student17.entities.FeatureEntity;
+import cz.cvut.ds.student17.entities.TrialEntity;
 import cz.cvut.ds.student17.exceptions.DatabaseException;
 import cz.cvut.ds.student17.model.ExperimentsFacade;
 import cz.cvut.ds.student17.model.ListTableModel;
@@ -26,37 +25,35 @@ import java.util.ResourceBundle;
 /**
  * @author unknown
  */
-public class EditCustomerForm extends JPanel {
+public class EditExperimentForm extends JPanel {
     private ExperimentsFacade facade;
     private JFrame frame;
     private Container cont;
-    private CustomerEntity ce;
+    private ExperimentEntity ee;
     private WebScrollPane scrollpane;
     private JPanel me;
     ListTableModel devicesModel;
-    List<ExperimentEntity> lde;
+    List<TrialEntity> lte;
     private Object[][] data;
 
 
-    public EditCustomerForm(ExperimentsFacade facade, JFrame frame, Container cont, int id) {
+    public EditExperimentForm(ExperimentsFacade facade, JFrame frame, Container cont, int id) {
         this.facade = facade;
         this.frame = frame;
         this.cont = cont;
         initComponents();
-        fillWithCustomer(id);
+        fillWithExperiment(id);
 
         try {
-            lde = facade.getEntitiesById(ExperimentEntity.class, ce.getIdCust(), "idCust");
+            lte = facade.getEntitiesById(TrialEntity.class, ee.getIdCust(), "idTrial");
         } catch (Exception e) {
             e.printStackTrace();
             showError();
         }
-        String header[] = {"Id", "Title","Description","Budget", "Customer", "Status"};
+        String header[] = {"Id", "Timestamp","Victim","Cost", "Room", "Device"};
         devicesModel = new ListTableModel(data,header);
-        for(ExperimentEntity ent : lde){
-            System.out.println( ent.getTitle());
-            Object[] row = {ent.getIdExp(), ent.getTitle(),ent.getDescription(),ent.getBudget(),
-                    ent.getIs1CustomerByIdCust().getLastName(),ent.getIs1ExperimentStatusByStatusCode().getStatusCode()};
+        for(TrialEntity ent : lte){
+            Object[] row = {ent.getIdTrial(),ent.getTimestampFrom(),ent.getIs1VictimByIdVic().getLastName(),ent.getCost(),ent.getIs1RoomByIdRoom(),ent.getIs1DeviceByIdDev()};
             devicesModel.addRow(row);
         }
         table = new WebTable(devicesModel);
@@ -68,44 +65,47 @@ public class EditCustomerForm extends JPanel {
     }
 
     private void makeTableSelectable(){
-        me = this;
         table.getSelectionModel().addListSelectionListener(new ListSelectionListener(){
             public void valueChanged(ListSelectionEvent event) {
                 int id = (int) table.getModel().getValueAt(table.getSelectedRow(), 0);
                 System.out.println(id);
                 cont.remove(me);
-                //TODO: New ExperimentForm
-                cont.setCurrent(new EditExperimentForm(facade, frame,cont,id));
+                //TODO: EditExperimentForm and New ExperimentForm
+                //cont.setCurrent(new EditDeviceForm(facade, frame,cont,id));
                 cont.addCurrent();
                 cont.revalidate();
                 cont.repaint();
             }
         });
     }
-    private void fillWithCustomer(int id){
+    private void fillWithExperiment(int id){
         try {
-            ce = facade.getFirstEntityById(CustomerEntity.class, id, "idCust");
-            lastNameField.setText(ce.getLastName());
-            firstNameField.setText(ce.getFirstName());
-            phoneField.setText(ce.getPhone());
-            emailField.setText(ce.getEmail());
+            ee = facade.getFirstEntityById(ExperimentEntity.class, id, "idExp");
+            titleField.setText(ee.getTitle());
+            descriptionTextArea.setText(ee.getDescription());
+            statusField.setText(ee.getIs1ExperimentStatusByStatusCode().getStatusCode());
+            budgetField.setText(Integer.toString(ee.getBudget()));
         } catch (Exception ex){
             ex.printStackTrace();
             showError();
         }
     }
     private void saveButtonActionPerformed(ActionEvent e) {
-        String lastName = lastNameField.getText();
-        String firstName = firstNameField.getText();
-        String phone = phoneField.getText();
-        String email = emailField.getText();
-        ce.setPhone(phone);
-        ce.setLastName(lastName);
-        ce.setFirstName(firstName);
-        ce.setEmail(email);
+        String title = titleField.getText();
+        String description = descriptionTextArea.getText();
+        String status = statusField.getText();
+        String budget = budgetField.getText();
+
+        //TODO: validation of data
+
+        //TODO: selectable features aka selecting features for devices
+        ee.setTitle(title);
+        ee.setDescription(description);
+        ee.setStatusCode(status);
         try {
-            facade.updateCustomer(ce);
-        }catch(DatabaseException ex) {
+
+            facade.updateExperiment(ee);
+        }catch(Exception ex) {
             showError();
             return;
 
@@ -126,7 +126,7 @@ public class EditCustomerForm extends JPanel {
 
     private void removeButtonActionPerformed(ActionEvent e) {
         try {
-            facade.removeCustomer(ce);
+            facade.removeExperiment(ee);
         }catch(DatabaseException ex) {
             showError();
             return;
@@ -151,15 +151,17 @@ public class EditCustomerForm extends JPanel {
         ResourceBundle bundle = ResourceBundle.getBundle("Application");
         form = new JPanel();
         this2 = new JPanel();
-        firstNameLabel = new JLabel();
-        firstNameField = new JTextField();
-        lastNameLabel = new JLabel();
-        lastNameField = new JTextField();
-        emailLabel = new JLabel();
-        emailField = new JTextField();
-        phoneLabel = new JLabel();
-        phoneField = new JTextField();
+        titleLabel = new JLabel();
+        titleField = new JTextField();
+        descriptionLabel = new JLabel();
+        scrollPane1 = new JScrollPane();
+        descriptionTextArea = new JTextArea();
+        budgetLabel = new JLabel();
+        budgetField = new JTextField();
+        statusLabel = new JLabel();
+        statusField = new JTextField();
         label1 = new JLabel();
+        deleteTrialsButton = new JButton();
         experimentsScrollPane = new JScrollPane();
         table = new WebTable();
         buttons = new JPanel();
@@ -179,7 +181,7 @@ public class EditCustomerForm extends JPanel {
 
         setLayout(new FormLayout(
             "15dlu, 306dlu, 147dlu",
-            "default, $lgap, 89dlu, $lgap, 131dlu, $lgap, 22dlu, $lgap, default"));
+            "default, $lgap, 140dlu, $lgap, 131dlu, $lgap, 22dlu, $lgap, default"));
 
         //======== form ========
         {
@@ -191,31 +193,40 @@ public class EditCustomerForm extends JPanel {
             {
                 this2.setLayout(new FormLayout(
                     "2*(default, $lcgap), 93dlu",
-                    "4*(default, $lgap), 10dlu"));
+                    "default, $lgap, 64dlu, 2*($lgap, default), $lgap, 10dlu"));
 
-                //---- firstNameLabel ----
-                firstNameLabel.setText(bundle.getString("AddCustomerForm.firstNameLabel.text"));
-                this2.add(firstNameLabel, CC.xy(3, 1));
-                this2.add(firstNameField, CC.xy(5, 1));
+                //---- titleLabel ----
+                titleLabel.setText(bundle.getString("EditExperimentForm.titleLabel.text"));
+                this2.add(titleLabel, CC.xy(3, 1));
+                this2.add(titleField, CC.xy(5, 1));
 
-                //---- lastNameLabel ----
-                lastNameLabel.setText(bundle.getString("AddCustomerForm.lastNameLabel.text"));
-                this2.add(lastNameLabel, CC.xywh(3, 3, 3, 1));
-                this2.add(lastNameField, CC.xy(5, 3));
+                //---- descriptionLabel ----
+                descriptionLabel.setText(bundle.getString("EditExperimentForm.descriptionLabel.text"));
+                this2.add(descriptionLabel, CC.xywh(3, 3, 3, 1, CC.DEFAULT, CC.TOP));
 
-                //---- emailLabel ----
-                emailLabel.setText(bundle.getString("AddCustomerForm.emailLabel.text"));
-                this2.add(emailLabel, CC.xy(3, 5));
-                this2.add(emailField, CC.xy(5, 5));
+                //======== scrollPane1 ========
+                {
+                    scrollPane1.setViewportView(descriptionTextArea);
+                }
+                this2.add(scrollPane1, CC.xy(5, 3, CC.FILL, CC.FILL));
 
-                //---- phoneLabel ----
-                phoneLabel.setText(bundle.getString("AddCustomerForm.phoneLabel.text"));
-                this2.add(phoneLabel, CC.xy(3, 7));
-                this2.add(phoneField, CC.xy(5, 7));
+                //---- budgetLabel ----
+                budgetLabel.setText(bundle.getString("EditExperimentForm.budgetLabel.text"));
+                this2.add(budgetLabel, CC.xy(3, 5));
+                this2.add(budgetField, CC.xy(5, 5));
+
+                //---- statusLabel ----
+                statusLabel.setText(bundle.getString("EditExperimentForm.statusLabel.text"));
+                this2.add(statusLabel, CC.xy(3, 7));
+                this2.add(statusField, CC.xy(5, 7));
 
                 //---- label1 ----
-                label1.setText(bundle.getString("AddCustomerForm.label1.text"));
+                label1.setText(bundle.getString("EditExperimentForm.label1.text"));
                 this2.add(label1, CC.xy(3, 9, CC.DEFAULT, CC.BOTTOM));
+
+                //---- deleteTrialsButton ----
+                deleteTrialsButton.setText(bundle.getString("EditExperimentForm.deleteTrialsButton.text"));
+                this2.add(deleteTrialsButton, CC.xy(5, 9));
             }
             form.add(this2, CC.xy(1, 1));
         }
@@ -234,7 +245,7 @@ public class EditCustomerForm extends JPanel {
                 "default"));
 
             //---- saveButton ----
-            saveButton.setText(bundle.getString("AddCustomerForm.saveButton.text"));
+            saveButton.setText(bundle.getString("EditExperimentForm.saveButton.text"));
             saveButton.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
@@ -244,7 +255,7 @@ public class EditCustomerForm extends JPanel {
             buttons.add(saveButton, CC.xy(1, 1));
 
             //---- cancelButton ----
-            cancelButton.setText(bundle.getString("AddCustomerForm.cancelButton.text"));
+            cancelButton.setText(bundle.getString("EditExperimentForm.cancelButton.text"));
             cancelButton.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
@@ -254,7 +265,7 @@ public class EditCustomerForm extends JPanel {
             buttons.add(cancelButton, CC.xy(3, 1));
 
             //---- removeButton ----
-            removeButton.setText(bundle.getString("AddCustomerForm.removeButton.text"));
+            removeButton.setText(bundle.getString("EditExperimentForm.removeButton.text"));
             removeButton.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
@@ -279,15 +290,17 @@ public class EditCustomerForm extends JPanel {
     // Generated using JFormDesigner Evaluation license - Ptero Bacter
     private JPanel form;
     private JPanel this2;
-    private JLabel firstNameLabel;
-    private JTextField firstNameField;
-    private JLabel lastNameLabel;
-    private JTextField lastNameField;
-    private JLabel emailLabel;
-    private JTextField emailField;
-    private JLabel phoneLabel;
-    private JTextField phoneField;
+    private JLabel titleLabel;
+    private JTextField titleField;
+    private JLabel descriptionLabel;
+    private JScrollPane scrollPane1;
+    private JTextArea descriptionTextArea;
+    private JLabel budgetLabel;
+    private JTextField budgetField;
+    private JLabel statusLabel;
+    private JTextField statusField;
     private JLabel label1;
+    private JButton deleteTrialsButton;
     private JScrollPane experimentsScrollPane;
     private WebTable table;
     private JPanel buttons;

@@ -133,6 +133,12 @@ public class Main {
         menuList.add(menuListCustomers);
         menuListExperiments = new JMenuItem();
         menuListExperiments.setText(bundle.getString("App.menuListExperiments.text"));
+        menuListExperiments.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                menuListExperimentsActionPerformed(e);
+            }
+        });
         menuList.add(menuListExperiments);
         menuListDevices= new JMenuItem();
         menuListDevices.setText(bundle.getString("App.menuListDevices.text"));
@@ -242,6 +248,15 @@ public class Main {
         cont.remove(cont.getCurrent());
         cont.hideDefault();
         cont.setCurrent(new ListFeatures(facade, frame,cont));
+        cont.add(cont.getCurrent());
+        cont.revalidate();
+        cont.repaint();
+        frame.pack();
+    }
+    private void menuListExperimentsActionPerformed(ActionEvent e) {
+        cont.remove(cont.getCurrent());
+        cont.hideDefault();
+        cont.setCurrent(new ListExperiments(facade, frame,cont));
         cont.add(cont.getCurrent());
         cont.revalidate();
         cont.repaint();

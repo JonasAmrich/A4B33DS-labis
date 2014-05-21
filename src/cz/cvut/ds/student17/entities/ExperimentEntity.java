@@ -22,15 +22,26 @@ public class ExperimentEntity {
     @Basic
     @Column(name = "budget", nullable = false, insertable = true, updatable = true)
     private int budget;
+    //totez co vespod
+    @Basic
+    @Column(name = "id_cust", nullable = false, insertable =  false, updatable = false)
+    private int idCust;
     @ManyToOne
     @JoinColumn(name = "id_cust", referencedColumnName = "id_cust", nullable = false)
     private CustomerEntity is1CustomerByIdCust;
+    @Basic
+    @Column(name = "status_code", nullable = false, insertable =  false, updatable = true)
+    private String statusCode;
     @ManyToOne
     @JoinColumn(name = "status_code", referencedColumnName = "status_code",nullable = false, insertable =  false, updatable = false)
     private ExperimentStatusEntity is1ExperimentStatusByStatusCode;
     @ManyToOne
     @JoinColumn(name = "id_ft", referencedColumnName = "id_ft",nullable = false, insertable =  false, updatable = false)
     private FormTypeEntity is1FormTypeByIdFt;
+
+    public int getIdCust() {
+        return idCust;
+    }
 
     public int getIdExp() {
         return idExp;
@@ -106,6 +117,14 @@ public class ExperimentEntity {
 
     public FormTypeEntity getIs1FormTypeByIdFt() {
         return is1FormTypeByIdFt;
+    }
+
+    public String getStatusCode() {
+        return statusCode;
+    }
+
+    public void setStatusCode(String statusCode) {
+        this.statusCode = statusCode;
     }
 
     public void setIs1FormTypeByIdFt(FormTypeEntity is1FormTypeByIdFt) {

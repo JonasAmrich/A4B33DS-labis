@@ -3,11 +3,11 @@ JFDML JFormDesigner: "5.1.2.0.134" Java: "1.7.0_40" encoding: "UTF-8"
 new FormModel {
 	"i18n.autoExternalize": true
 	"i18n.bundleName": "Application"
-	"i18n.keyPrefix": "AddCustomerForm"
+	"i18n.keyPrefix": "EditExperimentForm"
 	contentType: "form/swing"
 	root: new FormRoot {
 		add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class com.jgoodies.forms.layout.FormLayout ) {
-			"$rowSpecs": "default, linegap, 89dlu, linegap, 131dlu, linegap, 22dlu, linegap, default"
+			"$rowSpecs": "default, linegap, 140dlu, linegap, 131dlu, linegap, 22dlu, linegap, default"
 			"$columnSpecs": "15dlu, 306dlu, 147dlu"
 		} ) {
 			name: "this"
@@ -18,69 +18,82 @@ new FormModel {
 				name: "form"
 				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class com.jgoodies.forms.layout.FormLayout ) {
 					"$columnSpecs": "default, labelcompgap, default, labelcompgap, 93dlu"
-					"$rowSpecs": "default, linegap, default, linegap, default, linegap, default, linegap, 10dlu"
+					"$rowSpecs": "default, linegap, 64dlu, linegap, default, linegap, default, linegap, 10dlu"
 				} ) {
 					name: "this2"
 					add( new FormComponent( "javax.swing.JLabel" ) {
-						name: "firstNameLabel"
-						"text": new FormMessage( null, "AddCustomerForm.firstNameLabel.text" )
+						name: "titleLabel"
+						"text": new FormMessage( null, "EditExperimentForm.titleLabel.text" )
 					}, new FormLayoutConstraints( class com.jgoodies.forms.layout.CellConstraints ) {
 						"gridX": 3
 						"gridY": 1
 					} )
 					add( new FormComponent( "javax.swing.JTextField" ) {
-						name: "firstNameField"
+						name: "titleField"
 					}, new FormLayoutConstraints( class com.jgoodies.forms.layout.CellConstraints ) {
 						"gridX": 5
 						"gridY": 1
 					} )
 					add( new FormComponent( "javax.swing.JLabel" ) {
-						name: "lastNameLabel"
-						"text": new FormMessage( null, "AddCustomerForm.lastNameLabel.text" )
+						name: "descriptionLabel"
+						"text": new FormMessage( null, "EditExperimentForm.descriptionLabel.text" )
 					}, new FormLayoutConstraints( class com.jgoodies.forms.layout.CellConstraints ) {
 						"gridWidth": 3
 						"gridX": 3
 						"gridY": 3
+						"vAlign": sfield com.jgoodies.forms.layout.CellConstraints TOP
 					} )
-					add( new FormComponent( "javax.swing.JTextField" ) {
-						name: "lastNameField"
+					add( new FormContainer( "javax.swing.JScrollPane", new FormLayoutManager( class javax.swing.JScrollPane ) ) {
+						name: "scrollPane1"
+						add( new FormComponent( "javax.swing.JTextArea" ) {
+							name: "descriptionTextArea"
+						} )
 					}, new FormLayoutConstraints( class com.jgoodies.forms.layout.CellConstraints ) {
 						"gridX": 5
 						"gridY": 3
+						"hAlign": sfield com.jgoodies.forms.layout.CellConstraints FILL
+						"vAlign": sfield com.jgoodies.forms.layout.CellConstraints FILL
 					} )
 					add( new FormComponent( "javax.swing.JLabel" ) {
-						name: "emailLabel"
-						"text": new FormMessage( null, "AddCustomerForm.emailLabel.text" )
+						name: "budgetLabel"
+						"text": new FormMessage( null, "EditExperimentForm.budgetLabel.text" )
 					}, new FormLayoutConstraints( class com.jgoodies.forms.layout.CellConstraints ) {
 						"gridX": 3
 						"gridY": 5
 					} )
 					add( new FormComponent( "javax.swing.JTextField" ) {
-						name: "emailField"
+						name: "budgetField"
 					}, new FormLayoutConstraints( class com.jgoodies.forms.layout.CellConstraints ) {
 						"gridX": 5
 						"gridY": 5
 					} )
 					add( new FormComponent( "javax.swing.JLabel" ) {
-						name: "phoneLabel"
-						"text": new FormMessage( null, "AddCustomerForm.phoneLabel.text" )
+						name: "statusLabel"
+						"text": new FormMessage( null, "EditExperimentForm.statusLabel.text" )
 					}, new FormLayoutConstraints( class com.jgoodies.forms.layout.CellConstraints ) {
 						"gridX": 3
 						"gridY": 7
 					} )
 					add( new FormComponent( "javax.swing.JTextField" ) {
-						name: "phoneField"
+						name: "statusField"
 					}, new FormLayoutConstraints( class com.jgoodies.forms.layout.CellConstraints ) {
 						"gridX": 5
 						"gridY": 7
 					} )
 					add( new FormComponent( "javax.swing.JLabel" ) {
 						name: "label1"
-						"text": new FormMessage( null, "AddCustomerForm.label1.text" )
+						"text": new FormMessage( null, "EditExperimentForm.label1.text" )
 					}, new FormLayoutConstraints( class com.jgoodies.forms.layout.CellConstraints ) {
 						"gridX": 3
 						"gridY": 9
 						"vAlign": sfield com.jgoodies.forms.layout.CellConstraints BOTTOM
+					} )
+					add( new FormComponent( "javax.swing.JButton" ) {
+						name: "deleteTrialsButton"
+						"text": new FormMessage( null, "EditExperimentForm.deleteTrialsButton.text" )
+					}, new FormLayoutConstraints( class com.jgoodies.forms.layout.CellConstraints ) {
+						"gridX": 5
+						"gridY": 9
 					} )
 				}, new FormLayoutConstraints( class com.jgoodies.forms.layout.CellConstraints ) )
 			}, new FormLayoutConstraints( class com.jgoodies.forms.layout.CellConstraints ) {
@@ -105,7 +118,7 @@ new FormModel {
 				name: "buttons"
 				add( new FormComponent( "javax.swing.JButton" ) {
 					name: "saveButton"
-					"text": new FormMessage( null, "AddCustomerForm.saveButton.text" )
+					"text": new FormMessage( null, "EditExperimentForm.saveButton.text" )
 					addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "saveButtonActionPerformed", true ) )
 				}, new FormLayoutConstraints( class com.jgoodies.forms.layout.CellConstraints ) {
 					"gridX": 1
@@ -113,7 +126,7 @@ new FormModel {
 				} )
 				add( new FormComponent( "javax.swing.JButton" ) {
 					name: "cancelButton"
-					"text": new FormMessage( null, "AddCustomerForm.cancelButton.text" )
+					"text": new FormMessage( null, "EditExperimentForm.cancelButton.text" )
 					addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "cancelButtonActionPerformed", true ) )
 				}, new FormLayoutConstraints( class com.jgoodies.forms.layout.CellConstraints ) {
 					"gridX": 3
@@ -121,7 +134,7 @@ new FormModel {
 				} )
 				add( new FormComponent( "javax.swing.JButton" ) {
 					name: "removeButton"
-					"text": new FormMessage( null, "AddCustomerForm.removeButton.text" )
+					"text": new FormMessage( null, "EditExperimentForm.removeButton.text" )
 					addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "removeButtonActionPerformed", true ) )
 				}, new FormLayoutConstraints( class com.jgoodies.forms.layout.CellConstraints ) {
 					"gridX": 5
@@ -142,7 +155,7 @@ new FormModel {
 			} )
 		}, new FormLayoutConstraints( null ) {
 			"location": new java.awt.Point( 420, 60 )
-			"size": new java.awt.Dimension( 510, 410 )
+			"size": new java.awt.Dimension( 510, 480 )
 		} )
 	}
 }

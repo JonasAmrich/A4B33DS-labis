@@ -26,6 +26,12 @@ public class TrialEntity {
     @ManyToOne
     @JoinColumn(name = "id_vic", referencedColumnName = "id_vic", nullable = false, insertable =  false, updatable = false)
     private VictimEntity is1VictimByIdVic;
+    @ManyToOne
+    @JoinColumn(name = "id_room", referencedColumnName = "id_room", nullable = false, insertable =  false, updatable = false)
+    private RoomEntity is1RoomByIdRoom;
+    @ManyToOne
+    @JoinColumn(name = "id_dev", referencedColumnName = "id_dev", nullable = false, insertable =  false, updatable = false)
+    private DeviceEntity is1DeviceByIdDev;
 
     public int getIdTrial() {
         return idTrial;
@@ -90,5 +96,13 @@ public class TrialEntity {
 
     public void setIs1VictimByIdVic(VictimEntity is1VictimByIdVic) {
         this.is1VictimByIdVic = is1VictimByIdVic;
+    }
+
+    public RoomEntity getIs1RoomByIdRoom() {
+        return is1RoomByIdRoom;
+    }
+
+    public DeviceEntity getIs1DeviceByIdDev() {
+        return is1DeviceByIdDev;
     }
 }

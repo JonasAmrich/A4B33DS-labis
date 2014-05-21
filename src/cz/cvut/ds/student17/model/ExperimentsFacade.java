@@ -120,6 +120,26 @@ public class ExperimentsFacade {
         return results.get(0);
     }
 
+    public <T> T getFirstEntityByTextId(Class entity, String id, String column) throws Exception {
+        EntityManager entityManager = emf.createEntityManager();
+        CriteriaBuilder cb = entityManager.getCriteriaBuilder();
+        CriteriaQuery<T> query = cb.createQuery(entity);
+        ParameterExpression<String> p = cb.parameter(String.class);
+        Root<T> sm = query.from(entity);
+        query.select(sm).where(cb.equal(sm.get(column), p));
+        TypedQuery<T> tq = entityManager.createQuery(query);
+        tq.setParameter(p, id);
+        List<T> results = tq.getResultList();
+        entityManager.close();
+        if(results.isEmpty()){
+            System.out.println("zaznam nenalezen");
+            throw new Exception();
+
+        }
+        return results.get(0);
+
+    }
+
     public void addCustomer(String firstName, String lastName, String phone, String email) throws DatabaseException{
         EntityManager entityManager = emf.createEntityManager();
         entityManager.getTransaction().begin();
@@ -250,6 +270,55 @@ public class ExperimentsFacade {
         ve.setBirthDate(birthdate);
         try{
             entityManager.persist(ve);
+            entityManager.getTransaction().commit();
+        }catch(RollbackException e){
+            entityManager.getTransaction().rollback(); //is it necessary to rollback if it is a Rollback exception?
+            System.out.println("Database failed.");
+            throw new DatabaseException();
+        }
+
+        entityManager.close();
+    }
+
+    public void addExperiment(String title, String description, int budget, String status,List<Integer> featuresIds) throws DatabaseException{
+        EntityManager entityManager = emf.createEntityManager();
+        entityManager.getTransaction().begin();
+        ExperimentEntity ee = new ExperimentEntity();
+        ee.setTitle(title);
+        ee.setDescription(description);
+        ee.setBudget(budget);
+        ee.setStatusCode(status);
+        try{
+            entityManager.persist(ee);
+            entityManager.getTransaction().commit();
+        }catch(RollbackException e){
+            entityManager.getTransaction().rollback(); //is it necessary to rollback if it is a Rollback exception?
+            System.out.println("Database failed.");
+            throw new DatabaseException();
+        }
+
+        entityManager.close();
+    }
+    public void updateExperiment(ExperimentEntity ee) throws DatabaseException {
+            EntityManager entityManager = emf.createEntityManager();
+            entityManager.getTransaction().begin();
+            try{
+                entityManager.merge(ee);
+                entityManager.getTransaction().commit();
+            }catch(RollbackException e){
+                entityManager.getTransaction().rollback(); //is it necessary to rollback if it is a Rollback exception?
+                System.out.println("Database failed.");
+                throw new DatabaseException();
+            }
+
+            entityManager.close();
+    }
+    public void removeExperiment(ExperimentEntity ee) throws DatabaseException {
+        EntityManager entityManager = emf.createEntityManager();
+        entityManager.getTransaction().begin();
+        try{
+            entityManager.remove(entityManager.contains(ee) ? ee : entityManager.merge(ee));
+            System.out.println("Objekt "+ee.getTitle() + "odstranen.");
             entityManager.getTransaction().commit();
         }catch(RollbackException e){
             entityManager.getTransaction().rollback(); //is it necessary to rollback if it is a Rollback exception?
