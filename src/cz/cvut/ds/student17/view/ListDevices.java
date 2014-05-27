@@ -22,7 +22,9 @@ import java.util.*;
 import javax.swing.*;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
+import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableCellRenderer;
 import javax.swing.table.TableModel;
 
 import com.jgoodies.forms.factories.*;
@@ -53,17 +55,27 @@ public class ListDevices extends MyPanel{
     }
     private void initComponents(){
         ResourceBundle bundle = ResourceBundle.getBundle("Application");
-        String header[] = {"Id", "Title","Description"};
+        String header[] = {"Id", "Title","Description",""};
         devicesModel = new ListTableModel(data,header);
         lde = facade.getAvailableEntities(DeviceEntity.class);
         for(DeviceEntity ent : lde){
             System.out.println( ent.getTitle());
-            Object[] row = {ent.getIdDev(), ent.getTitle(),ent.getDescription()};
+            Object[] row = {ent.getIdDev(), ent.getTitle(),ent.getDescription(),"Edit"};
             devicesModel.addRow(row);
         }
 
+        final CustomCellRenderer rendererBlack = new CustomCellRenderer();
+        final TableCellRenderer rendererWhite = new DefaultTableCellRenderer();
+        table = new WebTable(devicesModel){
 
-        table = new WebTable(devicesModel);
+            @Override
+            public TableCellRenderer getCellRenderer(int row, int column) {
+                if( column ==3){
+                    return rendererBlack;}
+                else return rendererWhite;
+            }
+
+        };
         table.setColumnSelectionAllowed(false);
         table.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
         table.setPreferredSize(new Dimension(370, 360));

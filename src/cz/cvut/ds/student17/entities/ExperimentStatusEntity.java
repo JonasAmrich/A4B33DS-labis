@@ -36,6 +36,10 @@ public class ExperimentStatusEntity {
     }
 
     @Override
+    public String toString(){
+        return statusCode;
+    }
+    @Override
     public int hashCode() {
         return statusCode != null ? statusCode.hashCode() : 0;
     }

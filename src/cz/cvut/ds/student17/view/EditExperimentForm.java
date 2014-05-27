@@ -24,6 +24,7 @@ import java.awt.event.ActionListener;
 import java.text.ParseException;
 import java.util.List;
 import java.util.ResourceBundle;
+import java.util.Vector;
 
 /**
  * @author unknown
@@ -39,6 +40,7 @@ public class EditExperimentForm extends MyPanel {
     List<TrialEntity> lte;
     private Object[][] data;
     private MyPanel previous;
+    private Object[] alese;
 
 
 
@@ -48,6 +50,11 @@ public class EditExperimentForm extends MyPanel {
         this.cont = cont;
         this.previous = previous;
         initComponents();
+
+        // frame.add(comboBox);
+        //statusCombo = new JComboBox(patternExamples);
+        System.out.println("Počet je");
+        System.out.println(statusCombo.getItemCount());
         fillWithExperiment(id);
 
         try {
@@ -66,6 +73,8 @@ public class EditExperimentForm extends MyPanel {
         experimentsScrollPane.setViewportView(table);
         makeTableSelectable();
         table.repaint();
+        frame.pack();
+        frame.repaint();
 
         cont.repaint();
     }
@@ -89,7 +98,14 @@ public class EditExperimentForm extends MyPanel {
             ee = facade.getFirstEntityById(ExperimentEntity.class, id, "idExp");
             titleField.setText(ee.getTitle());
             descriptionTextArea.setText(ee.getDescription());
-            statusField.setText(ee.getIs1ExperimentStatusByStatusCode().getStatusCode());
+            for(Object o : alese){
+                if(o.toString().equals(ee.getIs1ExperimentStatusByStatusCode().getStatusCode())){
+                    System.out.println(o);
+                    System.out.println("toto");
+                    statusCombo.setSelectedItem(o);
+                }
+            }
+            //statusField.setText(ee.getIs1ExperimentStatusByStatusCode().getStatusCode());
             budgetField.setText(Integer.toString(ee.getBudget()));
         } catch (Exception ex){
             ex.printStackTrace();
@@ -99,7 +115,8 @@ public class EditExperimentForm extends MyPanel {
     private void saveButtonActionPerformed(ActionEvent e) {
         String title = titleField.getText();
         String description = descriptionTextArea.getText();
-        String status = statusField.getText();
+        String status = statusCombo.getSelectedItem().toString();
+        System.out.println("Status je " + status);
         String budget = budgetField.getText();
 
         if(!validateFields()){
@@ -131,7 +148,6 @@ public class EditExperimentForm extends MyPanel {
     private boolean validateFields(){
         titleField.setBackground(Color.white);
         budgetField.setBackground(Color.white);
-        statusField.setBackground(Color.white);
         boolean correct = true;
         String message = "";
         try{
@@ -141,17 +157,6 @@ public class EditExperimentForm extends MyPanel {
                 correct = false;
                 message += "\n Title must be unique";
                 titleField.setBackground(Color.pink);
-
-            }
-        }catch(Exception e){
-            e.printStackTrace();
-            showError();
-        }
-        try{
-        if(facade.isUnique(ExperimentStatusEntity.class,"statusCode",statusField.getText())){
-                correct = false;
-                message += "\n Status code is not valid (Try 'OK')";
-                statusField.setBackground(Color.pink);
 
             }
         }catch(Exception e){
@@ -214,6 +219,17 @@ public class EditExperimentForm extends MyPanel {
                 "Database error",
                 JOptionPane.ERROR_MESSAGE);
     }
+
+    /* After regenerating components it may disappear:
+    just copy from here:
+
+        List<ExperimentStatusEntity> lese= facade.getAvailableEntities(ExperimentStatusEntity.class);
+        alese = lese.toArray();
+        final DefaultComboBoxModel model = new DefaultComboBoxModel(alese);
+        statusCombo = new JComboBox(model);
+
+        and paste into initComponents() where statusCombo = new....
+     */
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
         // Generated using JFormDesigner Evaluation license - Ptero Bacter
@@ -228,7 +244,11 @@ public class EditExperimentForm extends MyPanel {
         budgetLabel = new JLabel();
         budgetField = new JTextField();
         statusLabel = new JLabel();
-        statusField = new JTextField();
+
+        List<ExperimentStatusEntity> lese= facade.getAvailableEntities(ExperimentStatusEntity.class);
+        alese = lese.toArray();
+        final DefaultComboBoxModel model = new DefaultComboBoxModel(alese);
+        statusCombo = new JComboBox(model);
         label1 = new JLabel();
         deleteTrialsButton = new JButton();
         experimentsScrollPane = new JScrollPane();
@@ -287,7 +307,7 @@ public class EditExperimentForm extends MyPanel {
                 //---- statusLabel ----
                 statusLabel.setText(bundle.getString("EditExperimentForm.statusLabel.text"));
                 this2.add(statusLabel, CC.xy(3, 7));
-                this2.add(statusField, CC.xy(5, 7));
+                this2.add(statusCombo, CC.xy(5, 7));
 
                 //---- label1 ----
                 label1.setText(bundle.getString("EditExperimentForm.label1.text"));
@@ -367,7 +387,7 @@ public class EditExperimentForm extends MyPanel {
     private JLabel budgetLabel;
     private JTextField budgetField;
     private JLabel statusLabel;
-    private JTextField statusField;
+    private JComboBox statusCombo;
     private JLabel label1;
     private JButton deleteTrialsButton;
     private JScrollPane experimentsScrollPane;

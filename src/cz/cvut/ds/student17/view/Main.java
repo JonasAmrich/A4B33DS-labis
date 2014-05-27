@@ -13,6 +13,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.util.ResourceBundle;
+import java.util.Vector;
 
 /**
  * Created by V on 9.5.2014.
@@ -196,7 +197,6 @@ public class Main {
 
         //cont.add(menuBar, CC.xy(1, 1));
         //cont.add(new AddCustomerForm(facade,frame));
-
 
         frame.revalidate();
         frame.repaint();

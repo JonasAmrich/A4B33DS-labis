@@ -18,6 +18,8 @@ import cz.cvut.ds.student17.model.ListTableModel;
 import javax.swing.*;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
+import javax.swing.table.DefaultTableCellRenderer;
+import javax.swing.table.TableCellRenderer;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
@@ -59,15 +61,26 @@ public class EditCustomerForm extends MyPanel {
             e.printStackTrace();
             showError();
         }
-        String header[] = {"Id", "Title","Description","Budget", "Customer", "Status"};
+        String header[] = {"Id", "Title","Description","Budget", "Customer", "Status",""};
         devicesModel = new ListTableModel(data,header);
         for(ExperimentEntity ent : lde){
             System.out.println( ent.getTitle());
             Object[] row = {ent.getIdExp(), ent.getTitle(),ent.getDescription(),ent.getBudget(),
-                    ent.getIs1CustomerByIdCust().getLastName(),ent.getIs1ExperimentStatusByStatusCode().getStatusCode()};
+                    ent.getIs1CustomerByIdCust().getLastName(),ent.getIs1ExperimentStatusByStatusCode().getStatusCode(),"Edit"};
             devicesModel.addRow(row);
         }
-        table = new WebTable(devicesModel);
+        final CustomCellRenderer rendererBlack = new CustomCellRenderer();
+        final TableCellRenderer rendererWhite = new DefaultTableCellRenderer();
+        table = new WebTable(devicesModel){
+
+            @Override
+            public TableCellRenderer getCellRenderer(int row, int column) {
+                if( column ==6){
+                    return rendererBlack;}
+                else return rendererWhite;
+            }
+
+        };
         experimentsScrollPane.setViewportView(table);
         makeTableSelectable();
         table.repaint();

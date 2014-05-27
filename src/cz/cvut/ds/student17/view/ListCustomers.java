@@ -22,7 +22,9 @@ import java.util.*;
 import javax.swing.*;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
+import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableCellRenderer;
 import javax.swing.table.TableModel;
 
 import com.jgoodies.forms.factories.*;
@@ -55,19 +57,29 @@ public class ListCustomers extends MyPanel{
     private void initComponents(){
         ResourceBundle bundle = ResourceBundle.getBundle("Application");
         data = null;
-        String header[] = {"Id", "Last Name","First Name", "Email","Phone"};
+        String header[] = {"Id", "Last Name","First Name", "Email","Phone",""};
         customersModel = new ListTableModel(data,header);
         lce = facade.getAvailableEntities(CustomerEntity.class);
         for(CustomerEntity ent : lce){
-            Object[] row = {ent.getIdCust(), ent.getLastName(),ent.getFirstName(),ent.getEmail(),ent.getPhone()};
+            Object[] row = {ent.getIdCust(), ent.getLastName(),ent.getFirstName(),ent.getEmail(),ent.getPhone(), "Edit"};
             //,ent.getExperimentsByIdCust().size()
              //not efficient - jpa gets all experiments and then it  count them in java
             System.out.println(ent.getLastName());
             customersModel.addRow(row);
         }
 
+        final CustomCellRenderer rendererBlack = new CustomCellRenderer();
+        final TableCellRenderer rendererWhite = new DefaultTableCellRenderer();
+        table = new WebTable(customersModel){
 
-        table = new WebTable(customersModel);
+            @Override
+            public TableCellRenderer getCellRenderer(int row, int column) {
+                if( column ==5){
+                return rendererBlack;}
+                else return rendererWhite;
+            }
+
+        };
         table.setColumnSelectionAllowed(false);
         table.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
         table.setPreferredSize(new Dimension(370, 360));

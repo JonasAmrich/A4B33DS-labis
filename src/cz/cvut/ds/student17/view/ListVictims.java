@@ -25,7 +25,9 @@ import java.util.*;
 import javax.swing.*;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
+import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableCellRenderer;
 import javax.swing.table.TableModel;
 
 import com.jgoodies.forms.factories.*;
@@ -56,18 +58,29 @@ public class ListVictims extends MyPanel{
     }
     private void initComponents(){
         ResourceBundle bundle = ResourceBundle.getBundle("Application");
-        String header[] = {"Id", "First Name","Last Name","Birthdate","Credits"};
+        String header[] = {"Id", "First Name","Last Name","Birthdate","Credits",""};
         victimsModel = new ListTableModel(data,header);
         lve = facade.getAvailableEntities(VictimEntity.class);
         for(VictimEntity ent : lve){
             DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
             df.setTimeZone(TimeZone.getTimeZone("Europe/London"));
-            Object[] row = {ent.getIdVic(),ent.getFirstName(),ent.getLastName(),df.format(new Date(ent.getBirthDate().getTime()+(ent.getBirthDate().getNanos() / 1000000))), ent.getCredits()};
+            Object[] row = {ent.getIdVic(),ent.getFirstName(),ent.getLastName(),
+                    df.format(new Date(ent.getBirthDate().getTime()+(ent.getBirthDate().getNanos() / 1000000))), ent.getCredits(), "Edit"};
             victimsModel.addRow(row);
         }
 
+        final CustomCellRenderer rendererBlack = new CustomCellRenderer();
+        final TableCellRenderer rendererWhite = new DefaultTableCellRenderer();
+        table = new WebTable(victimsModel){
 
-        table = new WebTable(victimsModel);
+            @Override
+            public TableCellRenderer getCellRenderer(int row, int column) {
+                if( column ==5){
+                    return rendererBlack;}
+                else return rendererWhite;
+            }
+
+        };
         table.setColumnSelectionAllowed(false);
         table.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
         table.setPreferredSize(new Dimension(370, 360));

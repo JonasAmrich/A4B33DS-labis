@@ -74,8 +74,8 @@ new FormModel {
 						"gridX": 3
 						"gridY": 7
 					} )
-					add( new FormComponent( "javax.swing.JTextField" ) {
-						name: "statusField"
+					add( new FormComponent( "javax.swing.JComboBox" ) {
+						name: "statusCombo"
 					}, new FormLayoutConstraints( class com.jgoodies.forms.layout.CellConstraints ) {
 						"gridX": 5
 						"gridY": 7
